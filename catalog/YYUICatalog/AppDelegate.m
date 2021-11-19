@@ -42,6 +42,7 @@
 //    }
     appBarViewController.hairlineColor = UIColor.blackColor;
     appBarViewController.showsHairline = YES;
+  
 }
 
 @end

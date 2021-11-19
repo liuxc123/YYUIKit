@@ -406,36 +406,6 @@ IB_DESIGNABLE
 
 @end
 
-@interface YYUIFlexibleHeaderView (Deprecated)
-
-// Pre-iOS 8 Interface Orientation APIs
-
-/**
- Informs the receiver that the interface orientation is about to change.
-
- Must be called from UIViewController::willRotateToInterfaceOrientation:duration:.
- */
-- (void)interfaceOrientationWillChange __deprecated_msg(
-    "Use viewWillTransitionToSize:withTransitionCoordinator: instead.");
-
-/**
- Informs the receiver that the interface orientation is in the process of changing.
-
- Must be called from UIViewController::willAnimateRotationToInterfaceOrientation:duration:.
- */
-- (void)interfaceOrientationIsChanging __deprecated_msg(
-    "Use viewWillTransitionToSize:withTransitionCoordinator: instead.");
-
-/**
- Informs the receiver that the interface orientation has changed.
-
- Must be called from UIViewController::didRotateFromInterfaceOrientation:.
- */
-- (void)interfaceOrientationDidChange __deprecated_msg(
-    "Use viewWillTransitionToSize:withTransitionCoordinator: instead.");
-
-@end
-
 // clang-format off
 @interface YYUIFlexibleHeaderView ()
 
