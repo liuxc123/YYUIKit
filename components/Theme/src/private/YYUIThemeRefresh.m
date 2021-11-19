@@ -641,7 +641,7 @@
     
     // 刷新font
     if (button.titleLabel.font.isTheme) {
-        label.font = [label.font refreshTheme];
+        button.titleLabel.font = [button.titleLabel.font refreshTheme];
     }
     
     [button forinUIControlState:^(UIControlState state, UIButton * _Nonnull obj) {

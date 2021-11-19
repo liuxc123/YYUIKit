@@ -8,6 +8,7 @@
 #import "AppDelegate.h"
 #import <CatalogByConvention/CatalogByConvention.h>
 #import "YYOverlayWindow.h"
+#import "YYTheme.h"
 
 @implementation AppDelegate
 
@@ -33,7 +34,7 @@
 }
 
 - (void)appBarNavigationController:(YYUIAppBarNavigationController *)navigationController willAddAppBarViewController:(YYUIAppBarViewController *)appBarViewController asChildOfViewController:(UIViewController *)viewController {
-    appBarViewController.headerView.backgroundColor = UIColor.whiteColor;
+    appBarViewController.headerView.backgroundColor = [UIColor themeColor:@""];
     appBarViewController.navigationBar.backgroundColor = UIColor.whiteColor;
     appBarViewController.navigationBar.tintColor = UIColor.blackColor;
 //    appBarViewController.navigationBar.viewController = viewController;
