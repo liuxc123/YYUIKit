@@ -1,0 +1,15 @@
+workspace 'YYUICatalog.xcworkspace'
+project 'YYUICatalog.xcodeproj'
+
+target 'YYUICatalog' do
+  platform :ios, '10.0'
+  project 'YYUICatalog.xcodeproj'
+
+  pod 'YYUIKit', :path => '../'
+  pod 'CatalogByConvention', "~> 2.5"
+  
+  # Debug
+  pod 'LookinServer', :configurations => ['Debug']
+  
+  use_frameworks!
+end

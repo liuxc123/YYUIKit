@@ -1,0 +1,100 @@
+PODS:
+  - CatalogByConvention (2.5.2)
+  - LookinServer (1.0.4)
+  - YYUIKit (1.0.0):
+    - YYUIKit/AppBar (= 1.0.0)
+    - YYUIKit/Availability (= 1.0.0)
+    - YYUIKit/Elevation (= 1.0.0)
+    - YYUIKit/FlexibleHeader (= 1.0.0)
+    - "YYUIKit/FlexibleHeader+CanAlwaysExpandToMaximumHeight (= 1.0.0)"
+    - "YYUIKit/FlexibleHeader+ShiftBehavior (= 1.0.0)"
+    - "YYUIKit/FlexibleHeader+ShiftBehaviorEnabledWithStatusBar (= 1.0.0)"
+    - YYUIKit/HeaderStackView (= 1.0.0)
+    - YYUIKit/NavigationBar (= 1.0.0)
+    - YYUIKit/OverlayWindow (= 1.0.0)
+    - YYUIKit/private (= 1.0.0)
+    - YYUIKit/ShadowLayer (= 1.0.0)
+    - YYUIKit/ShapeLibrary (= 1.0.0)
+    - YYUIKit/Shapes (= 1.0.0)
+    - YYUIKit/Theme (= 1.0.0)
+  - YYUIKit/AppBar (1.0.0):
+    - YYUIKit/FlexibleHeader
+    - YYUIKit/HeaderStackView
+    - YYUIKit/NavigationBar
+    - YYUIKit/private/Application
+    - YYUIKit/private/Resourse
+    - YYUIKit/private/UIMetrics
+    - YYUIKit/ShadowLayer
+  - YYUIKit/Availability (1.0.0)
+  - YYUIKit/Elevation (1.0.0):
+    - YYUIKit/Availability
+    - YYUIKit/private/Color
+    - YYUIKit/private/Math
+  - YYUIKit/FlexibleHeader (1.0.0):
+    - YYUIKit/Availability
+    - YYUIKit/Elevation
+    - YYUIKit/private/Application
+    - YYUIKit/private/Math
+    - YYUIKit/private/UIMetrics
+    - YYUIKit/ShadowLayer
+  - "YYUIKit/FlexibleHeader+CanAlwaysExpandToMaximumHeight (1.0.0)":
+    - YYUIKit/FlexibleHeader
+  - "YYUIKit/FlexibleHeader+ShiftBehavior (1.0.0)"
+  - "YYUIKit/FlexibleHeader+ShiftBehaviorEnabledWithStatusBar (1.0.0)":
+    - "YYUIKit/FlexibleHeader+ShiftBehavior"
+  - YYUIKit/HeaderStackView (1.0.0)
+  - YYUIKit/NavigationBar (1.0.0):
+    - YYUIKit/private/Math
+  - YYUIKit/OverlayWindow (1.0.0):
+    - YYUIKit/Availability
+    - YYUIKit/private/Application
+  - YYUIKit/private (1.0.0):
+    - YYUIKit/private/Application (= 1.0.0)
+    - YYUIKit/private/Color (= 1.0.0)
+    - YYUIKit/private/KeyboardWatcher (= 1.0.0)
+    - YYUIKit/private/Math (= 1.0.0)
+    - YYUIKit/private/Overlay (= 1.0.0)
+    - YYUIKit/private/Resourse (= 1.0.0)
+    - YYUIKit/private/UIMetrics (= 1.0.0)
+  - YYUIKit/private/Application (1.0.0)
+  - YYUIKit/private/Color (1.0.0):
+    - YYUIKit/Availability
+  - YYUIKit/private/KeyboardWatcher (1.0.0):
+    - YYUIKit/private/Application
+  - YYUIKit/private/Math (1.0.0)
+  - YYUIKit/private/Overlay (1.0.0)
+  - YYUIKit/private/Resourse (1.0.0)
+  - YYUIKit/private/UIMetrics (1.0.0):
+    - YYUIKit/private/Application
+  - YYUIKit/ShadowLayer (1.0.0)
+  - YYUIKit/ShapeLibrary (1.0.0):
+    - YYUIKit/private/Math
+    - YYUIKit/Shapes
+  - YYUIKit/Shapes (1.0.0):
+    - YYUIKit/private/Color
+    - YYUIKit/private/Math
+    - YYUIKit/ShadowLayer
+  - YYUIKit/Theme (1.0.0)
+
+DEPENDENCIES:
+  - CatalogByConvention (~> 2.5)
+  - LookinServer
+  - YYUIKit (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - CatalogByConvention
+    - LookinServer
+
+EXTERNAL SOURCES:
+  YYUIKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CatalogByConvention: ef713654160053be026fa4648dd28caf6b5ca4e1
+  LookinServer: 743c1681771d0a8dcc38825325a080c3186404a5
+  YYUIKit: 8508b79a2d06d2bcdc3a3d17675f061f0479a771
+
+PODFILE CHECKSUM: bb9cfbc19829ae0bebc5d60373d7ef4da3582392
+
+COCOAPODS: 1.11.2

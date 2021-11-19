@@ -1,0 +1,348 @@
+{
+  "name": "YYUIKit",
+  "version": "1.0.0",
+  "summary": "A collection of stand-alone production-ready UI libraries focused on design details.",
+  "homepage": "https://github.com/liuxc123/YYUIKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "liuxc123": "lxc_work@126.com"
+  },
+  "source": {
+    "git": "https://github.com/liuxc123/YYUIKit.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "AppBar",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/AppBar/src/*.h",
+      "source_files": [
+        "components/AppBar/src/*.{h,m}",
+        "components/AppBar/src/private/*.{h,m}"
+      ],
+      "dependencies": {
+        "YYUIKit/NavigationBar": [
+
+        ],
+        "YYUIKit/HeaderStackView": [
+
+        ],
+        "YYUIKit/private/Application": [
+
+        ],
+        "YYUIKit/FlexibleHeader": [
+
+        ],
+        "YYUIKit/ShadowLayer": [
+
+        ],
+        "YYUIKit/private/UIMetrics": [
+
+        ],
+        "YYUIKit/private/Resourse": [
+
+        ]
+      }
+    },
+    {
+      "name": "Availability",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/Availability/src/*.h",
+      "source_files": "components/Availability/src/*.{h,m}"
+    },
+    {
+      "name": "Elevation",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/Elevation/src/*.h",
+      "source_files": [
+        "components/Elevation/src/*.{h,m}",
+        "components/Elevation/src/private/*.{h,m}"
+      ],
+      "dependencies": {
+        "YYUIKit/Availability": [
+
+        ],
+        "YYUIKit/private/Color": [
+
+        ],
+        "YYUIKit/private/Math": [
+
+        ]
+      }
+    },
+    {
+      "name": "FlexibleHeader",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/FlexibleHeader/src/*.h",
+      "source_files": [
+        "components/FlexibleHeader/src/*.{h,m}",
+        "components/FlexibleHeader/src/private/*.{h,m}"
+      ],
+      "dependencies": {
+        "YYUIKit/Availability": [
+
+        ],
+        "YYUIKit/Elevation": [
+
+        ],
+        "YYUIKit/ShadowLayer": [
+
+        ],
+        "YYUIKit/private/Application": [
+
+        ],
+        "YYUIKit/private/Math": [
+
+        ],
+        "YYUIKit/private/UIMetrics": [
+
+        ]
+      }
+    },
+    {
+      "name": "FlexibleHeader+ShiftBehavior",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": [
+        "components/FlexibleHeader/src/ShiftBehavior/*.h"
+      ],
+      "source_files": [
+        "components/FlexibleHeader/src/ShiftBehavior/*.{h,m}"
+      ]
+    },
+    {
+      "name": "FlexibleHeader+ShiftBehaviorEnabledWithStatusBar",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": [
+        "components/FlexibleHeader/src/ShiftBehaviorEnabledWithStatusBar/*.h"
+      ],
+      "source_files": [
+        "components/FlexibleHeader/src/ShiftBehaviorEnabledWithStatusBar/*.{h,m}"
+      ],
+      "dependencies": {
+        "YYUIKit/FlexibleHeader+ShiftBehavior": [
+
+        ]
+      }
+    },
+    {
+      "name": "FlexibleHeader+CanAlwaysExpandToMaximumHeight",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": [
+        "components/FlexibleHeader/src/CanAlwaysExpandToMaximumHeight/*.h"
+      ],
+      "source_files": [
+        "components/FlexibleHeader/src/CanAlwaysExpandToMaximumHeight/*.{h,m}"
+      ],
+      "dependencies": {
+        "YYUIKit/FlexibleHeader": [
+
+        ]
+      }
+    },
+    {
+      "name": "HeaderStackView",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/HeaderStackView/src/*.h",
+      "source_files": "components/HeaderStackView/src/*.{h,m}"
+    },
+    {
+      "name": "NavigationBar",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/NavigationBar/src/*.h",
+      "source_files": "components/NavigationBar/src/*.{h,m}",
+      "dependencies": {
+        "YYUIKit/private/Math": [
+
+        ]
+      }
+    },
+    {
+      "name": "OverlayWindow",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/OverlayWindow/src/*.h",
+      "source_files": [
+        "components/OverlayWindow/src/*.{h,m}",
+        "components/OverlayWindow/src/private/*.{h,m}"
+      ],
+      "dependencies": {
+        "YYUIKit/Availability": [
+
+        ],
+        "YYUIKit/private/Application": [
+
+        ]
+      }
+    },
+    {
+      "name": "ShadowLayer",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/ShadowLayer/src/*.h",
+      "source_files": "components/ShadowLayer/src/*.{h,m}"
+    },
+    {
+      "name": "ShapeLibrary",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/ShapeLibrary/src/*.h",
+      "source_files": [
+        "components/ShapeLibrary/src/*.{h,m}",
+        "components/ShapeLibrary/src/private/*.{h,m}"
+      ],
+      "dependencies": {
+        "YYUIKit/Shapes": [
+
+        ],
+        "YYUIKit/private/Math": [
+
+        ]
+      }
+    },
+    {
+      "name": "Shapes",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/Shapes/src/*.h",
+      "source_files": [
+        "components/Shapes/src/*.{h,m}",
+        "components/Shapes/src/private/*.{h,m}"
+      ],
+      "dependencies": {
+        "YYUIKit/ShadowLayer": [
+
+        ],
+        "YYUIKit/private/Color": [
+
+        ],
+        "YYUIKit/private/Math": [
+
+        ]
+      }
+    },
+    {
+      "name": "Theme",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/Theme/src/*.h",
+      "source_files": [
+        "components/Theme/src/*.{h,m}",
+        "components/Theme/src/private/*.{h,m}"
+      ]
+    },
+    {
+      "name": "private",
+      "subspecs": [
+        {
+          "name": "Application",
+          "platforms": {
+            "ios": "10.0"
+          },
+          "public_header_files": "components/private/Application/src/*.h",
+          "source_files": "components/private/Application/src/*.{h,m}"
+        },
+        {
+          "name": "Color",
+          "platforms": {
+            "ios": "10.0"
+          },
+          "public_header_files": "components/private/Color/src/*.h",
+          "source_files": "components/private/Color/src/*.{h,m}",
+          "dependencies": {
+            "YYUIKit/Availability": [
+
+            ]
+          }
+        },
+        {
+          "name": "Math",
+          "platforms": {
+            "ios": "10.0"
+          },
+          "public_header_files": "components/private/Math/src/*.h",
+          "source_files": "components/private/Math/src/*.{h,m}"
+        },
+        {
+          "name": "KeyboardWatcher",
+          "platforms": {
+            "ios": "10.0"
+          },
+          "public_header_files": "components/private/KeyboardWatcher/src/*.h",
+          "source_files": "components/private/KeyboardWatcher/src/*.{h,m}",
+          "dependencies": {
+            "YYUIKit/private/Application": [
+
+            ]
+          }
+        },
+        {
+          "name": "Overlay",
+          "platforms": {
+            "ios": "10.0"
+          },
+          "public_header_files": "components/private/Overlay/src/*.h",
+          "source_files": [
+            "components/private/Overlay/src/*.{h,m}",
+            "components/private/Overlay/src/private/*.{h,m}"
+          ]
+        },
+        {
+          "name": "Resourse",
+          "platforms": {
+            "ios": "10.0"
+          },
+          "public_header_files": "components/private/Resourse/src/*.h",
+          "source_files": "components/private/Resourse/src/*.{h,m}",
+          "resource_bundles": {
+            "Resourse": [
+              "components/private/Resourse/src/*.*"
+            ]
+          }
+        },
+        {
+          "name": "UIMetrics",
+          "platforms": {
+            "ios": "10.0"
+          },
+          "public_header_files": "components/private/UIMetrics/src/*.h",
+          "source_files": "components/private/UIMetrics/src/*.{h,m}",
+          "dependencies": {
+            "YYUIKit/private/Application": [
+
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
