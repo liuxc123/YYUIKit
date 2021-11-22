@@ -20,6 +20,9 @@
 		F175415327434F1200B69F5A /* YYUIKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F175415227434F1200B69F5A /* YYUIKit.podspec */; };
 		F191A1D02745F2050050A5FC /* YYUICatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191A1CF2745F2050050A5FC /* YYUICatalogTests.swift */; };
 		F1A57992274B6B5200DE88B5 /* BottomSheetShapedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A57991274B6B5200DE88B5 /* BottomSheetShapedExample.swift */; };
+		F1A579A6274B8B4300DE88B5 /* theme_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1A579A3274B8B4300DE88B5 /* theme_default.plist */; };
+		F1A579A7274B8B4300DE88B5 /* theme_dark.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1A579A4274B8B4300DE88B5 /* theme_dark.plist */; };
+		F1A579AF274B8E5D00DE88B5 /* ThemeDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A579AE274B8E5D00DE88B5 /* ThemeDemoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,11 @@
 		F191A1CF2745F2050050A5FC /* YYUICatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YYUICatalogTests.swift; sourceTree = "<group>"; };
 		F191A1D12745F2050050A5FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1A57991274B6B5200DE88B5 /* BottomSheetShapedExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetShapedExample.swift; sourceTree = "<group>"; };
+		F1A579A3274B8B4300DE88B5 /* theme_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = theme_default.plist; sourceTree = "<group>"; };
+		F1A579A4274B8B4300DE88B5 /* theme_dark.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = theme_dark.plist; sourceTree = "<group>"; };
+		F1A579A5274B8B4300DE88B5 /* ThemeConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeConstant.h; sourceTree = "<group>"; };
+		F1A579AD274B8E5D00DE88B5 /* ThemeDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeDemoViewController.h; sourceTree = "<group>"; };
+		F1A579AE274B8E5D00DE88B5 /* ThemeDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeDemoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +160,7 @@
 		F1A57993274B72A700DE88B5 /* Demos */ = {
 			isa = PBXGroup;
 			children = (
+				F1A579A2274B8B2500DE88B5 /* Theme */,
 				F1A57995274B72C100DE88B5 /* AppBar */,
 				F1A57996274B72CA00DE88B5 /* BottomSheet */,
 				F1A57994274B72B000DE88B5 /* FlexibleHeader */,
@@ -184,6 +193,18 @@
 				F1A57991274B6B5200DE88B5 /* BottomSheetShapedExample.swift */,
 			);
 			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+		F1A579A2274B8B2500DE88B5 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				F1A579A4274B8B4300DE88B5 /* theme_dark.plist */,
+				F1A579A3274B8B4300DE88B5 /* theme_default.plist */,
+				F1A579A5274B8B4300DE88B5 /* ThemeConstant.h */,
+				F1A579AD274B8E5D00DE88B5 /* ThemeDemoViewController.h */,
+				F1A579AE274B8E5D00DE88B5 /* ThemeDemoViewController.m */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +294,8 @@
 				F175414427434DF800B69F5A /* Assets.xcassets in Resources */,
 				F175414227434DF700B69F5A /* Main.storyboard in Resources */,
 				F175415327434F1200B69F5A /* YYUIKit.podspec in Resources */,
+				F1A579A7274B8B4300DE88B5 /* theme_dark.plist in Resources */,
+				F1A579A6274B8B4300DE88B5 /* theme_default.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +358,7 @@
 				F1A57992274B6B5200DE88B5 /* BottomSheetShapedExample.swift in Sources */,
 				F175413F27434DF700B69F5A /* FlexibleHeaderNavigationBarExample.m in Sources */,
 				F120E53A2744D842006314A1 /* AppBarWithUITableViewController.swift in Sources */,
+				F1A579AF274B8E5D00DE88B5 /* ThemeDemoViewController.m in Sources */,
 				F120E5192744AEC8006314A1 /* FlexibleHeaderConfiguratorExample.m in Sources */,
 				F175413927434DF700B69F5A /* AppDelegate.m in Sources */,
 				F120E51C2744B012006314A1 /* FlexibleHeaderConfiguratorControlItem.m in Sources */,

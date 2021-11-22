@@ -33,6 +33,7 @@
     YYUIThemeManager *manager = [YYUIThemeManager sharedManager];
     NSNumber *value = manager.configInfo[manager.currentTheme][@"font"][themeFontName];
     UIFont *font = [UIFont systemFontOfSize:[value floatValue]];
+    font.themeFontName = themeFontName;
     return font;
 }
 
@@ -40,6 +41,7 @@
     YYUIThemeManager *manager = [YYUIThemeManager sharedManager];
     NSNumber *value = manager.configInfo[manager.currentTheme][@"font"][themeFontName];
     UIFont *font = [UIFont boldSystemFontOfSize:[value floatValue]];
+    font.themeFontName = themeFontName;
     return font;
 }
 
@@ -47,6 +49,7 @@
     YYUIThemeManager *manager = [YYUIThemeManager sharedManager];
     NSNumber *value = manager.configInfo[manager.currentTheme][@"font"][themeFontName];
     UIFont *font = [UIFont italicSystemFontOfSize:[value floatValue]];
+    font.themeFontName = themeFontName;
     return font;
 }
 
@@ -60,6 +63,7 @@
     YYUIThemeManager *manager = [YYUIThemeManager sharedManager];
     NSNumber *value = manager.configInfo[manager.currentTheme][@"font"][themeFontName];
     UIFont *font = [UIFont fontWithDescriptor:descriptor size:[value floatValue]];
+    font.themeFontName = themeFontName;
     return font;
 }
 
@@ -67,6 +71,7 @@
     YYUIThemeManager *manager = [YYUIThemeManager sharedManager];
     NSNumber *value = manager.configInfo[manager.currentTheme][@"font"][themeFontName];
     UIFont *font = [self fontWithSize:[value floatValue]];
+    font.themeFontName = themeFontName;
     return font;
 }
 

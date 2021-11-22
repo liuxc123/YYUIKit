@@ -16,7 +16,13 @@ typedef UIFont *_Nullable(^YYUIFontThemeProvider)(NSString *themeName);
 @property (nonatomic, copy) NSString *themeFontName;
 @property (nonatomic, copy) YYUIFontThemeProvider themeProvider;
 
++ (UIFont *)themeSystemFont:(NSString *)themeFontName;
++ (UIFont *)themeSystemBoldFont:(NSString *)themeFontName;
++ (UIFont *)themeItalicSystemBoldFont:(NSString *)themeFontName;
 + (UIFont *)fontWithThemeProvider:(YYUIFontThemeProvider)themeProvider;
++ (UIFont *)themeFontWithDescriptor:(UIFontDescriptor *)descriptor themeFontName:(NSString *)themeFontName;
+
+- (UIFont *)themeFontWithName:(NSString *)themeFontName;
 - (UIFont *)refreshTheme;
 - (BOOL)isTheme;
 
