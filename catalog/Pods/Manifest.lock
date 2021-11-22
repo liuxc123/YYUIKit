@@ -4,6 +4,7 @@ PODS:
   - YYUIKit (1.0.0):
     - YYUIKit/AppBar (= 1.0.0)
     - YYUIKit/Availability (= 1.0.0)
+    - YYUIKit/BottomSheet (= 1.0.0)
     - YYUIKit/Elevation (= 1.0.0)
     - YYUIKit/FlexibleHeader (= 1.0.0)
     - "YYUIKit/FlexibleHeader+CanAlwaysExpandToMaximumHeight (= 1.0.0)"
@@ -26,6 +27,13 @@ PODS:
     - YYUIKit/private/UIMetrics
     - YYUIKit/ShadowLayer
   - YYUIKit/Availability (1.0.0)
+  - YYUIKit/BottomSheet (1.0.0):
+    - YYUIKit/Elevation
+    - YYUIKit/private/KeyboardWatcher
+    - YYUIKit/private/Math
+    - YYUIKit/ShadowLayer
+    - YYUIKit/ShapeLibrary
+    - YYUIKit/Shapes
   - YYUIKit/Elevation (1.0.0):
     - YYUIKit/Availability
     - YYUIKit/private/Color
@@ -93,7 +101,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   CatalogByConvention: ef713654160053be026fa4648dd28caf6b5ca4e1
   LookinServer: 743c1681771d0a8dcc38825325a080c3186404a5
-  YYUIKit: 8508b79a2d06d2bcdc3a3d17675f061f0479a771
+  YYUIKit: c354e121a8acff123257bce6fbf013e1e1cdd6b0
 
 PODFILE CHECKSUM: bb9cfbc19829ae0bebc5d60373d7ef4da3582392
 

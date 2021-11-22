@@ -62,6 +62,38 @@
       "source_files": "components/Availability/src/*.{h,m}"
     },
     {
+      "name": "BottomSheet",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/BottomSheet/src/*.h",
+      "source_files": [
+        "components/BottomSheet/src/*.{h,m}",
+        "components/BottomSheet/src/private/*.{h,m}"
+      ],
+      "frameworks": "WebKit",
+      "dependencies": {
+        "YYUIKit/Elevation": [
+
+        ],
+        "YYUIKit/ShapeLibrary": [
+
+        ],
+        "YYUIKit/Shapes": [
+
+        ],
+        "YYUIKit/ShadowLayer": [
+
+        ],
+        "YYUIKit/private/KeyboardWatcher": [
+
+        ],
+        "YYUIKit/private/Math": [
+
+        ]
+      }
+    },
+    {
       "name": "Elevation",
       "platforms": {
         "ios": "10.0"

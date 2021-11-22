@@ -40,6 +40,25 @@ Pod::Spec.new do |s|
         extension.source_files = "components/#{extension.base_name}/src/*.{h,m}"
     end
     
+    # BottomSheet
+
+    s.subspec "BottomSheet" do |component|
+      component.ios.deployment_target = '10.0'
+      component.public_header_files = "components/#{component.base_name}/src/*.h"
+      component.source_files = [
+        "components/#{component.base_name}/src/*.{h,m}",
+        "components/#{component.base_name}/src/private/*.{h,m}"
+      ]
+      component.framework = "WebKit"
+
+      component.dependency "YYUIKit/Elevation"
+      component.dependency "YYUIKit/ShapeLibrary"
+      component.dependency "YYUIKit/Shapes"
+      component.dependency "YYUIKit/ShadowLayer"
+      component.dependency "YYUIKit/private/KeyboardWatcher"
+      component.dependency "YYUIKit/private/Math"
+    end
+    
     s.subspec "Elevation" do |component|
       component.ios.deployment_target = '10.0'
       component.public_header_files = "components/#{component.base_name}/src/*.h"
