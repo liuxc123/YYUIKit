@@ -12,32 +12,32 @@ static const CGFloat kFlexibleHeaderMinHeight = 96;
 @implementation FlexibleHeaderNavigationBarExample
 
 - (instancetype)init {
-  self = [super init];
-  if (self) {
-    [self commonFlexibleHeaderViewControllerInit];
-  }
-  return self;
+    self = [super init];
+    if (self) {
+        [self commonFlexibleHeaderViewControllerInit];
+    }
+    return self;
 }
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
-    [self commonFlexibleHeaderViewControllerInit];
-  }
-  return self;
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [self commonFlexibleHeaderViewControllerInit];
+    }
+    return self;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
-  self = [super initWithCoder:aDecoder];
-  if (self) {
-    [self commonFlexibleHeaderViewControllerInit];
-  }
-  return self;
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self commonFlexibleHeaderViewControllerInit];
+    }
+    return self;
 }
 
 - (void)commonFlexibleHeaderViewControllerInit {
     _fhvc = [[YYUIFlexibleHeaderViewController alloc] initWithNibName:nil bundle:nil];
-
+    
     // Behavioral flags.
     _fhvc.topLayoutGuideAdjustmentEnabled = YES;
     _fhvc.inferTopSafeAreaInsetFromViewController = YES;
@@ -56,39 +56,39 @@ static const CGFloat kFlexibleHeaderMinHeight = 96;
     navBar.tintColor = [UIColor whiteColor];
     
     [self.fhvc.headerView addSubview:navBar];
-
+    
     navBar.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
-      [NSLayoutConstraint constraintWithItem:navBar
-                                   attribute:NSLayoutAttributeTop
-                                   relatedBy:NSLayoutRelationEqual
-                                      toItem:self.fhvc.headerView.topSafeAreaGuide
-                                   attribute:NSLayoutAttributeBottom
-                                  multiplier:1.0
-                                    constant:0],
-      [NSLayoutConstraint constraintWithItem:navBar
-                                   attribute:NSLayoutAttributeBottom
-                                   relatedBy:NSLayoutRelationEqual
-                                      toItem:self.fhvc.headerView
-                                   attribute:NSLayoutAttributeBottom
-                                  multiplier:1.0
-                                    constant:0],
-      [NSLayoutConstraint constraintWithItem:navBar
-                                   attribute:NSLayoutAttributeLeft
-                                   relatedBy:NSLayoutRelationEqual
-                                      toItem:self.fhvc.headerView
-                                   attribute:NSLayoutAttributeLeft
-                                  multiplier:1.0
-                                    constant:0],
-      [NSLayoutConstraint constraintWithItem:navBar
-                                   attribute:NSLayoutAttributeRight
-                                   relatedBy:NSLayoutRelationEqual
-                                      toItem:self.fhvc.headerView
-                                   attribute:NSLayoutAttributeRight
-                                  multiplier:1.0
-                                    constant:0]
+        [NSLayoutConstraint constraintWithItem:navBar
+                                     attribute:NSLayoutAttributeTop
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:self.fhvc.headerView.topSafeAreaGuide
+                                     attribute:NSLayoutAttributeBottom
+                                    multiplier:1.0
+                                      constant:0],
+        [NSLayoutConstraint constraintWithItem:navBar
+                                     attribute:NSLayoutAttributeBottom
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:self.fhvc.headerView
+                                     attribute:NSLayoutAttributeBottom
+                                    multiplier:1.0
+                                      constant:0],
+        [NSLayoutConstraint constraintWithItem:navBar
+                                     attribute:NSLayoutAttributeLeft
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:self.fhvc.headerView
+                                     attribute:NSLayoutAttributeLeft
+                                    multiplier:1.0
+                                      constant:0],
+        [NSLayoutConstraint constraintWithItem:navBar
+                                     attribute:NSLayoutAttributeRight
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:self.fhvc.headerView
+                                     attribute:NSLayoutAttributeRight
+                                    multiplier:1.0
+                                      constant:0]
     ]];
-
+    
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
                                                                  style:UIBarButtonItemStylePlain
                                                                 target:self
@@ -97,7 +97,7 @@ static const CGFloat kFlexibleHeaderMinHeight = 96;
                                                                  style:UIBarButtonItemStylePlain
                                                                 target:self
                                                                 action:@selector(doneAction:)];
-
+    
     [self.navigationItem setLeftBarButtonItem:backItem animated:YES];
     [self.navigationItem setRightBarButtonItem:doneItem animated:YES];
     [navBar setItems:@[self.navigationItem]];
@@ -114,55 +114,55 @@ static const CGFloat kFlexibleHeaderMinHeight = 96;
 }
 
 - (void)didTapButton:(id)sender {
-  NSLog(@"Button Tapped: %@", sender);
+    NSLog(@"Button Tapped: %@", sender);
 }
 
 - (void)doneAction:(id)sender {
-  [super.navigationController popViewControllerAnimated:YES];
+    [super.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-
-  self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-  self.scrollView.backgroundColor = [UIColor whiteColor];
-  self.scrollView.autoresizingMask =
-      UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-  [self.view addSubview:self.scrollView];
-
-  self.scrollView.delegate = self;
-  self.fhvc.headerView.trackingScrollView = self.scrollView;
-
-  self.fhvc.view.frame = self.view.bounds;
-  [self.view addSubview:self.fhvc.view];
-  [self.fhvc didMoveToParentViewController:self];
-
-  self.fhvc.headerView.backgroundColor = [UIColor colorWithWhite:(CGFloat)0.1 alpha:1];
+    [super viewDidLoad];
+    
+    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    self.scrollView.backgroundColor = [UIColor whiteColor];
+    self.scrollView.autoresizingMask =
+    UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:self.scrollView];
+    
+    self.scrollView.delegate = self;
+    self.fhvc.headerView.trackingScrollView = self.scrollView;
+    
+    self.fhvc.view.frame = self.view.bounds;
+    [self.view addSubview:self.fhvc.view];
+    [self.fhvc didMoveToParentViewController:self];
+    
+    self.fhvc.headerView.backgroundColor = [UIColor colorWithWhite:(CGFloat)0.1 alpha:1];
 }
 
 // This method must be implemented for YYUIFlexibleHeaderViewController's
 // YYUIFlexibleHeaderView to properly support YYUIFlexibleHeaderShiftBehavior should you choose
 // to customize it.
 - (UIViewController *)childViewControllerForStatusBarHidden {
-  return self.fhvc;
+    return self.fhvc;
 }
 
 #pragma mark - <UIScrollViewDelegate>
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-  [self.fhvc scrollViewDidScroll:scrollView];
+    [self.fhvc scrollViewDidScroll:scrollView];
 }
 
 #pragma mark - Supplemental
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-  return UIStatusBarStyleLightContent;
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)viewDidLayoutSubviews {
-  [super viewDidLayoutSubviews];
-
-  self.scrollView.contentSize = self.view.bounds.size;
+    [super viewDidLayoutSubviews];
+    
+    self.scrollView.contentSize = self.view.bounds.size;
 }
 
 @end
@@ -170,15 +170,15 @@ static const CGFloat kFlexibleHeaderMinHeight = 96;
 @implementation FlexibleHeaderNavigationBarExample (CatalogByConvention)
 
 + (NSDictionary *)catalogMetadata {
-  return @{
-    @"breadcrumbs" : @[ @"Flexible Header", @"Standard UINavigationBar" ],
-    @"primaryDemo" : @NO,
-    @"presentable" : @NO,
-  };
+    return @{
+        @"breadcrumbs" : @[ @"Flexible Header", @"Standard UINavigationBar" ],
+        @"primaryDemo" : @NO,
+        @"presentable" : @NO,
+    };
 }
 
 - (BOOL)catalogShouldHideNavigation {
-  return YES;
+    return YES;
 }
 
 @end

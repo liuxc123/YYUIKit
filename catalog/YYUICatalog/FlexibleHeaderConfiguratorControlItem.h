@@ -8,9 +8,9 @@
 #import <Foundation/Foundation.h>
 
 typedef enum : NSUInteger {
-  FlexibleHeaderConfiguratorControlTypeButton,
-  FlexibleHeaderConfiguratorControlTypeSwitch,
-  FlexibleHeaderConfiguratorControlTypeSlider
+    FlexibleHeaderConfiguratorControlTypeButton,
+    FlexibleHeaderConfiguratorControlTypeSwitch,
+    FlexibleHeaderConfiguratorControlTypeSlider
 } FlexibleHeaderConfiguratorControlType;
 
 @interface FlexibleHeaderConfiguratorControlItem : NSObject

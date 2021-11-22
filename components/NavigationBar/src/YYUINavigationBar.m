@@ -83,6 +83,12 @@
     }
 }
 
+- (void)setLayoutPaddings:(UIEdgeInsets)layoutPaddings {
+    _layoutPaddings = layoutPaddings;
+    
+    [self setNeedsLayout];
+}
+
 - (void)setViewController:(UIViewController *)viewController {
     _viewController = viewController;
     
