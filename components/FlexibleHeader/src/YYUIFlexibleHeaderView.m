@@ -308,13 +308,8 @@ YYUIFlexibleHeaderMinMaxHeightDelegate>
     _topSafeAreaGuide.frame = CGRectMake(0, 0, 0, [_topSafeArea topSafeAreaInset]);
     [self addSubview:_topSafeAreaGuide];
     
-    _contentView = [[UIView alloc] initWithFrame:self.bounds];
-    _contentView.autoresizingMask =
-    (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-    [super addSubview:_contentView];
-    
     if (![YYUIFlexibleHeaderView appearance].backgroundColor) {
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = [UIColor whiteColor];
     }
     
     _defaultShadowLayer.backgroundColor = self.backgroundColor.CGColor;
@@ -429,8 +424,7 @@ intensityDidChangeBlock:(YYUIFlexibleHeaderShadowIntensityChangeBlock)block {
     UIView *hitView = [super hitTest:point withEvent:event];
     
     // Forwards taps to the scroll view.
-    if (hitView == self || (_contentView != nil && hitView == _contentView) ||
-        [_forwardingViews containsObject:hitView]) {
+    if (hitView == self || [_forwardingViews containsObject:hitView]) {
         hitView = _trackingScrollView;
     }
     

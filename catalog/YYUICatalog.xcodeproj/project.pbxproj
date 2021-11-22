@@ -104,9 +104,9 @@
 				A490C1E588E9B4D4CE114FC9 /* Pods */,
 				9F0E21E78CC3A21E412883BC /* Frameworks */,
 			);
-			indentWidth = 2;
+			indentWidth = 4;
 			sourceTree = "<group>";
-			tabWidth = 2;
+			tabWidth = 4;
 		};
 		F175413527434DF700B69F5A /* Products */ = {
 			isa = PBXGroup;

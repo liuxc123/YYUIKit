@@ -49,6 +49,8 @@ class AppBarWithUITableViewController: UITableViewController {
         // Allows us to avoid forwarding events, but means we can't enable shift behaviors.
         appBarViewController.headerView.observesTrackingScrollViewScrollEvents = true
         appBarViewController.headerView.backgroundColor = .white
+      appBarViewController.showsHairline = true
+      appBarViewController.hairlineColor = UIColor(hexString: "#cccccc")
         
         view.addSubview(appBarViewController.view)
         appBarViewController.didMove(toParent: self)

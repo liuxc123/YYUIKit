@@ -13,13 +13,13 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    
     self.window = [[YYUIOverlayWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     // root
     UIViewController *rootViewController = [[CBCNodeListViewController alloc] initWithNode:CBCCreateNavigationTree()];
     rootViewController.title = @"Catalog by YYUIKit";
-
+    
     
     // nav
     YYUIAppBarNavigationController *nav = [[YYUIAppBarNavigationController alloc] init];
@@ -34,16 +34,16 @@
 }
 
 - (void)appBarNavigationController:(YYUIAppBarNavigationController *)navigationController willAddAppBarViewController:(YYUIAppBarViewController *)appBarViewController asChildOfViewController:(UIViewController *)viewController {
-    appBarViewController.headerView.backgroundColor = [UIColor themeColor:@""];
+    appBarViewController.headerView.backgroundColor = UIColor.whiteColor;
     appBarViewController.navigationBar.backgroundColor = UIColor.whiteColor;
     appBarViewController.navigationBar.tintColor = UIColor.blackColor;
-//    appBarViewController.navigationBar.viewController = viewController;
-//    if (navigationController.viewControllers.count > 1) {
-//        appBarViewController.navigationBar.backBarButtonItem = [[YYUIBackBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain tintColor:nil];
-//    }
+    appBarViewController.headerView.shadowLayer.hidden = YES;
+    appBarViewController.navigationBar.viewController = viewController;
+    if (navigationController.viewControllers.count > 1) {
+        appBarViewController.navigationBar.backBarButtonItem = [[YYUIBackBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain tintColor:nil];
+    }
     appBarViewController.hairlineColor = UIColor.blackColor;
     appBarViewController.showsHairline = YES;
-  
 }
 
 @end

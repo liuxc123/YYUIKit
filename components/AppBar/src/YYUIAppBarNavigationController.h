@@ -11,7 +11,6 @@
 @class YYUIAppBarViewController;
 @class YYUIAppBarNavigationController;
 @class YYUIFlexibleHeaderViewController;
-@protocol YYUIAppBarNavigationControllerToBeDeprecatedDelegate;
 
 /**
  Defines the events that an YYUIAppBarNavigationController may send to a delegate.

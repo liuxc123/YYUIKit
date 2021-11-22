@@ -105,6 +105,9 @@ static const CGFloat kFlexibleHeaderMinHeight = 96;
     
     if (@available(iOS 13.0, *)) {
         navBar.prefersLargeTitles = YES;
+        navBar.largeTitleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
+        navBar.titleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
+        navBar.tintColor = UIColor.whiteColor;
         self.navigationItem.title = @"Large Title";
         self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
     }
