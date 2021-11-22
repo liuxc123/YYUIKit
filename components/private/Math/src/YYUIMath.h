@@ -159,3 +159,15 @@ static inline BOOL YYUIEdgeInsetsEqualToEdgeInsets(UIEdgeInsets insets1, UIEdgeI
   BOOL rightEqual = YYUICGFloatEqual(insets1.right, insets2.right);
   return topEqual && leftEqual && bottomEqual && rightEqual;
 }
+
+#pragma mark - UIEdgeInsets
+
+/// 获取UIEdgeInsets在水平方向上的值
+static inline CGFloat YYUIEdgeInsetsGetHorizontalValue(UIEdgeInsets insets) {
+    return insets.left + insets.right;
+}
+
+/// 获取UIEdgeInsets在垂直方向上的值
+static inline CGFloat YYUIEdgeInsetsGetVerticalValue(UIEdgeInsets insets) {
+    return insets.top + insets.bottom;
+}

@@ -11,7 +11,6 @@
 		F120E5192744AEC8006314A1 /* FlexibleHeaderConfiguratorExample.m in Sources */ = {isa = PBXBuildFile; fileRef = F120E5182744AEC8006314A1 /* FlexibleHeaderConfiguratorExample.m */; };
 		F120E51C2744B012006314A1 /* FlexibleHeaderConfiguratorControlItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F120E51B2744B012006314A1 /* FlexibleHeaderConfiguratorControlItem.m */; };
 		F120E53A2744D842006314A1 /* AppBarWithUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F120E5392744D842006314A1 /* AppBarWithUITableViewController.swift */; };
-		F153DD2427464D86002D0F06 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F153DD2327464D86002D0F06 /* ViewController.m */; };
 		F175413927434DF700B69F5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F175413827434DF700B69F5A /* AppDelegate.m */; };
 		F175413F27434DF700B69F5A /* FlexibleHeaderNavigationBarExample.m in Sources */ = {isa = PBXBuildFile; fileRef = F175413E27434DF700B69F5A /* FlexibleHeaderNavigationBarExample.m */; };
 		F175414227434DF700B69F5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F175414027434DF700B69F5A /* Main.storyboard */; };
@@ -42,8 +41,6 @@
 		F120E51B2744B012006314A1 /* FlexibleHeaderConfiguratorControlItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlexibleHeaderConfiguratorControlItem.m; sourceTree = "<group>"; };
 		F120E5382744D841006314A1 /* YYUICatalog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YYUICatalog-Bridging-Header.h"; sourceTree = "<group>"; };
 		F120E5392744D842006314A1 /* AppBarWithUITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBarWithUITableViewController.swift; sourceTree = "<group>"; };
-		F153DD2227464D86002D0F06 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F153DD2327464D86002D0F06 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F175413427434DF700B69F5A /* YYUICatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYUICatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F175413727434DF700B69F5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F175413827434DF700B69F5A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -124,14 +121,7 @@
 			children = (
 				F175413727434DF700B69F5A /* AppDelegate.h */,
 				F175413827434DF700B69F5A /* AppDelegate.m */,
-				F153DD2227464D86002D0F06 /* ViewController.h */,
-				F153DD2327464D86002D0F06 /* ViewController.m */,
-				F175413E27434DF700B69F5A /* FlexibleHeaderNavigationBarExample.m */,
-				F120E5182744AEC8006314A1 /* FlexibleHeaderConfiguratorExample.m */,
-				F120E51A2744B012006314A1 /* FlexibleHeaderConfiguratorControlItem.h */,
-				F120E51B2744B012006314A1 /* FlexibleHeaderConfiguratorControlItem.m */,
-				F120E5392744D842006314A1 /* AppBarWithUITableViewController.swift */,
-				F1A57991274B6B5200DE88B5 /* BottomSheetShapedExample.swift */,
+				F1A57993274B72A700DE88B5 /* Demos */,
 				F175414027434DF700B69F5A /* Main.storyboard */,
 				F175414327434DF800B69F5A /* Assets.xcassets */,
 				F175414527434DF800B69F5A /* LaunchScreen.storyboard */,
@@ -157,6 +147,43 @@
 				F191A1D12745F2050050A5FC /* Info.plist */,
 			);
 			path = YYUICatalogTests;
+			sourceTree = "<group>";
+		};
+		F1A57993274B72A700DE88B5 /* Demos */ = {
+			isa = PBXGroup;
+			children = (
+				F1A57995274B72C100DE88B5 /* AppBar */,
+				F1A57996274B72CA00DE88B5 /* BottomSheet */,
+				F1A57994274B72B000DE88B5 /* FlexibleHeader */,
+			);
+			path = Demos;
+			sourceTree = "<group>";
+		};
+		F1A57994274B72B000DE88B5 /* FlexibleHeader */ = {
+			isa = PBXGroup;
+			children = (
+				F175413E27434DF700B69F5A /* FlexibleHeaderNavigationBarExample.m */,
+				F120E5182744AEC8006314A1 /* FlexibleHeaderConfiguratorExample.m */,
+				F120E51A2744B012006314A1 /* FlexibleHeaderConfiguratorControlItem.h */,
+				F120E51B2744B012006314A1 /* FlexibleHeaderConfiguratorControlItem.m */,
+			);
+			path = FlexibleHeader;
+			sourceTree = "<group>";
+		};
+		F1A57995274B72C100DE88B5 /* AppBar */ = {
+			isa = PBXGroup;
+			children = (
+				F120E5392744D842006314A1 /* AppBarWithUITableViewController.swift */,
+			);
+			path = AppBar;
+			sourceTree = "<group>";
+		};
+		F1A57996274B72CA00DE88B5 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				F1A57991274B6B5200DE88B5 /* BottomSheetShapedExample.swift */,
+			);
+			path = BottomSheet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,7 +333,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1A57992274B6B5200DE88B5 /* BottomSheetShapedExample.swift in Sources */,
-				F153DD2427464D86002D0F06 /* ViewController.m in Sources */,
 				F175413F27434DF700B69F5A /* FlexibleHeaderNavigationBarExample.m in Sources */,
 				F120E53A2744D842006314A1 /* AppBarWithUITableViewController.swift in Sources */,
 				F120E5192744AEC8006314A1 /* FlexibleHeaderConfiguratorExample.m in Sources */,

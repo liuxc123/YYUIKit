@@ -5,12 +5,14 @@ PODS:
     - YYUIKit/AppBar (= 1.0.0)
     - YYUIKit/Availability (= 1.0.0)
     - YYUIKit/BottomSheet (= 1.0.0)
+    - YYUIKit/Button (= 1.0.0)
     - YYUIKit/Elevation (= 1.0.0)
     - YYUIKit/FlexibleHeader (= 1.0.0)
     - "YYUIKit/FlexibleHeader+CanAlwaysExpandToMaximumHeight (= 1.0.0)"
     - "YYUIKit/FlexibleHeader+ShiftBehavior (= 1.0.0)"
     - "YYUIKit/FlexibleHeader+ShiftBehaviorEnabledWithStatusBar (= 1.0.0)"
     - YYUIKit/HeaderStackView (= 1.0.0)
+    - YYUIKit/Label (= 1.0.0)
     - YYUIKit/NavigationBar (= 1.0.0)
     - YYUIKit/OverlayWindow (= 1.0.0)
     - YYUIKit/private (= 1.0.0)
@@ -34,6 +36,11 @@ PODS:
     - YYUIKit/ShadowLayer
     - YYUIKit/ShapeLibrary
     - YYUIKit/Shapes
+  - YYUIKit/Button (1.0.0):
+    - YYUIKit/Elevation
+    - YYUIKit/ShadowLayer
+    - YYUIKit/ShapeLibrary
+    - YYUIKit/Shapes
   - YYUIKit/Elevation (1.0.0):
     - YYUIKit/Availability
     - YYUIKit/private/Color
@@ -51,6 +58,7 @@ PODS:
   - "YYUIKit/FlexibleHeader+ShiftBehaviorEnabledWithStatusBar (1.0.0)":
     - "YYUIKit/FlexibleHeader+ShiftBehavior"
   - YYUIKit/HeaderStackView (1.0.0)
+  - YYUIKit/Label (1.0.0)
   - YYUIKit/NavigationBar (1.0.0):
     - YYUIKit/private/Math
   - YYUIKit/OverlayWindow (1.0.0):
@@ -101,7 +109,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   CatalogByConvention: ef713654160053be026fa4648dd28caf6b5ca4e1
   LookinServer: 743c1681771d0a8dcc38825325a080c3186404a5
-  YYUIKit: c354e121a8acff123257bce6fbf013e1e1cdd6b0
+  YYUIKit: df32dca05b858fcba5356f63541068d16bd95da5
 
 PODFILE CHECKSUM: bb9cfbc19829ae0bebc5d60373d7ef4da3582392
 

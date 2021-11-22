@@ -59,6 +59,23 @@ Pod::Spec.new do |s|
       component.dependency "YYUIKit/private/Math"
     end
     
+    # Button
+
+    s.subspec "Button" do |component|
+      component.ios.deployment_target = '10.0'
+      component.public_header_files = "components/#{component.base_name}/src/*.h"
+      component.source_files = [
+        "components/#{component.base_name}/src/*.{h,m}",
+        "components/#{component.base_name}/src/private/*.{h,m}"
+      ]
+      component.dependency "YYUIKit/Elevation"
+      component.dependency "YYUIKit/ShapeLibrary"
+      component.dependency "YYUIKit/Shapes"
+      component.dependency "YYUIKit/ShadowLayer"
+    end
+    
+    # Elevation
+    
     s.subspec "Elevation" do |component|
       component.ios.deployment_target = '10.0'
       component.public_header_files = "components/#{component.base_name}/src/*.h"
@@ -121,6 +138,14 @@ Pod::Spec.new do |s|
         ]
         
         extension.dependency "YYUIKit/#{extension.base_name.split('+')[0]}"
+    end
+    
+    # Label
+    
+    s.subspec "Label" do |component|
+        component.ios.deployment_target = '10.0'
+        component.public_header_files = "components/#{component.base_name}/src/*.h"
+        component.source_files = "components/#{component.base_name}/src/*.{h,m}"
     end
     
     # HeaderStackView

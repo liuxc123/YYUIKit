@@ -94,6 +94,31 @@
       }
     },
     {
+      "name": "Button",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/Button/src/*.h",
+      "source_files": [
+        "components/Button/src/*.{h,m}",
+        "components/Button/src/private/*.{h,m}"
+      ],
+      "dependencies": {
+        "YYUIKit/Elevation": [
+
+        ],
+        "YYUIKit/ShapeLibrary": [
+
+        ],
+        "YYUIKit/Shapes": [
+
+        ],
+        "YYUIKit/ShadowLayer": [
+
+        ]
+      }
+    },
+    {
       "name": "Elevation",
       "platforms": {
         "ios": "10.0"
@@ -191,6 +216,14 @@
 
         ]
       }
+    },
+    {
+      "name": "Label",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/Label/src/*.h",
+      "source_files": "components/Label/src/*.{h,m}"
     },
     {
       "name": "HeaderStackView",
