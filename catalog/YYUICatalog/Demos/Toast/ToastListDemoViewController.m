@@ -9,11 +9,8 @@
 #import "ThemeConstant.h"
 #import "YYTheme.h"
 #import "YYToast.h"
-#import "YYEmtpyView.h"
 
 @interface ToastListDemoViewController ()
-
-@property (nonatomic, strong) YYUIEmptyView *emptyView;
 
 @end
 
@@ -27,13 +24,6 @@
 - (void)setupUI {
     self.navigationItem.title = @"Toast Demo1";
     self.view.backgroundColor = [UIColor themeColor:theme_backgroundColor];
-    
-    self.emptyView = [[YYUIEmptyView alloc] initWithFrame:self.view.bounds];
-    [self.emptyView setTextLabelText:@"暂无内容"];
-    [self.emptyView setImage:[UIImage imageNamed:@""]];
-    [self.emptyView setLoadingViewHidden:false];
-    [self.emptyView setActionButtonTitle:@"确定"];
-    [self.view addSubview:self.emptyView];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
