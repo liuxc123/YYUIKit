@@ -6,8 +6,6 @@
 //
 
 #import "YYUIEmptyView.h"
-#import "YYUIEmptyViewLoadingViewProtocol.h"
-#import "YYButton.h"
 
 @interface YYUIEmptyView ()
 

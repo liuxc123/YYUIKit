@@ -207,6 +207,9 @@
         "components/EmptyView/src/private/*.{h,m}"
       ],
       "dependencies": {
+        "YYUIKit/Button": [
+
+        ],
         "YYUIKit/private/Color": [
 
         ],

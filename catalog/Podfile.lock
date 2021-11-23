@@ -62,6 +62,7 @@ PODS:
     - YYUIKit/private/Color
     - YYUIKit/private/Math
   - YYUIKit/EmptyView (1.0.0):
+    - YYUIKit/Button
     - YYUIKit/private/Color
     - YYUIKit/private/Math
   - YYUIKit/FlexibleHeader (1.0.0):
@@ -132,7 +133,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   CatalogByConvention: ef713654160053be026fa4648dd28caf6b5ca4e1
   LookinServer: 743c1681771d0a8dcc38825325a080c3186404a5
-  YYUIKit: 9689f0441717fcdc3889d2f1c32a6018fca5ab7b
+  YYUIKit: d318c299552db6263fbdaf2596cbb825e0fb7952
 
 PODFILE CHECKSUM: bb9cfbc19829ae0bebc5d60373d7ef4da3582392
 

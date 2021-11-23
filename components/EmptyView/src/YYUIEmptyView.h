@@ -7,8 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class YYUIButton;
-@protocol YYUIEmptyViewLoadingViewProtocol;
+#import "YYUIEmptyViewLoadingViewProtocol.h"
+#import "YYButton.h"
 
 /**
  *  通用的空界面控件，支持显示 loading、标题和副标题提示语、占位图片，YYUICommonViewController 内已集成一个 emptyView，无需额外添加。

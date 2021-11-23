@@ -131,6 +131,7 @@ Pod::Spec.new do |s|
         "components/#{component.base_name}/src/*.{h,m}",
         "components/#{component.base_name}/src/private/*.{h,m}"
       ]
+      component.dependency "YYUIKit/Button"
       component.dependency "YYUIKit/private/Color"
       component.dependency "YYUIKit/private/Math"
     end

@@ -24,6 +24,7 @@
 		F1A579A7274B8B4300DE88B5 /* theme_dark.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1A579A4274B8B4300DE88B5 /* theme_dark.plist */; };
 		F1A579AF274B8E5D00DE88B5 /* ThemeDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A579AE274B8E5D00DE88B5 /* ThemeDemoViewController.m */; };
 		F1A5F7EF274C831F00C49D10 /* ToastListDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A5F7EE274C831F00C49D10 /* ToastListDemoViewController.m */; };
+		F1F0A252274CBD1F00A88C08 /* EmptyDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F0A251274CBD1F00A88C08 /* EmptyDemoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		F1A579AE274B8E5D00DE88B5 /* ThemeDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeDemoViewController.m; sourceTree = "<group>"; };
 		F1A5F7ED274C831F00C49D10 /* ToastListDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToastListDemoViewController.h; sourceTree = "<group>"; };
 		F1A5F7EE274C831F00C49D10 /* ToastListDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToastListDemoViewController.m; sourceTree = "<group>"; };
+		F1F0A250274CBD1F00A88C08 /* EmptyDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyDemoViewController.h; sourceTree = "<group>"; };
+		F1F0A251274CBD1F00A88C08 /* EmptyDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyDemoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,7 @@
 		F1A57993274B72A700DE88B5 /* Demos */ = {
 			isa = PBXGroup;
 			children = (
+				F1F0A24F274CBD0B00A88C08 /* Empty */,
 				F1A5F7EC274C830600C49D10 /* Toast */,
 				F1A579A2274B8B2500DE88B5 /* Theme */,
 				F1A57995274B72C100DE88B5 /* AppBar */,
@@ -218,6 +222,15 @@
 				F1A5F7EE274C831F00C49D10 /* ToastListDemoViewController.m */,
 			);
 			path = Toast;
+			sourceTree = "<group>";
+		};
+		F1F0A24F274CBD0B00A88C08 /* Empty */ = {
+			isa = PBXGroup;
+			children = (
+				F1F0A250274CBD1F00A88C08 /* EmptyDemoViewController.h */,
+				F1F0A251274CBD1F00A88C08 /* EmptyDemoViewController.m */,
+			);
+			path = Empty;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +388,7 @@
 				F120E5192744AEC8006314A1 /* FlexibleHeaderConfiguratorExample.m in Sources */,
 				F175413927434DF700B69F5A /* AppDelegate.m in Sources */,
 				F120E51C2744B012006314A1 /* FlexibleHeaderConfiguratorControlItem.m in Sources */,
+				F1F0A252274CBD1F00A88C08 /* EmptyDemoViewController.m in Sources */,
 				F1A5F7EF274C831F00C49D10 /* ToastListDemoViewController.m in Sources */,
 				F175414A27434DF800B69F5A /* main.m in Sources */,
 			);
