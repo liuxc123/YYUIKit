@@ -54,6 +54,62 @@
       }
     },
     {
+      "name": "Alert",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/Alert/src/*.h",
+      "source_files": [
+        "components/Alert/src/*.{h,m}",
+        "components/Alert/src/private/*.{h,m}"
+      ],
+      "dependencies": {
+        "YYUIKit/Button": [
+
+        ],
+        "YYUIKit/Elevation": [
+
+        ],
+        "YYUIKit/ShadowLayer": [
+
+        ],
+        "YYUIKit/private/KeyboardWatcher": [
+
+        ],
+        "YYUIKit/private/Math": [
+
+        ]
+      }
+    },
+    {
+      "name": "ActionSheet",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/ActionSheet/src/*.h",
+      "source_files": [
+        "components/ActionSheet/src/*.{h,m}",
+        "components/ActionSheet/src/private/*.{h,m}"
+      ],
+      "dependencies": {
+        "YYUIKit/Button": [
+
+        ],
+        "YYUIKit/Elevation": [
+
+        ],
+        "YYUIKit/ShadowLayer": [
+
+        ],
+        "YYUIKit/private/KeyboardWatcher": [
+
+        ],
+        "YYUIKit/private/Math": [
+
+        ]
+      }
+    },
+    {
       "name": "Availability",
       "platforms": {
         "ios": "10.0"
@@ -324,6 +380,25 @@
         "components/Theme/src/*.{h,m}",
         "components/Theme/src/private/*.{h,m}"
       ]
+    },
+    {
+      "name": "Toast",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/Toast/src/*.h",
+      "source_files": [
+        "components/Toast/src/*.{h,m}",
+        "components/Toast/src/private/*.{h,m}"
+      ],
+      "dependencies": {
+        "YYUIKit/private/Resourse": [
+
+        ],
+        "YYUIKit/private/KeyboardWatcher": [
+
+        ]
+      }
     },
     {
       "name": "private",

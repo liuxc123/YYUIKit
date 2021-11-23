@@ -160,14 +160,31 @@ static inline BOOL YYUIEdgeInsetsEqualToEdgeInsets(UIEdgeInsets insets1, UIEdgeI
   return topEqual && leftEqual && bottomEqual && rightEqual;
 }
 
-#pragma mark - UIEdgeInsets
-
-/// 获取UIEdgeInsets在水平方向上的值
-static inline CGFloat YYUIEdgeInsetsGetHorizontalValue(UIEdgeInsets insets) {
-    return insets.left + insets.right;
+/// 计算目标点 targetPoint 围绕坐标点 coordinatePoint 通过 transform 之后此点的坐标
+static inline CGPoint YYCGPointApplyAffineTransformWithCoordinatePoint(CGPoint coordinatePoint, CGPoint targetPoint, CGAffineTransform t) {
+    CGPoint p;
+    p.x = (targetPoint.x - coordinatePoint.x) * t.a + (targetPoint.y - coordinatePoint.y) * t.c + coordinatePoint.x;
+    p.y = (targetPoint.x - coordinatePoint.x) * t.b + (targetPoint.y - coordinatePoint.y) * t.d + coordinatePoint.y;
+    p.x += t.tx;
+    p.y += t.ty;
+    return p;
 }
 
-/// 获取UIEdgeInsets在垂直方向上的值
-static inline CGFloat YYUIEdgeInsetsGetVerticalValue(UIEdgeInsets insets) {
-    return insets.top + insets.bottom;
+/// 系统的 CGRectApplyAffineTransform 只会按照 anchorPoint 为 (0, 0) 的方式去计算，但通常情况下我们面对的是 UIView/CALayer，它们默认的 anchorPoint 为 (.5, .5)，所以增加这个函数，在计算 transform 时可以考虑上 anchorPoint 的影响
+static inline CGRect YYCGRectApplyAffineTransformWithAnchorPoint(CGRect rect, CGAffineTransform t, CGPoint anchorPoint) {
+    CGFloat width = CGRectGetWidth(rect);
+    CGFloat height = CGRectGetHeight(rect);
+    CGPoint oPoint = CGPointMake(rect.origin.x + width * anchorPoint.x, rect.origin.y + height * anchorPoint.y);
+    CGPoint top_left = YYCGPointApplyAffineTransformWithCoordinatePoint(oPoint, CGPointMake(rect.origin.x, rect.origin.y), t);
+    CGPoint bottom_left = YYCGPointApplyAffineTransformWithCoordinatePoint(oPoint, CGPointMake(rect.origin.x, rect.origin.y + height), t);
+    CGPoint top_right = YYCGPointApplyAffineTransformWithCoordinatePoint(oPoint, CGPointMake(rect.origin.x + width, rect.origin.y), t);
+    CGPoint bottom_right = YYCGPointApplyAffineTransformWithCoordinatePoint(oPoint, CGPointMake(rect.origin.x + width, rect.origin.y + height), t);
+    CGFloat minX = MIN(MIN(MIN(top_left.x, bottom_left.x), top_right.x), bottom_right.x);
+    CGFloat maxX = MAX(MAX(MAX(top_left.x, bottom_left.x), top_right.x), bottom_right.x);
+    CGFloat minY = MIN(MIN(MIN(top_left.y, bottom_left.y), top_right.y), bottom_right.y);
+    CGFloat maxY = MAX(MAX(MAX(top_left.y, bottom_left.y), top_right.y), bottom_right.y);
+    CGFloat newWidth = maxX - minX;
+    CGFloat newHeight = maxY - minY;
+    CGRect result = CGRectMake(minX, minY, newWidth, newHeight);
+    return result;
 }

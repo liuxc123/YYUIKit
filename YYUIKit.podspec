@@ -257,6 +257,22 @@ Pod::Spec.new do |s|
         ]
     end
     
+    # Toast
+    
+    s.subspec "Toast" do |component|
+        component.ios.deployment_target = '10.0'
+        component.public_header_files = "components/#{component.base_name}/src/*.h"
+        component.source_files = [
+        "components/#{component.base_name}/src/*.{h,m}",
+        "components/#{component.base_name}/src/private/*.{h,m}"
+        ]
+        
+        component.dependency "YYUIKit/private/Resourse"
+        component.dependency "YYUIKit/private/KeyboardWatcher"
+        component.dependency "YYUIKit/private/UIMetrics"
+
+    end
+    
     # private
     
     s.subspec "private" do |private_spec|
