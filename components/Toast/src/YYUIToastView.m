@@ -155,9 +155,6 @@ static NSMutableArray <YYUIToastView *> *kToastViews = nil;
     if ([YYUIKeyboardWatcher sharedKeyboardWatcher].visibleKeyboardHeight > 0) {
         // 处理键盘相关逻辑，当键盘在显示的时候，内容高度会减去键盘的高度以使 Toast 居中
         CGFloat keyboardHeight = [YYUIKeyboardWatcher sharedKeyboardWatcher].visibleKeyboardHeight;
-//        CGRect parentViewRect = [[YYUIKeyboardWatcher sharedKeyboardWatcher].keyboardWindow convertRect:self.parentView.frame fromView:self.parentView.superview];
-//        CGRect intersectionRect = CGRectIntersection(keyboardFrame, parentViewRect);
-//        CGRect overlapRect = CGRectIsValidated(intersectionRect) ? CGRectFlatted(intersectionRect) : CGRectZero;
         contentHeight -= keyboardHeight;
     }
 

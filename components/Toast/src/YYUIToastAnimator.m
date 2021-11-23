@@ -20,16 +20,6 @@
 
 @implementation YYUIToastAnimator
 
-- (instancetype)init {
-    NSAssert(NO, @"请使用initWithToastView:初始化");
-    return [self initWithToastView:nil];
-}
-
-- (instancetype)initWithCoder:(NSCoder *)coder {
-    NSAssert(NO, @"请使用initWithToastView:初始化");
-    return [self initWithToastView:nil];
-}
-
 - (instancetype)initWithToastView:(YYUIToastView *)toastView {
     NSAssert(toastView, @"toastView不能为空");
     if (self = [super init]) {

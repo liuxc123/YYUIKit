@@ -35,6 +35,9 @@ typedef NS_ENUM(NSInteger, YYUIToastAnimationType) {
  */
 @interface YYUIToastAnimator : NSObject <YYUIToastAnimatorDelegate>
 
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
+
 /**
  * 初始化方法，请务必使用这个方法来初始化。
  *

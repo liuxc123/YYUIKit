@@ -122,6 +122,19 @@ Pod::Spec.new do |s|
       component.dependency "YYUIKit/private/Math"
     end
     
+    # EmptyView
+    
+    s.subspec "EmptyView" do |component|
+      component.ios.deployment_target = '10.0'
+      component.public_header_files = "components/#{component.base_name}/src/*.h"
+      component.source_files = [
+        "components/#{component.base_name}/src/*.{h,m}",
+        "components/#{component.base_name}/src/private/*.{h,m}"
+      ]
+      component.dependency "YYUIKit/private/Color"
+      component.dependency "YYUIKit/private/Math"
+    end
+    
     # FlexibleHeader
     
     s.subspec "FlexibleHeader" do |component|

@@ -197,6 +197,25 @@
       }
     },
     {
+      "name": "EmptyView",
+      "platforms": {
+        "ios": "10.0"
+      },
+      "public_header_files": "components/EmptyView/src/*.h",
+      "source_files": [
+        "components/EmptyView/src/*.{h,m}",
+        "components/EmptyView/src/private/*.{h,m}"
+      ],
+      "dependencies": {
+        "YYUIKit/private/Color": [
+
+        ],
+        "YYUIKit/private/Math": [
+
+        ]
+      }
+    },
+    {
       "name": "FlexibleHeader",
       "platforms": {
         "ios": "10.0"
@@ -396,6 +415,9 @@
 
         ],
         "YYUIKit/private/KeyboardWatcher": [
+
+        ],
+        "YYUIKit/private/UIMetrics": [
 
         ]
       }
