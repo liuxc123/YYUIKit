@@ -22,7 +22,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupAppearance];
     [self setupUI];
+}
+
+- (void)setupAppearance {
+    YYUIEmptyView *appearance = [YYUIEmptyView appearance];
+    appearance.textLabelTextColor = [UIColor themeColor:theme_textlabel1];
+    appearance.detailTextLabelTextColor = [UIColor themeColor:theme_textlabel2];
+    appearance.actionButtonTitleColor = [UIColor themeColor:theme_textlabel3];
 }
 
 - (void)setupUI {
