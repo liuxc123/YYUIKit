@@ -10,6 +10,10 @@
 #endif
 #endif
 
+#import "YYAlert.h"
+#import "YYUIAlertPresentationController.h"
+#import "YYUIAlertPresentationControllerDelegate.h"
+#import "YYUIAlertTransitionController.h"
 #import "YYAppBar.h"
 #import "YYUIAppBarContainerViewController.h"
 #import "YYUIAppBarNavigationController.h"
