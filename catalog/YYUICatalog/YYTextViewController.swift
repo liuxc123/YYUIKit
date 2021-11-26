@@ -33,7 +33,11 @@ class YYTextViewController: UIViewController {
             make.left.right.equalToSuperview()
             make.height.greaterThanOrEqualTo(100)
         }
-    }    
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        YYUITips.show(withText: nil)
+    }
 }
 
 extension YYTextViewController {

@@ -10,13 +10,17 @@
 #import <UIKit/UIKit.h>
 #import <YYKit/YYKit.h>
 
+#import <YYUIKit/YYUIKitMacro.h>
 #import <YYUIKit/YYUITheme.h>
+#import <YYUIKit/YYUIToast.h>
 
 #else
 
 #import <UIKit/UIKit.h>
 #import "YYKit.h"
 
+#import "YYUIKitMacro.h"
 #import "YYUITheme.h"
+#import "YYUIToast.h"
 
 #endif

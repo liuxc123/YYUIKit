@@ -815,7 +815,7 @@
     [highlightDict refreshTheme];
     textView.highlightTextAttributes = highlightDict;
     
-    NSMutableDictionary *placeholderDict = [textView.placeholderAttributedText mutableCopy];
+    NSMutableAttributedString *placeholderDict = [textView.placeholderAttributedText mutableCopy];
     [placeholderDict refreshTheme];
     textView.placeholderAttributedText = placeholderDict;
 }
