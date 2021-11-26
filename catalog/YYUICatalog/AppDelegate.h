@@ -6,9 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YYAppBar.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, YYUIAppBarNavigationControllerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 @end

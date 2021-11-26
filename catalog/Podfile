@@ -8,6 +8,9 @@ target 'YYUICatalog' do
   pod 'YYUIKit', :path => '../'
   pod 'CatalogByConvention', "~> 2.5"
   
+  pod 'SnapKit'
+  pod 'Masonry'
+  
   # Debug
   pod 'LookinServer', :configurations => ['Debug']
   
