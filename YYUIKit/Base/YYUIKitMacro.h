@@ -1,6 +1,6 @@
 //
 //  YYUIKitMacro.h
-//  Pods
+//  YYUIKit
 //
 //  Created by liuxc on 2021/11/26.
 //

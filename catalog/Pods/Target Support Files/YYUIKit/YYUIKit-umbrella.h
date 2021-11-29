@@ -11,6 +11,9 @@
 #endif
 
 #import "YYUIKitMacro.h"
+#import "YYUIEmpty.h"
+#import "YYUIEmptyView.h"
+#import "YYUIEmptyViewLoadingViewProtocol.h"
 #import "YYUIResource.h"
 #import "YYUICornerTreatment.h"
 #import "YYUIEdgeTreatment.h"
