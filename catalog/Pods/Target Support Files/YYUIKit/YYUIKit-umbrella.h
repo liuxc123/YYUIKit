@@ -10,7 +10,15 @@
 #endif
 #endif
 
+#import "UIApplication+YYUIAdd.h"
+#import "UIImage+YYUIAdd.h"
+#import "UIView+YYUIAdd.h"
 #import "YYUIKitMacro.h"
+#import "UIColor+YYUIElevation.h"
+#import "UIView+YYUIElevationResponding.h"
+#import "YYUIElevatable.h"
+#import "YYUIElevation.h"
+#import "YYUIElevationOverriding.h"
 #import "YYUIEmpty.h"
 #import "YYUIEmptyView.h"
 #import "YYUIEmptyViewLoadingViewProtocol.h"

@@ -27,6 +27,8 @@
     // set key and visible
     [self.window makeKeyAndVisible];
     
+    NSLog(@"%@", [[UIApplication sharedExtensionApplication] description]);
+    
     return YES;
 }
 
