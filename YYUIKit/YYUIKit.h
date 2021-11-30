@@ -6,6 +6,8 @@
 #import <YYUIKit/YYUIToast.h>
 #import <YYUIKit/YYUIEmpty.h>
 #import <YYUIKit/YYUIElevation.h>
+#import <YYUIKit/YYUIFlexibleHeader.h>
+#import <YYUIKit/YYUIAppBar.h>
 
 #else
 
@@ -15,5 +17,7 @@
 #import "YYUIToast.h"
 #import "YYUIEmpty.h"
 #import "YYUIElevation.h"
+#import "YYUIFlexibleHeader.h"
+#import "YYUIAppBar.h"
 
 #endif

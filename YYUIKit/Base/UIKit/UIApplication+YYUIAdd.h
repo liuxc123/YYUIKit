@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIApplication+YYAdd.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface UIApplication (YYUIAdd)
 
-+ (CGFloat)yyui_topSafeAreaInset;
++ (UIEdgeInsets)safeAreaInsets;
 
 @end
 

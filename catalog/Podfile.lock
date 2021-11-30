@@ -1,5 +1,7 @@
 PODS:
   - CatalogByConvention (2.5.2)
+  - DDComponent (1.0.3)
+  - IBPCollectionViewCompositionalLayout (0.6.9)
   - LookinServer (1.0.4)
   - Masonry (1.1.0)
   - SnapKit (5.0.1)
@@ -11,6 +13,8 @@ PODS:
 
 DEPENDENCIES:
   - CatalogByConvention (~> 2.5)
+  - DDComponent (from `https://github.com/liuxc123/DDComponent.git`, tag `1.0.3`)
+  - IBPCollectionViewCompositionalLayout
   - LookinServer
   - Masonry
   - SnapKit
@@ -19,23 +23,34 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - CatalogByConvention
+    - IBPCollectionViewCompositionalLayout
     - LookinServer
     - Masonry
     - SnapKit
     - YYKit
 
 EXTERNAL SOURCES:
+  DDComponent:
+    :git: https://github.com/liuxc123/DDComponent.git
+    :tag: 1.0.3
   YYUIKit:
     :path: "../"
 
+CHECKOUT OPTIONS:
+  DDComponent:
+    :git: https://github.com/liuxc123/DDComponent.git
+    :tag: 1.0.3
+
 SPEC CHECKSUMS:
   CatalogByConvention: ef713654160053be026fa4648dd28caf6b5ca4e1
+  DDComponent: 47d34ca5071dd327660f1f4b7765c014f5279809
+  IBPCollectionViewCompositionalLayout: bbb29e39ac564666a8c3cdb6633ed944b6feb55b
   LookinServer: 743c1681771d0a8dcc38825325a080c3186404a5
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYUIKit: 872724cc73d81b201f6339fed7a09963e67831ec
 
-PODFILE CHECKSUM: 9b217d68b7e921904bda8dd889e6f97c67c47cbd
+PODFILE CHECKSUM: a73c1109b004997dccc44c86cb5d00f73311366d
 
 COCOAPODS: 1.11.2

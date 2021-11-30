@@ -12,9 +12,9 @@
 
 - (UIEdgeInsets)yyui_safeAreaInsets {
     if (@available(iOS 11.0, *)) {
-        return [UIApplication sharedExtensionApplication].keyWindow.safeAreaInsets;
+        return self.safeAreaInsets;
     } else {
-        return [UIApplication sharedExtensionApplication].keyWindow.layoutMargins;
+        return self.layoutMargins;
     }
 }
 

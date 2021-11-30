@@ -1,0 +1,13 @@
+//
+//  PrefixHeader.pch
+//  YYUICatalog
+//
+//  Created by liuxc on 2021/11/30.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <YYUIKit/YYUIKit.h>
+
+#endif /* PrefixHeader_pch */

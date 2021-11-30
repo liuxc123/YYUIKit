@@ -1,0 +1,23 @@
+{
+  "name": "DDComponent",
+  "version": "1.0.3",
+  "summary": "Make a collection and table controller to several component",
+  "description": "Make a collection and table controller to several component. Make the controller smaller.",
+  "homepage": "https://github.com/liuxc123/DDComponent",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "liuxc123": "lxc_work@126.com"
+  },
+  "source": {
+    "git": "https://github.com/liuxc123/DDComponent.git",
+    "tag": "1.0.3"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "DDComponent/Classes/**/*.{h,m,mm,swift}",
+  "frameworks": "UIKit"
+}

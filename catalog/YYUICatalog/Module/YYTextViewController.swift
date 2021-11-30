@@ -26,7 +26,15 @@ class YYTextViewController: UIViewController {
     func setupUI() {
         self.title = "YYTextView"
         self.view.backgroundColor = .white
+        if #available(iOS 11.0, *) {
+            self.view.insetsLayoutMarginsFromSafeArea = true;
+        } else {
+            // Fallback on earlier versions
+        }
         
+        print(UIApplication.safeAreaInsets())
+                
+                        
         self.view.addSubview(textView)
         self.textView.snp.makeConstraints { make in
             make.top.equalTo(self.view.layoutMarginsGuide)

@@ -9,7 +9,7 @@
 
 #import <CoreGraphics/CoreGraphics.h>
 
-#import "YYUIKitMacro.h"
+#import "YYUICGUtilities.h"
 
 @implementation UIColor (YYUIElevation)
 

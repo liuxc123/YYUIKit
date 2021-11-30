@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1B08C3B6E31D7190143C507C /* Pods_YYUICatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A284A598C98BFA4DDE07A7AF /* Pods_YYUICatalog.framework */; };
+		F1041DD72755EA8500EBEA85 /* FlexibleHeaderConfiguratorControlItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F1041DD42755EA8500EBEA85 /* FlexibleHeaderConfiguratorControlItem.m */; };
+		F1041DD82755EA8500EBEA85 /* FlexibleHeaderNavigationBarExample.m in Sources */ = {isa = PBXBuildFile; fileRef = F1041DD52755EA8500EBEA85 /* FlexibleHeaderNavigationBarExample.m */; };
+		F1041DD92755EA8500EBEA85 /* FlexibleHeaderConfiguratorExample.m in Sources */ = {isa = PBXBuildFile; fileRef = F1041DD62755EA8500EBEA85 /* FlexibleHeaderConfiguratorExample.m */; };
 		F175413927434DF700B69F5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F175413827434DF700B69F5A /* AppDelegate.m */; };
 		F175414227434DF700B69F5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F175414027434DF700B69F5A /* Main.storyboard */; };
 		F175414427434DF800B69F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F175414327434DF800B69F5A /* Assets.xcassets */; };
@@ -32,6 +35,11 @@
 		3CDB36B3B3B1936E83A3C1F3 /* Pods-YYUICatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYUICatalog.release.xcconfig"; path = "Target Support Files/Pods-YYUICatalog/Pods-YYUICatalog.release.xcconfig"; sourceTree = "<group>"; };
 		704AE4B5FC16A92E9D9BC607 /* Pods-YYUICatalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYUICatalog.debug.xcconfig"; path = "Target Support Files/Pods-YYUICatalog/Pods-YYUICatalog.debug.xcconfig"; sourceTree = "<group>"; };
 		A284A598C98BFA4DDE07A7AF /* Pods_YYUICatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YYUICatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1041DD32755EA8500EBEA85 /* FlexibleHeaderConfiguratorControlItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlexibleHeaderConfiguratorControlItem.h; sourceTree = "<group>"; };
+		F1041DD42755EA8500EBEA85 /* FlexibleHeaderConfiguratorControlItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlexibleHeaderConfiguratorControlItem.m; sourceTree = "<group>"; };
+		F1041DD52755EA8500EBEA85 /* FlexibleHeaderNavigationBarExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlexibleHeaderNavigationBarExample.m; sourceTree = "<group>"; };
+		F1041DD62755EA8500EBEA85 /* FlexibleHeaderConfiguratorExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlexibleHeaderConfiguratorExample.m; sourceTree = "<group>"; };
+		F1041DDB2755F94000EBEA85 /* YYUICatalogPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYUICatalogPrefixHeader.pch; sourceTree = "<group>"; };
 		F120E5382744D841006314A1 /* YYUICatalog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YYUICatalog-Bridging-Header.h"; sourceTree = "<group>"; };
 		F175413427434DF700B69F5A /* YYUICatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYUICatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F175413727434DF700B69F5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -84,6 +92,41 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F1041DDC2755FA5A00EBEA85 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F175414027434DF700B69F5A /* Main.storyboard */,
+				F175414327434DF800B69F5A /* Assets.xcassets */,
+				F175414527434DF800B69F5A /* LaunchScreen.storyboard */,
+				F175414827434DF800B69F5A /* Info.plist */,
+				F175414927434DF800B69F5A /* main.m */,
+				F120E5382744D841006314A1 /* YYUICatalog-Bridging-Header.h */,
+				F1041DDB2755F94000EBEA85 /* YYUICatalogPrefixHeader.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F1041DDF2755FADB00EBEA85 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F175413727434DF700B69F5A /* AppDelegate.h */,
+				F175413827434DF700B69F5A /* AppDelegate.m */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F1041DE02755FAEA00EBEA85 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				F184BB932750D0AE0086A9F7 /* YYTextViewController.swift */,
+				F1041DD32755EA8500EBEA85 /* FlexibleHeaderConfiguratorControlItem.h */,
+				F1041DD42755EA8500EBEA85 /* FlexibleHeaderConfiguratorControlItem.m */,
+				F1041DD62755EA8500EBEA85 /* FlexibleHeaderConfiguratorExample.m */,
+				F1041DD52755EA8500EBEA85 /* FlexibleHeaderNavigationBarExample.m */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
 		F175412B27434DF700B69F5A = {
 			isa = PBXGroup;
 			children = (
@@ -110,15 +153,9 @@
 		F175413627434DF700B69F5A /* YYUICatalog */ = {
 			isa = PBXGroup;
 			children = (
-				F175413727434DF700B69F5A /* AppDelegate.h */,
-				F175413827434DF700B69F5A /* AppDelegate.m */,
-				F184BB932750D0AE0086A9F7 /* YYTextViewController.swift */,
-				F175414027434DF700B69F5A /* Main.storyboard */,
-				F175414327434DF800B69F5A /* Assets.xcassets */,
-				F175414527434DF800B69F5A /* LaunchScreen.storyboard */,
-				F175414827434DF800B69F5A /* Info.plist */,
-				F175414927434DF800B69F5A /* main.m */,
-				F120E5382744D841006314A1 /* YYUICatalog-Bridging-Header.h */,
+				F1041DDF2755FADB00EBEA85 /* Application */,
+				F1041DE02755FAEA00EBEA85 /* Module */,
+				F1041DDC2755FA5A00EBEA85 /* Supporting Files */,
 			);
 			path = YYUICatalog;
 			sourceTree = "<group>";
@@ -287,6 +324,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F175413927434DF700B69F5A /* AppDelegate.m in Sources */,
+				F1041DD92755EA8500EBEA85 /* FlexibleHeaderConfiguratorExample.m in Sources */,
+				F1041DD82755EA8500EBEA85 /* FlexibleHeaderNavigationBarExample.m in Sources */,
+				F1041DD72755EA8500EBEA85 /* FlexibleHeaderConfiguratorControlItem.m in Sources */,
 				F175414A27434DF800B69F5A /* main.m in Sources */,
 				F184BB942750D0AE0086A9F7 /* YYTextViewController.swift in Sources */,
 			);
@@ -452,6 +492,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 835Q4MU3RA;
+				GCC_PREFIX_HEADER = "${SRCROOT}/${PROJECT_NAME}/YYUICatalogPrefixHeader.pch";
 				INFOPLIST_FILE = YYUICatalog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -478,6 +519,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 835Q4MU3RA;
+				GCC_PREFIX_HEADER = "${SRCROOT}/${PROJECT_NAME}/YYUICatalogPrefixHeader.pch";
 				INFOPLIST_FILE = YYUICatalog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

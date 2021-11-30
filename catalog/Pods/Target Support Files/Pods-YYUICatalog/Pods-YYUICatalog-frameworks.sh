@@ -177,6 +177,8 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CatalogByConvention/CatalogByConvention.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DDComponent/DDComponent.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/IBPCollectionViewCompositionalLayout/IBPCollectionViewCompositionalLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LookinServer/LookinServer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
@@ -185,6 +187,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CatalogByConvention/CatalogByConvention.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DDComponent/DDComponent.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/IBPCollectionViewCompositionalLayout/IBPCollectionViewCompositionalLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework"
