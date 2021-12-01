@@ -184,16 +184,16 @@
     NSUInteger offset = 0;
 
     if (self.emojiLimit) {
-        NSString *tempText = @"";
+        NSString *buffer = [[NSMutableString alloc] initWithCapacity:text.length];
         for (int i = 0; i < text.length; i++) {
             NSString *temp = [text substringWithRange:NSMakeRange(i, 1)];
             if ([temp isEmoji]) {
                 offset -= 1;
             } else {
-                tempText = [tempText stringByAppendingString:temp];
+                buffer = [buffer stringByAppendingString:temp];
             }
         }
-        text = tempText;
+        text = buffer;
         range.length = MAX(0, range.length + offset);
         range.location = MAX(0, range.location + offset);
     }
