@@ -7,6 +7,7 @@
 
 #import "YYUITextInputExecutor.h"
 #import "YYUIKitMacro.h"
+#import "NSString+YYUIAdd.h"
 
 @implementation YYUITextInputExecutor
 
@@ -134,6 +135,9 @@
     @weakify(self);
     return [[YYUITextInputMatch alloc] initWithRule:^BOOL(NSString * _Nonnull text) {
         @strongify(self);
+        if (self.emojiLimit) {
+            return ![text containsEmoji];
+        }
         return YES;
     }];
 }
@@ -177,11 +181,21 @@
 - (YYUITextInputIR *)replaceEmojiLimit:(YYUITextInputIR *)ir {
     NSString *text = ir.text;
     NSRange range = ir.range;
-    
+    NSUInteger offset = 0;
+
     if (self.emojiLimit) {
-        text = [text substringToIndex:self.emojiLimit];
-        range.length = MIN(self.wordLimit, range.length);
-        range.location = MIN(self.wordLimit, range.location);
+        NSString *tempText = @"";
+        for (int i = 0; i < text.length; i++) {
+            NSString *temp = [text substringWithRange:NSMakeRange(i, 1)];
+            if ([temp isEmoji]) {
+                offset -= 1;
+            } else {
+                tempText = [tempText stringByAppendingString:temp];
+            }
+        }
+        text = tempText;
+        range.length = MAX(0, range.length + offset);
+        range.location = MAX(0, range.location + offset);
     }
     return [YYUITextInputIR makeWithText:text range:range];
 }

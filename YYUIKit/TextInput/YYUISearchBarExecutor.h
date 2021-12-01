@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak, readonly) UISearchBar *searchBar;
 
-- (instancetype)initWithSearchBar:(UISearchBar *)searchBar delegate:(id)delegate;
+- (instancetype)initWithSearchBar:(UISearchBar *)searchBar delegate:(nullable id)delegate;
 
 @end
 

@@ -16,6 +16,7 @@
 #import "YYUIAppBarViewController.h"
 #import "YYUIAppBarViewControllerAccessibilityPerformEscapeDelegate.h"
 #import "YYUIHeaderStackView.h"
+#import "NSString+YYUIAdd.h"
 #import "YYUICGUtilities.h"
 #import "UIApplication+YYUIAdd.h"
 #import "UIImage+YYUIAdd.h"

@@ -29,7 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak, nullable) id textInputDelegate;
 
-- (void)commonInit;
 - (BOOL)shouldChange:(id<UITextInput>)textInput range:(NSRange)range string:(NSString *)string;
 - (YYUITextInputIR *)textDidChange:(id<UITextInput>)textInput text:(NSString *)text;
 
