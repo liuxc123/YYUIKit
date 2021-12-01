@@ -26,12 +26,6 @@ class YYTextViewController: UIViewController {
     func setupUI() {
         self.title = "YYTextView"
         self.view.backgroundColor = .white
-        if #available(iOS 11.0, *) {
-            self.view.insetsLayoutMarginsFromSafeArea = true;
-        } else {
-            // Fallback on earlier versions
-        }
-        
         print(UIApplication.safeAreaInsets())
                 
                         
@@ -52,7 +46,7 @@ extension YYTextViewController {
     
     @objc class func catalogMetadata() -> [String: Any] {
         return [
-            "breadcrumbs": ["YYTextView"],
+            "breadcrumbs": ["TextInput", "YYTextView"],
             "primaryDemo": false,
             "presentable": false,
         ]

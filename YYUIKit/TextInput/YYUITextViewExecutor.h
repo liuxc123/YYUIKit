@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak, readonly) UITextView *textView;
 
-- (instancetype)initWithTextView:(UITextView *)textView delegate:(id)delegate;
+- (instancetype)initWithTextView:(UITextView *)textView delegate:(nullable id)delegate;
 
 @end
 

@@ -4,6 +4,7 @@ PODS:
   - IBPCollectionViewCompositionalLayout (0.6.9)
   - LookinServer (1.0.4)
   - Masonry (1.1.0)
+  - PinLayout (1.10.0)
   - SnapKit (5.0.1)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - IBPCollectionViewCompositionalLayout
   - LookinServer
   - Masonry
+  - PinLayout
   - SnapKit
   - YYUIKit (from `../`)
 
@@ -26,6 +28,7 @@ SPEC REPOS:
     - IBPCollectionViewCompositionalLayout
     - LookinServer
     - Masonry
+    - PinLayout
     - SnapKit
     - YYKit
 
@@ -47,10 +50,11 @@ SPEC CHECKSUMS:
   IBPCollectionViewCompositionalLayout: bbb29e39ac564666a8c3cdb6633ed944b6feb55b
   LookinServer: 743c1681771d0a8dcc38825325a080c3186404a5
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  PinLayout: e50e9a748b632905fca6e67043ea4b05d6c92186
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   YYUIKit: 872724cc73d81b201f6339fed7a09963e67831ec
 
-PODFILE CHECKSUM: a73c1109b004997dccc44c86cb5d00f73311366d
+PODFILE CHECKSUM: 88418c9cded6e59dec122d15cfc2fd1e0aeb30e7
 
 COCOAPODS: 1.11.2

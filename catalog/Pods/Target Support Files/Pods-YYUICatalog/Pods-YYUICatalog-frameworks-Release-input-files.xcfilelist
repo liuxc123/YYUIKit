@@ -3,6 +3,7 @@ ${BUILT_PRODUCTS_DIR}/CatalogByConvention/CatalogByConvention.framework
 ${BUILT_PRODUCTS_DIR}/DDComponent/DDComponent.framework
 ${BUILT_PRODUCTS_DIR}/IBPCollectionViewCompositionalLayout/IBPCollectionViewCompositionalLayout.framework
 ${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
+${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework
 ${BUILT_PRODUCTS_DIR}/YYUIKit/YYUIKit.framework

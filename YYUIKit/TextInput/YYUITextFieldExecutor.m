@@ -25,13 +25,14 @@
     if (self) {
         self.textField = textField;
         self.textInputDelegate = delegate;
+        self.textField.delegate = self;
         [self commonInit];
     }
     return self;
 }
 
 - (void)commonInit {
-    [[NSNotificationCenter defaultCenter] addObserver:self.textField selector:@selector(textDidChange:) name:UITextFieldTextDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldTextDidChange:) name:UITextFieldTextDidChangeNotification object:nil];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
@@ -93,18 +94,17 @@
     return [self shouldChange:textField range:range string:string];
 }
 
-- (void)textDidChange:(NSNotification *)noti {
+- (void)textFieldTextDidChange:(NSNotification *)noti {
     UITextField *textField = (UITextField *)noti.object;
     if (!textField) { return; }
     
     YYUITextInputIR *ir = [self textDidChange:textField text:textField.text];
     if (!ir) {
-        if (self.textDidChangeEvent) { self.textDidChangeEvent(ir.text); }
+        if (self.textDidChangeEvent) { self.textDidChangeEvent(textField.text); }
         return;
     }
-    
     [textField setText:ir.text];
-    [self setSelectedTextRange:textField range:ir.range];
+    [self setSelectedTextRange:textField range:[NSValue valueWithRange:ir.range]];
     if (self.textDidChangeEvent) {  self.textDidChangeEvent(ir.text); }
 }
 

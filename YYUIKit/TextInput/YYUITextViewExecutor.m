@@ -25,6 +25,7 @@
     if (self) {
         self.textView = textView;
         self.textInputDelegate = delegate;
+        self.textView.delegate = self;
         [self commonInit];
     }
     return self;
@@ -105,7 +106,7 @@
     }
     
     [textView setText:ir.text];
-    [self setSelectedTextRange:textView range:ir.range];
+    [self setSelectedTextRange:textView range:[NSValue valueWithRange:ir.range]];
     if (self.textDidChangeEvent) {  self.textDidChangeEvent(ir.text); }
 }
 

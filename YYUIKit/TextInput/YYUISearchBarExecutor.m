@@ -21,6 +21,7 @@
     if (self) {
         self.searchBar = searchBar;
         self.textInputDelegate = delegate;
+        self.searchBar.delegate = self;
         [self commonInit];
     }
     return self;
@@ -94,7 +95,7 @@
     }
     
     [searchBar setText:ir.text];
-    [self setSelectedTextRange:[self searchTextField] range:ir.range];
+    [self setSelectedTextRange:[self searchTextField] range:[NSValue valueWithRange:ir.range]];
     if (self.textDidChangeEvent) {  self.textDidChangeEvent(ir.text); }
 }
 

@@ -27,14 +27,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) void (^textDidChangeEvent)(NSString *text);
 
-@property (nonatomic, weak) id textInputDelegate;
+@property (nonatomic, weak, nullable) id textInputDelegate;
 
 - (void)commonInit;
 - (BOOL)shouldChange:(id<UITextInput>)textInput range:(NSRange)range string:(NSString *)string;
 - (YYUITextInputIR *)textDidChange:(id<UITextInput>)textInput text:(NSString *)text;
 
-- (void)setSelectedTextRange:(id<UITextInput>)textInput range:(NSRange)range;
-- (NSRange)getSelectedTextRange:(id<UITextInput>)textInput;
+- (void)setSelectedTextRange:(id<UITextInput>)textInput range:(nullable NSValue *)range;
+- (nullable NSValue *)getSelectedTextRange:(id<UITextInput>)textInput;
 
 @end
 

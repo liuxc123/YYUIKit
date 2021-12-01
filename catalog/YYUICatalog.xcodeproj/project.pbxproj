@@ -11,6 +11,7 @@
 		F1041DD72755EA8500EBEA85 /* FlexibleHeaderConfiguratorControlItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F1041DD42755EA8500EBEA85 /* FlexibleHeaderConfiguratorControlItem.m */; };
 		F1041DD82755EA8500EBEA85 /* FlexibleHeaderNavigationBarExample.m in Sources */ = {isa = PBXBuildFile; fileRef = F1041DD52755EA8500EBEA85 /* FlexibleHeaderNavigationBarExample.m */; };
 		F1041DD92755EA8500EBEA85 /* FlexibleHeaderConfiguratorExample.m in Sources */ = {isa = PBXBuildFile; fileRef = F1041DD62755EA8500EBEA85 /* FlexibleHeaderConfiguratorExample.m */; };
+		F105BE1E275714970054D52B /* TextInputDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F105BE1D275714970054D52B /* TextInputDemoViewController.swift */; };
 		F175413927434DF700B69F5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F175413827434DF700B69F5A /* AppDelegate.m */; };
 		F175414227434DF700B69F5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F175414027434DF700B69F5A /* Main.storyboard */; };
 		F175414427434DF800B69F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F175414327434DF800B69F5A /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		F1041DD52755EA8500EBEA85 /* FlexibleHeaderNavigationBarExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlexibleHeaderNavigationBarExample.m; sourceTree = "<group>"; };
 		F1041DD62755EA8500EBEA85 /* FlexibleHeaderConfiguratorExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlexibleHeaderConfiguratorExample.m; sourceTree = "<group>"; };
 		F1041DDB2755F94000EBEA85 /* YYUICatalogPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYUICatalogPrefixHeader.pch; sourceTree = "<group>"; };
+		F105BE1D275714970054D52B /* TextInputDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputDemoViewController.swift; sourceTree = "<group>"; };
 		F120E5382744D841006314A1 /* YYUICatalog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YYUICatalog-Bridging-Header.h"; sourceTree = "<group>"; };
 		F175413427434DF700B69F5A /* YYUICatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYUICatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F175413727434DF700B69F5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,13 +120,30 @@
 		F1041DE02755FAEA00EBEA85 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				F184BB932750D0AE0086A9F7 /* YYTextViewController.swift */,
+				F105BE19275714650054D52B /* TextInput */,
+				F105BE182757145D0054D52B /* FlexibleHeader */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		F105BE182757145D0054D52B /* FlexibleHeader */ = {
+			isa = PBXGroup;
+			children = (
 				F1041DD32755EA8500EBEA85 /* FlexibleHeaderConfiguratorControlItem.h */,
 				F1041DD42755EA8500EBEA85 /* FlexibleHeaderConfiguratorControlItem.m */,
 				F1041DD62755EA8500EBEA85 /* FlexibleHeaderConfiguratorExample.m */,
 				F1041DD52755EA8500EBEA85 /* FlexibleHeaderNavigationBarExample.m */,
 			);
-			path = Module;
+			path = FlexibleHeader;
+			sourceTree = "<group>";
+		};
+		F105BE19275714650054D52B /* TextInput */ = {
+			isa = PBXGroup;
+			children = (
+				F184BB932750D0AE0086A9F7 /* YYTextViewController.swift */,
+				F105BE1D275714970054D52B /* TextInputDemoViewController.swift */,
+			);
+			path = TextInput;
 			sourceTree = "<group>";
 		};
 		F175412B27434DF700B69F5A = {
@@ -323,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F105BE1E275714970054D52B /* TextInputDemoViewController.swift in Sources */,
 				F175413927434DF700B69F5A /* AppDelegate.m in Sources */,
 				F1041DD92755EA8500EBEA85 /* FlexibleHeaderConfiguratorExample.m in Sources */,
 				F1041DD82755EA8500EBEA85 /* FlexibleHeaderNavigationBarExample.m in Sources */,

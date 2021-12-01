@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak, readonly) UITextField *textField;
 
-- (instancetype)initWithTextField:(UITextField *)textField delegate:(id)delegate;
+- (instancetype)initWithTextField:(UITextField *)textField delegate:(nullable id)delegate;
 
 @end
 

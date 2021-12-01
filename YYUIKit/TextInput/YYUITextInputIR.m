@@ -23,4 +23,16 @@
     return [[self alloc] initWithText:text range:range];
 }
 
+- (nonnull id)copyWithZone:(nullable NSZone *)zone {
+    YYUITextInputIR *ir = [[[self class] allocWithZone:zone] init];
+    ir.text = self.text;
+    ir.range = self.range;
+    return ir;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"text: %@, range location: %ld, length: %ld", self.text, self.range.location, self.range.length];
+}
+
 @end
