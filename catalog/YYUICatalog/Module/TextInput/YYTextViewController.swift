@@ -25,9 +25,7 @@ class YYTextViewController: UIViewController {
     
     func setupUI() {
         self.title = "YYTextView"
-        self.view.backgroundColor = .white
-        print(UIApplication.safeAreaInsets())
-                
+        self.view.backgroundColor = .white                
                         
         self.view.addSubview(textView)
         self.textView.snp.makeConstraints { make in

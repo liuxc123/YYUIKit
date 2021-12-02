@@ -26,7 +26,6 @@
         self.textView = textView;
         self.textInputDelegate = delegate;
         self.textView.delegate = self;
-        [self commonInit];
     }
     return self;
 }

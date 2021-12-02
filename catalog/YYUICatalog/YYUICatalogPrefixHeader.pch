@@ -8,6 +8,7 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+#import <CatalogByConvention/CatalogByConvention.h>
 #import <YYUIKit/YYUIKit.h>
 
 #endif /* PrefixHeader_pch */

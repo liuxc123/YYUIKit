@@ -6,6 +6,7 @@
 //
 
 #import "YYUISearchBarExecutor.h"
+#import "UIView+YYUIAdd.h"
 
 @interface YYUISearchBarExecutor ()
 
@@ -22,7 +23,6 @@
         self.searchBar = searchBar;
         self.textInputDelegate = delegate;
         self.searchBar.delegate = self;
-        [self commonInit];
     }
     return self;
 }
@@ -103,7 +103,7 @@
     if (@available(iOS 13.0, *)) {
         return self.searchBar.searchTextField;
     }
-    return nil;
+    return (UITextField *)[self.searchBar findSubview:@"UITextField" resursion:YES];
 }
 
 @end

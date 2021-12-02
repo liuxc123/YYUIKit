@@ -6,8 +6,6 @@
 //
 
 #import "AppDelegate.h"
-#import <CatalogByConvention/CatalogByConvention.h>
-#import <YYUIKit/YYUIKit.h>
 
 @implementation AppDelegate
 

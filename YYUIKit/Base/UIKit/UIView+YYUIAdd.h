@@ -11,5 +11,7 @@
 
 - (UIEdgeInsets)yyui_safeAreaInsets;
 
+- (UIView *)findSubview:(NSString *)name resursion:(BOOL)resursion;
+
 @end
 
