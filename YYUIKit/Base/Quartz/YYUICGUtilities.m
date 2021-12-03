@@ -1,6 +1,6 @@
 //
 //  YYUICGUtilities.m
-//  CatalogByConvention
+//  YYUIKit
 //
 //  Created by liuxc on 2021/11/30.
 //

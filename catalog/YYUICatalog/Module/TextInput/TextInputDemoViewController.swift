@@ -6,6 +6,7 @@
 //
 
 import YYUIKit
+import SnapKit
 
 class TextInputDemoViewController: UIViewController {
     

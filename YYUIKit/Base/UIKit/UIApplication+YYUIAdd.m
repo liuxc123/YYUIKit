@@ -1,6 +1,6 @@
 //
 //  UIApplication+YYUIAdd.m
-//  CatalogByConvention
+//  YYUIKit
 //
 //  Created by liuxc on 2021/11/29.
 //
