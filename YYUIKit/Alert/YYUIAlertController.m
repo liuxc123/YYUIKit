@@ -6,6 +6,10 @@
 //
 
 #import "YYUIAlertController.h"
+#import "YYUIKitMacro.h"
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 #pragma mark - YYUIAlertAction
 
@@ -42,10 +46,7 @@
     action.insets = self.insets;
     action.imageEdgeInsets = self.imageEdgeInsets;
     action.titleEdgeInsets = self.titleEdgeInsets;
-    action.cornerRadius = self.cornerRadius;
     action.height = self.height;
-    action.borderWidth = self.borderWidth;
-    action.borderColor = self.borderColor;
     action.enabled = self.enabled;
     action.dismissOnTouch = self.dismissOnTouch;
     action.handler = self.handler;
@@ -227,31 +228,10 @@
     }
 }
 
-- (void)setCornerRadius:(CGFloat)cornerRadius {
-    _cornerRadius = cornerRadius;
-    if (self.updateBlock) {
-        self.updateBlock(self, NO);
-    }
-}
-
 - (void)setHeight:(CGFloat)height {
     _height = height;
     if (self.updateBlock) {
         self.updateBlock(self, YES);
-    }
-}
-
-- (void)setBorderWidth:(CGFloat)borderWidth {
-    _borderWidth = borderWidth;
-    if (self.updateBlock) {
-        self.updateBlock(self, NO);
-    }
-}
-
-- (void)setBorderColor:(UIColor *)borderColor {
-    _borderColor = borderColor;
-    if (self.updateBlock) {
-        self.updateBlock(self, NO);
     }
 }
 
@@ -264,6 +244,7 @@
 
 @end
 
+
 #pragma mark - YYUIInterfaceActionItemSeparatorView
 
 @interface YYUIAlertInterfaceActionItemSeparatorView : UIView
@@ -272,19 +253,104 @@
 
 @implementation YYUIAlertInterfaceActionItemSeparatorView
 
-- (instancetype)init {
-    if (self = [super init]) {
-        self.backgroundColor = [SPColorStyle lineColor];
+@end
+
+
+#pragma mark - YYUIInterfaceHeaderScrollView
+
+@interface YYUIInterfaceHeaderScrollView : UIScrollView
+@property (nonatomic, weak) UIView *contentView;
+@property (nonatomic, weak) UIImageView *imageView;
+@property (nonatomic, assign) CGSize imageLimitSize;
+@property (nonatomic, weak) UILabel *titleLabel;
+@property (nonatomic, weak) UILabel *messageLabel;
+@property (nonatomic, weak) UIStackView *textFieldView;
+@property (nonatomic, strong) NSMutableArray *textFields;
+@property (nonatomic, assign) UIEdgeInsets contentEdgeInsets;
+@property (nonatomic, copy) void(^headerViewSfeAreaDidChangBlock)(void);
+@end
+
+@implementation YYUIInterfaceHeaderScrollView
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        self.showsHorizontalScrollIndicator = NO;
+        if (@available(iOS 11.0, *)) {
+            self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+        self.contentEdgeInsets = UIEdgeInsetsMake(20, 15, 20, 15);
     }
     return self;
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    self.backgroundColor = MIN(self.frame.size.width, self.frame.size.height) > SP_LINE_WIDTH ? [SPColorStyle line2Color] : [SPColorStyle lineColor];
+
+- (NSMutableArray *)textFields {
+    if (!_textFields) {
+        _textFields = [[NSMutableArray alloc] init];
+    }
+    return _textFields;
 }
 
+- (void)safeAreaInsetsDidChange {
+    [super safeAreaInsetsDidChange];
+    CGFloat safeTop    = self.safeAreaInsets.top < 20 ? 20 : self.safeAreaInsets.top+10;
+    CGFloat safeLeft   = self.safeAreaInsets.left < 15 ? 15 : self.safeAreaInsets.left;
+    CGFloat safeBottom = self.safeAreaInsets.bottom < 20 ? 20 : self.safeAreaInsets.bottom+6;
+    CGFloat safeRight  = self.safeAreaInsets.right < 15 ? 15 : self.safeAreaInsets.right;
+    _contentEdgeInsets = UIEdgeInsetsMake(safeTop, safeLeft, safeBottom, safeRight);
+    // 这个block，主要是更新Label的最大预估宽度
+    if (self.headerViewSfeAreaDidChangBlock) {
+        self.headerViewSfeAreaDidChangBlock();
+    }
+    [self setNeedsUpdateConstraints];
+}
+
+- (void)updateConstraints {
+    [super updateConstraints];
+    UIView *contentView = self.contentView;
+    // 对contentView布局
+    // 先移除旧约束，再添加新约束
+    [NSLayoutConstraint deactivateConstraints:self.constraints];
+    [NSLayoutConstraint deactivateConstraints:contentView.constraints];
+    
+    [NSLayoutConstraint activateConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[contentView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(contentView)]];
+    [NSLayoutConstraint activateConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[contentView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(contentView)]];
+    [[NSLayoutConstraint constraintWithItem:contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0] setActive:YES];
+    NSLayoutConstraint *equalHeightConstraint = [NSLayoutConstraint constraintWithItem:contentView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0];
+    equalHeightConstraint.priority = 998.0f; // 优先级不能最高， 最顶层的父view有高度限制，如果子控件撑起后的高度大于限制高度，则scrollView滑动查看全部内容
+    equalHeightConstraint.active = YES;
+    
+    UIImageView *imageView = _imageView;
+    UIStackView *textFieldView = _textFieldView;
+
+    CGFloat leftMargin   = self.contentEdgeInsets.left;
+    CGFloat rightMargin  = self.contentEdgeInsets.right;
+    CGFloat topMargin    = self.contentEdgeInsets.top;
+    CGFloat bottomMargin = self.contentEdgeInsets.bottom;
+    
+    // 对imageView布局
+    if (imageView.image) {
+        NSMutableArray *imageViewConstraints = [NSMutableArray array];
+        [imageViewConstraints addObject:[NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:MIN(imageView.image.size.width, _imageLimitSize.width)]];
+        [imageViewConstraints addObject:[NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:MIN(imageView.image.size.height, _imageLimitSize.height)]];
+        [imageViewConstraints addObject:[NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeCenterX multiplier:1.f constant:0]];
+        [imageViewConstraints addObject:[NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeTop multiplier:1.f constant:topMargin]];
+        if (_titleLabel.text.length || _titleLabel.attributedText.length) {
+            [imageViewConstraints addObject:[NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_titleLabel attribute:NSLayoutAttributeTop multiplier:1.f constant:-17]];
+        } else if (_messageLabel.text.length || _messageLabel.attributedText.length) {
+            [imageViewConstraints addObject:[NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_messageLabel attribute:NSLayoutAttributeTop multiplier:1.f constant:-17]];
+        } else if (_textFields.count) {
+            [imageViewConstraints addObject:[NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:textFieldView attribute:NSLayoutAttributeTop multiplier:1.f constant:-17]];
+        } else {
+            [imageViewConstraints addObject:[NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeBottom multiplier:1.f constant:-bottomMargin]];
+        }
+        [NSLayoutConstraint activateConstraints:imageViewConstraints];
+    }
+}
+
+
 @end
+
 
 #pragma mark - YYUIAlertController
 
@@ -307,11 +373,167 @@
 
 
 
+
+
+
+
+
+
+
+
+
 @end
+
+
+#pragma mark - YYUIOverlayView
+
+@interface YYUIOverlayView: UIView
+@property (nonatomic, strong) UIView *presentedView;
+@property (nonatomic, strong) UIVisualEffectView *effectView;
+@end
+
+@implementation YYUIOverlayView
+
+- (void)setAppearanceStyle:(UIBlurEffect *)blur color:(UIColor *)color alpha:(CGFloat)alpha {
+    if (blur) {
+        [self createVisualEffectViewWithBlur:blur alpha:alpha];
+        return;
+    }
+    else {
+        [self.effectView removeFromSuperview];
+        self.effectView = nil;
+        if (alpha < 0) {
+            alpha = 0.5;
+        }
+        self.backgroundColor = color ?: [UIColor colorWithWhite:0 alpha:alpha];
+        self.alpha = 0;
+    }
+}
+
+- (void)createVisualEffectViewWithBlur:(UIBlurEffect *)blur alpha:(CGFloat)alpha {
+    self.backgroundColor = [UIColor clearColor];
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:blur];
+    effectView.frame = self.bounds;
+    effectView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    effectView.userInteractionEnabled = NO;
+    effectView.alpha = alpha;
+    [self addSubview:effectView];
+    _effectView = effectView;
+}
+
+@end
+
+
+#pragma mark - YYUIAlertPresentationController
+
+@interface YYUIAlertPresentationController ()
+@property (nonatomic, strong) YYUIOverlayView *overlayView;
+@end
+
+@implementation YYUIAlertPresentationController
+
+- (instancetype)initWithPresentedViewController:(UIViewController *)presentedViewController presentingViewController:(UIViewController *)presentingViewController {
+    if (self = [super initWithPresentedViewController:presentedViewController presentingViewController:presentingViewController]) {
+    }
+    return self;
+}
+
+- (void)containerViewWillLayoutSubviews {
+    [super containerViewWillLayoutSubviews];
+    self.overlayView.frame = self.containerView.bounds;
+}
+
+- (void)presentationTransitionWillBegin {
+    [super presentationTransitionWillBegin];
+
+    YYUIAlertController *alertController = (YYUIAlertController *)self.presentedViewController;
+
+    [self.overlayView setAppearanceStyle:alertController.coverBlurEffect alpha:alertController.backgroundBlurEffectAlpha];
+
+    // 遮罩的alpha值从0～1变化，UIViewControllerTransitionCoordinator协是一个过渡协调器，当执行模态过渡或push过渡时，可以对视图中的其他部分做动画
+    id <UIViewControllerTransitionCoordinator> coordinator = [self.presentedViewController transitionCoordinator];
+    if (coordinator) {
+        [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+            self.overlayView.alpha = 1.0;
+        } completion:nil];
+    } else {
+        self.overlayView.alpha = 1.0;
+    }
+    if ([alertController.delegate respondsToSelector:@selector(willPresentAlertController:)]) {
+        [alertController.delegate willPresentAlertController:alertController];
+    }
+}
+
+- (void)presentationTransitionDidEnd:(BOOL)completed {
+    [super presentationTransitionDidEnd:completed];
+    
+    YYUIAlertController *alertController = (YYUIAlertController *)self.presentedViewController;
+    if ([alertController.delegate respondsToSelector:@selector(didPresentAlertController:)]) {
+        [alertController.delegate didPresentAlertController:alertController];
+    }
+}
+
+- (void)dismissalTransitionWillBegin {
+    [super dismissalTransitionWillBegin];
+    // 遮罩的alpha值从1～0变化，UIViewControllerTransitionCoordinator协议执行动画可以保证和转场动画同步
+    id <UIViewControllerTransitionCoordinator> coordinator = [self.presentedViewController transitionCoordinator];
+    if (coordinator) {
+        [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+            self.overlayView.alpha = 0.0;
+        } completion:nil];
+    } else {
+        self.overlayView.alpha = 0.0;
+    }
+    YYUIAlertController *alertController = (YYUIAlertController *)self.presentedViewController;
+    if ([alertController.delegate respondsToSelector:@selector(willDismissAlertController:)]) {
+        [alertController.delegate willDismissAlertController:alertController];
+    }
+}
+
+- (void)dismissalTransitionDidEnd:(BOOL)completed {
+    [super dismissalTransitionDidEnd:completed];
+    if (completed) {
+        [_overlayView removeFromSuperview];
+        _overlayView = nil;
+    }
+    YYUIAlertController *alertController = (YYUIAlertController *)self.presentedViewController;
+    if ([alertController.delegate respondsToSelector:@selector(didDismissAlertController:)]) {
+        [alertController.delegate didDismissAlertController:alertController];
+    }
+}
+
+- (CGRect)frameOfPresentedViewInContainerView{
+    return self.presentedView.frame;
+}
+
+- (void)tapOverlayView {
+    YYUIAlertController *alertController = (YYUIAlertController *)self.presentedViewController;
+    if (alertController.dismissOnTouchBackground) {
+        [alertController dismissViewControllerAnimated:YES completion:^{}];
+    }
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (YYUIOverlayView *)overlayView {
+    if (!_overlayView) {
+        _overlayView = [[YYUIOverlayView alloc] init];
+        _overlayView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOverlayView)];
+        [_overlayView addGestureRecognizer:tap];
+        [self.containerView addSubview:_overlayView];
+    }
+    return _overlayView;
+}
+
+@end
+
 
 #pragma mark - YYUIAlertAnimation
 
-@interface YYUIAlertAnimation()
+@interface YYUIAlertAnimation ()
 
 @property (nonatomic, assign) BOOL presenting;
 
@@ -423,15 +645,15 @@
     
     // 这3行代码不能放在[containerView layoutIfNeeded]之前，如果放在之前，[containerView layoutIfNeeded]强制布局后会将以下设置的frame覆盖
     CGRect controlViewFrame = alertController.view.frame;
-    controlViewFrame.origin.y = [SP_SCREEN_HEIGHT];
+    controlViewFrame.origin.y = kScreenHeight;
     alertController.view.frame = controlViewFrame;
 
     [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         CGRect controlViewFrame = alertController.view.frame;
         if (alertController.preferredStyle == YYUIAlertControllerStyleActionSheet) {
-            controlViewFrame.origin.y = SP_SCREEN_HEIGHT-controlViewFrame.size.height;
+            controlViewFrame.origin.y = kScreenHeight-controlViewFrame.size.height;
         } else {
-            controlViewFrame.origin.y = (SP_SCREEN_HEIGHT-controlViewFrame.size.height) / 2.0;
+            controlViewFrame.origin.y = (kScreenHeight-controlViewFrame.size.height) / 2.0;
             [self offSetCenter:alertController];
         }
         alertController.view.frame = controlViewFrame;
@@ -446,7 +668,7 @@
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         CGRect controlViewFrame = alertController.view.frame;
-        controlViewFrame.origin.y = SP_SCREEN_HEIGHT;
+        controlViewFrame.origin.y = kScreenHeight;
         alertController.view.frame = controlViewFrame;
     } completion:^(BOOL finished) {
         [transitionContext completeTransition:finished];
@@ -466,7 +688,7 @@
     
     // 这3行代码不能放在[containerView layoutIfNeeded]之前，如果放在之前，[containerView layoutIfNeeded]强制布局后会将以下设置的frame覆盖
     CGRect controlViewFrame = alertController.view.frame;
-    controlViewFrame.origin.x = SP_SCREEN_WIDTH;
+    controlViewFrame.origin.x = kScreenWidth;
     alertController.view.frame = controlViewFrame;
     
     if (alertController.preferredStyle == YYUIAlertControllerStyleAlert) {
@@ -475,9 +697,9 @@
     [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         CGRect controlViewFrame = alertController.view.frame;
         if (alertController.preferredStyle == YYUIAlertControllerStyleActionSheet) {
-            controlViewFrame.origin.x = SP_SCREEN_WIDTH-controlViewFrame.size.width;
+            controlViewFrame.origin.x = kScreenWidth-controlViewFrame.size.width;
         } else {
-            controlViewFrame.origin.x = (SP_SCREEN_WIDTH-controlViewFrame.size.width) / 2.0;
+            controlViewFrame.origin.x = (kScreenWidth-controlViewFrame.size.width) / 2.0;
         }
         alertController.view.frame = controlViewFrame;
     } completion:^(BOOL finished) {
@@ -491,7 +713,7 @@
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         CGRect controlViewFrame = alertController.view.frame;
-        controlViewFrame.origin.x = SP_SCREEN_WIDTH;
+        controlViewFrame.origin.x = kScreenWidth;
         alertController.view.frame = controlViewFrame;
     } completion:^(BOOL finished) {
         [transitionContext completeTransition:finished];
@@ -522,7 +744,7 @@
         if (alertController.preferredStyle == YYUIAlertControllerStyleActionSheet) {
             controlViewFrame.origin.x = 0;
         } else {
-            controlViewFrame.origin.x = (SP_SCREEN_WIDTH-controlViewFrame.size.width) / 2.0;
+            controlViewFrame.origin.x = (kScreenWidth-controlViewFrame.size.width) / 2.0;
         }
         alertController.view.frame = controlViewFrame;
     } completion:^(BOOL finished) {
@@ -564,7 +786,7 @@
         if (alertController.preferredStyle == YYUIAlertControllerStyleActionSheet) {
             controlViewFrame.origin.y = 0;
         } else {
-            controlViewFrame.origin.y = (SP_SCREEN_HEIGHT-controlViewFrame.size.height) / 2.0;
+            controlViewFrame.origin.y = (kScreenHeight-controlViewFrame.size.height) / 2.0;
             [self offSetCenter:alertController];
         }
         alertController.view.frame = controlViewFrame;
@@ -697,10 +919,12 @@
 - (void)offSetCenter:(YYUIAlertController *)alertController {
     if (!CGPointEqualToPoint(alertController.offsetForAlert, CGPointZero)) {
         CGPoint controlViewCenter = alertController.view.center;
-        controlViewCenter.x = SP_SCREEN_WIDTH / 2.0 + alertController.offsetForAlert.x;
-        controlViewCenter.y = SP_SCREEN_HEIGHT / 2.0 + alertController.offsetForAlert.y;
+        controlViewCenter.x = kScreenWidth / 2.0 + alertController.offsetForAlert.x;
+        controlViewCenter.y = kScreenHeight / 2.0 + alertController.offsetForAlert.y;
         alertController.view.center = controlViewCenter;
     }
 }
 
 @end
+
+#pragma clang diagnostic pop

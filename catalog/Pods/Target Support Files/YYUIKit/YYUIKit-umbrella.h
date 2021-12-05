@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "YYUIAlertAction.h"
-#import "YYUIAlertShared.h"
+#import "YYUIAlertController.h"
 #import "YYUIAppBar.h"
 #import "YYUIAppBarContainerViewController.h"
 #import "YYUIAppBarNavigationController.h"
