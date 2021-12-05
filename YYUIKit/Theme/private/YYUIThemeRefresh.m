@@ -875,18 +875,18 @@
         pageControl.currentPageIndicatorTintColor = [pageControl.currentPageIndicatorTintColor refreshTheme];
     }
     
-//    if (@available(iOS 14.0, *)) {
-//        if (pageControl.preferredIndicatorImage.isTheme) {
-//            pageControl.preferredIndicatorImage = [pageControl.preferredIndicatorImage refreshTheme];
-//        }
-//        for (NSInteger i = 0; i < pageControl.numberOfPages; i++) {
-//            UIImage *image = [pageControl indicatorImageForPage:i];
-//            if (image.isTheme) {
-//                image = [image refreshTheme];
-//                [pageControl setIndicatorImage:image forPage:i];
-//            }
-//        }
-//    }
+    if (@available(iOS 14.0, *)) {
+        if (pageControl.preferredIndicatorImage.isTheme) {
+            pageControl.preferredIndicatorImage = [pageControl.preferredIndicatorImage refreshTheme];
+        }
+        for (NSInteger i = 0; i < pageControl.numberOfPages; i++) {
+            UIImage *image = [pageControl indicatorImageForPage:i];
+            if (image.isTheme) {
+                image = [image refreshTheme];
+                [pageControl setIndicatorImage:image forPage:i];
+            }
+        }
+    }
 }
 
 - (void)refreshUISwitch {
