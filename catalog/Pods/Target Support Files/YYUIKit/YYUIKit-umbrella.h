@@ -10,18 +10,8 @@
 #endif
 #endif
 
-#import "UIWindow+YYUIAlertView.h"
 #import "YYUIAlertAction.h"
-#import "YYUIAlertViewButton.h"
-#import "YYUIAlertViewCell.h"
-#import "YYUIAlertViewController.h"
-#import "YYUIAlertViewHelper.h"
-#import "YYUIAlertViewShadowView.h"
-#import "YYUIAlertViewShared.h"
-#import "YYUIAlertViewTextField.h"
-#import "YYUIAlertViewWindow.h"
-#import "YYUIAlertViewWindowContainer.h"
-#import "YYUIAlertViewWindowsObserver.h"
+#import "YYUIAlertShared.h"
 #import "YYUIAppBar.h"
 #import "YYUIAppBarContainerViewController.h"
 #import "YYUIAppBarNavigationController.h"
