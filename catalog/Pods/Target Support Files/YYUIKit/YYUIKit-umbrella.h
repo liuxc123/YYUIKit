@@ -70,6 +70,7 @@
 #import "YYUILabel.h"
 #import "YYUIBackBarButtonItem.h"
 #import "YYUINavigationBar.h"
+#import "YYUIPopupController.h"
 #import "YYUIResource.h"
 #import "YYUICornerTreatment.h"
 #import "YYUIEdgeTreatment.h"

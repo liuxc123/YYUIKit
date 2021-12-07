@@ -68,6 +68,9 @@ typedef NS_ENUM(NSInteger, YYUIAlertActionStyle) {
 /** action断行模式 默认为: NSLineBreakByTruncatingMiddle */
 @property (nonatomic, assign) NSLineBreakMode lineBreakMode;
 
+/** action主题颜色 */
+@property (nonatomic, strong) UIColor *tintColor;
+
 /** action标题颜色 */
 @property (nonatomic, strong) UIColor *titleColor;
 
@@ -115,11 +118,14 @@ typedef NS_ENUM(NSInteger, YYUIAlertActionStyle) {
 
 @end
 
+
 @protocol YYUIAlertControllerDelegate;
 @interface YYUIAlertController : UIViewController
 
+/** Preferred style */
 @property(assign, nonatomic, readonly) YYUIAlertControllerStyle preferredStyle;
 
+/** Animation type */
 @property(assign, nonatomic, readonly) YYUIAlertAnimationType animationType;
 
 /** Default:  YES */
@@ -127,11 +133,6 @@ typedef NS_ENUM(NSInteger, YYUIAlertActionStyle) {
 
 #pragma mark - Style properties
 
-/**
- Set colors of actions title and highlighted background, cancel button title and highlighted background, activity indicator and progress view
- Default is [UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0]
- */
-@property (strong, nonatomic, nullable) UIColor *tintColor UI_APPEARANCE_SELECTOR;
 /**
  Color hides main view when alert view is showing
  Default is [UIColor colorWithWhite:0.0 alpha:0.35]
@@ -146,17 +147,21 @@ typedef NS_ENUM(NSInteger, YYUIAlertActionStyle) {
 /** Default is nil */
 @property (strong, nonatomic, nullable) UIBlurEffect *backgroundBlurEffect UI_APPEARANCE_SELECTOR;
 
-
-/* 距离屏幕边缘的最小间距
- * alert样式下该属性是指对话框四边与屏幕边缘之间的距离，此样式下默认值随设备变化，actionSheet样式下是指弹出边的对立边与屏幕之间的距离，比如如果从右边弹出，那么该属性指的就是对话框左边与屏幕之间的距离，此样式下默认值为70
- */
-@property(nonatomic, assign) CGFloat minDistanceToEdges UI_APPEARANCE_SELECTOR;
-
 /** YYUIAlertControllerStyleAlert样式下默认6.0f，YYUIAlertControllerStyleActionSheet样式下默认13.0f，去除半径设置为0即可 */
 @property(nonatomic, assign) CGFloat cornerRadius UI_APPEARANCE_SELECTOR;
 
-/** 对话框的偏移量，y值为正向下偏移，为负向上偏移；x值为正向右偏移，为负向左偏移，该属性只对YYUIAlertControllerStyleAlert样式有效,键盘的frame改变会自动偏移，如果手动设置偏移只会取手动设置的 */
+/**
+ Top and bottom offsets from borders of the screen
+ Default is 0.0
+ */
 @property(nonatomic, assign) CGPoint offsetForAlert UI_APPEARANCE_SELECTOR;
+- (void)setOffsetForAlert:(CGPoint)offsetForAlert animated:(BOOL)animated;
+
+/**
+ 距离屏幕边缘的最小间距
+ alert样式下该属性是指对话框四边与屏幕边缘之间的距离，此样式下默认值随设备变化，actionSheet样式下是指弹出边的对立边与屏幕之间的距离，比如如果从右边弹出，那么该属性指的就是对话框左边与屏幕之间的距离，此样式下默认值为70
+ */
+@property(nonatomic, assign) CGFloat minDistanceToEdges UI_APPEARANCE_SELECTOR;
 
 /** Default is [UIColor colorWithWhite:0.85 alpha:1.0] */
 @property (strong, nonatomic, nullable) UIColor *separatorsColor UI_APPEARANCE_SELECTOR;
@@ -172,10 +177,10 @@ typedef NS_ENUM(NSInteger, YYUIAlertActionStyle) {
 /** Default:  nil */
 @property (nonatomic, copy, nullable) UIImage *image;
 
-/** image limit size default Infinity */
+/** image limit size default CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) */
 @property (nonatomic, assign) CGSize imageLimitSize UI_APPEARANCE_SELECTOR;
 
-/** image tintColor,  when image mode is UIImageRenderingModeAlwaysTemplate */
+/** image tintColor, when image mode is UIImageRenderingModeAlwaysTemplate */
 @property (nonatomic, strong) UIColor *imageTintColor UI_APPEARANCE_SELECTOR;
 
 #pragma mark - Title properties
@@ -205,7 +210,7 @@ typedef NS_ENUM(NSInteger, YYUIAlertActionStyle) {
 
 /**
  Default:
- if (style == LGAlertViewStyleAlert) then UIColor.blackColor
+ if (style == YYUIAlertControllerStyleAlert) then UIColor.blackColor
  else UIColor.grayColor
  */
 @property (strong, nonatomic, nullable) UIColor *messageTextColor UI_APPEARANCE_SELECTOR;
@@ -312,7 +317,7 @@ typedef NS_ENUM(NSInteger, YYUIAlertActionStyle) {
 /** Default is 14.0 / 18.0 */
 @property (assign, nonatomic) CGFloat destructiveActionMinimumScaleFactor UI_APPEARANCE_SELECTOR;
 /** Default is YES */
-@property (assign, nonatomic, getter=isAestructiveActionAdjustsFontSizeToFitWidth) BOOL destructiveActionAdjustsFontSizeToFitWidth UI_APPEARANCE_SELECTOR;
+@property (assign, nonatomic, getter=isDestructiveActionAdjustsFontSizeToFitWidth) BOOL destructiveActionAdjustsFontSizeToFitWidth UI_APPEARANCE_SELECTOR;
 
 #pragma mark - Text fields properties
 
@@ -407,14 +412,9 @@ typedef NS_ENUM(NSInteger, YYUIAlertActionStyle) {
 
 - (void)addTextFieldWithConfigurationHandler:(void (^ __nullable)(UITextField *textField))configurationHandler;
 
-- (void)setOffsetForAlert:(CGPoint)offsetForAlert animated:(BOOL)animated;
-
 /** 设置action与下一个action之间的间距, action仅限于非取消样式，必须在'-addAction:'之后设置，iOS11或iOS11以上才能使用 */
 - (void)setCustomSpacing:(CGFloat)spacing afterAction:(YYUIAlertAction *)action API_AVAILABLE(ios(11.0));
 - (CGFloat)customSpacingAfterAction:(YYUIAlertAction *)action API_AVAILABLE(ios(11.0));
-
-/** 设置蒙层的外观样式,可通过alpha调整透明度 */
-- (void)setBackgroundViewAppearanceStyle:(UIBlurEffectStyle)style alpha:(CGFloat)alpha;
 
 // 插入一个组件view，位置处于头部和action部分之间，要求头部和action部分同时存在
 - (void)insertComponentView:(nonnull UIView *)componentView;
@@ -438,8 +438,9 @@ typedef NS_ENUM(NSInteger, YYUIAlertActionStyle) {
 @interface YYUIAlertPresentationController : UIPresentationController
 @end
 
-@interface YYUIAlertAnimation : NSObject <UIViewControllerAnimatedTransitioning>
+@interface YYUIAlertTransitionController : NSObject <UIViewControllerAnimatedTransitioning>
 + (instancetype)animationIsPresenting:(BOOL)presenting;
 @end
 
 NS_ASSUME_NONNULL_END
+
