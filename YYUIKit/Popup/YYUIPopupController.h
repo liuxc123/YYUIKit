@@ -59,6 +59,7 @@ typedef NS_ENUM(NSUInteger, YYUIPopupWindowLevel) {
 /// Designated initializer，Must set your content view and its size.
 /// Bind the view to a popup controller，one-to-one
 + (instancetype)popupWithView:(UIView *)popupView;
++ (instancetype)popupWithController:(UIViewController *)controller;
 - (instancetype)initWithView:(UIView *)popupView size:(CGSize)size;
 
 /// The view is the initialized `popupView`

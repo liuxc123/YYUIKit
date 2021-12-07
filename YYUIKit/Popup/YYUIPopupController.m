@@ -49,6 +49,10 @@
     return [[self alloc] initWithView:popupView size:CGSizeZero];
 }
 
++ (instancetype)popupWithController:(UIViewController *)controller {
+    return [[self alloc] initWithView:controller.view size:CGSizeZero];
+}
+
 - (instancetype)initWithView:(UIView *)aView size:(CGSize)size {
     if (self = [super init]) {
         [self defaultValueInitialization];
@@ -60,6 +64,7 @@
         self.defaultDismissBlock = ^(YYUIPopupController * _Nonnull popupController) {
             [_self dismiss];
         };
+        [self bindNotifications];
     }
     return self;
 }
@@ -511,8 +516,22 @@
     }
 }
 
+- (void)bindNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeStatusbarOrientation:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+}
+
+- (void)unbindNotifications {
+    [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+}
+
+- (void)didChangeStatusbarOrientation:(NSNotification *)notification {
+    self.maskView.frame = self.proxyView.bounds;
+    self.view.center = [self finalCenter];
+}
+
 - (void)dealloc {
     [self unbindKeyboardNotifications];
+    [self unbindNotifications];
 }
 
 @end
