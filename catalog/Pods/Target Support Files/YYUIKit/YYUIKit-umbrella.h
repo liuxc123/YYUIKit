@@ -12,6 +12,7 @@
 
 #import "YYUIAlertAction.h"
 #import "YYUIAlertView.h"
+#import "YYUISheetView.h"
 #import "YYUIAppBar.h"
 #import "YYUIAppBarContainerViewController.h"
 #import "YYUIAppBarNavigationController.h"

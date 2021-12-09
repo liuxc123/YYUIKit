@@ -6,6 +6,8 @@
 //
 
 #import "AlertViewDemoController.h"
+#import "YYUIAlertView.h"
+
 
 @interface AlertViewDemoController ()
 
@@ -21,24 +23,31 @@
 - (void)setupUI {
     self.navigationItem.title = @"AlertView";
     self.view.backgroundColor = UIColor.whiteColor;
-
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
-    contentView.backgroundColor = UIColor.yellowColor;
-    contentView.layer.cornerRadius = 10;
-    contentView.clipsToBounds = YES;
+    YYUIAlertView *alertView = [YYUIAlertView alertViewWithImage:[UIImage imageNamed:@"zhiwen"] title:@"title\ntitle\ntitle\ntitle\ntitle\ntitle\ntitle\ntitle\ntitle\ntitle\ntitle\ntitle\ntitle\ntitle\ntitle\ntitle" message:@"message\nmessage\nmessage\nmessage\nmessage\nmessage\nmessage\nmessage\nmessagemessage\nmessage\nmessage\nmessage\nmessage\nmessage\nmessage\nmessage\nmessage\nmessage\nmessage\nmessage\nmessage"];
     
-    YYUIPopupController *popup = [[YYUIPopupController alloc] initWithView:contentView size:CGSizeMake(self.view.width, 300)];
-    popup.presentationStyle = YYUIPopupAnimationStyleFromBottom;
-    popup.dismissonStyle = YYUIPopupAnimationStyleFromBottom;
-    popup.layoutType = YYUIPopupLayoutTypeBottom;
-    popup.dismissOnMaskTouched = YES;
-    popup.panGestureEnabled = YES;
-    popup.panDismissRatio = 0.8;
-    [popup show];
+    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
+    customView.backgroundColor = UIColor.yellowColor;
+    [alertView addCustomView:customView];
+    
+    UIView *customView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
+    customView2.backgroundColor = UIColor.redColor;
+    [alertView addCustomView:customView2];
+    
+    [alertView addAction:[YYUIAlertAction actionWithTitle:@"确定" style: YYUIAlertActionStyleDefault handler:^(YYUIAlertAction * _Nonnull action) {
+        
+    }]];
+    
+    [alertView addAction:[YYUIAlertAction actionWithTitle:@"取消" style: YYUIAlertActionStyleCancel handler:^(YYUIAlertAction * _Nonnull action) {
+        
+    }]];
+    
+    [alertView showWithAnimated:YES completion:^{
+        
+    }];
 }
 
 @end

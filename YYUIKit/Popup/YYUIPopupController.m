@@ -525,8 +525,7 @@
 }
 
 - (void)didChangeStatusbarOrientation:(NSNotification *)notification {
-    self.maskView.frame = self.proxyView.bounds;
-    self.view.center = [self finalCenter];
+    [self setNeedLayout];
 }
 
 - (void)dealloc {
@@ -635,24 +634,35 @@ static void *UIViewYYUIPopupControllerKey = &UIViewYYUIPopupControllerKey;
     NSMutableArray<YYUIPopupController *> *_popupControllers = objc_getAssociatedObject(self, UIViewYYUIPopupControllersKey);
     if (_popupControllers) {
         for (YYUIPopupController *popupController in _popupControllers) {
-            [popupController dismiss];
+            [popupController dismissWithDuration:0.0 completion:NULL];
         }
     }
 }
 
-+ (void)dismissPopupControllerForView:(UIView *)view {
-    YYUIPopupController *popupController = view.yyui_popupController;
-    if (popupController) {
-        [popupController dismiss];
++ (void)dismissAllPopupControllersForLevel:(NSUInteger)levels {
+    NSMutableArray<YYUIPopupController *> *_popupControllers = objc_getAssociatedObject(self, UIViewYYUIPopupControllersKey);
+    if (_popupControllers) {
+        for (YYUIPopupController *popupController in _popupControllers) {
+            if (levels & popupController.windowLevel) {
+                [popupController dismissWithDuration:0.0 completion:NULL];
+            }
+        }
     }
 }
 
-+ (void)dismissSuperPopupControllerIn:(UIView *)view {
++ (void)dismissPopupControllerForView:(UIView *)view animated:(BOOL)animated {
+    YYUIPopupController *popupController = view.yyui_popupController;
+    if (popupController) {
+        [popupController dismissWithDuration:animated ? 0.25 : 0.0 completion:NULL];
+    }
+}
+
++ (void)dismissSuperPopupControllerIn:(UIView *)view animated:(BOOL)animated {
     UIView *aView = view;
     while (aView) {
         YYUIPopupController *popupController = view.yyui_popupController;
         if (popupController) {
-            [popupController dismiss];
+            [popupController dismissWithDuration:animated ? 0.25 : 0.0 completion:NULL];
             break;
         }
         aView = aView.superview;
@@ -661,6 +671,14 @@ static void *UIViewYYUIPopupControllerKey = &UIViewYYUIPopupControllerKey;
 
 - (void)show {
     return [self.keyWindow yyui_presentPopupController:self completion:NULL];
+}
+
+- (void)showWithDuration:(NSTimeInterval)duration {
+    return [self.keyWindow yyui_presentPopupController:self duration:duration completion:NULL];
+}
+
+- (void)showWithDuration:(NSTimeInterval)duration completion:(void (^)(void))completion {
+    return [self.keyWindow yyui_presentPopupController:self duration:duration completion:completion];
 }
 
 - (void)showInView:(UIView *)view completion:(void (^)(void))completion {
@@ -689,6 +707,12 @@ static void *UIViewYYUIPopupControllerKey = &UIViewYYUIPopupControllerKey;
 
 - (void)dismissWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options completion:(void (^)(void))completion {
     return [self.proxyView yyui_dissmissPopupController:self duration:duration delay:delay options:options completion:completion];
+}
+
+- (void)setNeedLayout {
+    [_view setNeedsLayout];
+    _maskView.frame = self.proxyView.bounds;
+    _view.center = [self finalCenter];
 }
 
 @end

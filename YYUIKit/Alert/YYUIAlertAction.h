@@ -1,35 +1,35 @@
 //
-//  YYUIAlertAction.h
+//  YYUIAction.h
 //  YYUIKit
 //
-//  Created by liuxc on 2021/12/7.
+//  Created by liuxc on 2021/12/9.
 //
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger, YYUIAlertActionStyle) {
-    YYUIAlertActionStyleDefault = 0,  // 默认样式
-    YYUIAlertActionStyleCancel,       // 取消样式,字体加粗
-    YYUIAlertActionStyleDestructive   // 红色字体样式
+typedef NS_ENUM(NSUInteger, YYUIAlertActionStyle) {
+    YYUIAlertActionStyleDefault,
+    YYUIAlertActionStyleCancel,
+    YYUIAlertActionStyleDestructive
 };
 
-@interface YYUIAlertAction : NSObject <NSCopying>
+@interface YYUIAlertAction : NSObject
 
 + (instancetype)actionWithTitle:(nullable NSString *)title style:(YYUIAlertActionStyle)style handler:(void (^ __nullable)(YYUIAlertAction *action))handler;
 
 /** action类型 */
-@property (nonatomic, readonly) YYUIAlertActionStyle style;
+@property (nonatomic, assign) YYUIAlertActionStyle style;
 
-/** action的标题 */
-@property (nullable, nonatomic, copy) NSString *title;
+/** action标题 */
+@property (nonatomic, strong) NSString *title;
 
 /** action高亮标题 */
-@property (nullable, nonatomic, copy) NSString *highlight;
+@property (nonatomic, strong) NSString *highlight;
 
-/** action的富文本标题 */
-@property (nullable, nonatomic, copy) NSAttributedString *attributedTitle;
+/** action标题(attributed) */
+@property (nonatomic, strong) NSAttributedString *attributedTitle;
 
 /** action高亮标题(attributed) */
 @property (nonatomic, strong) NSAttributedString *attributedHighlight;
@@ -48,9 +48,6 @@ typedef NS_ENUM(NSInteger, YYUIAlertActionStyle) {
 
 /** action断行模式 默认为: NSLineBreakByTruncatingMiddle */
 @property (nonatomic, assign) NSLineBreakMode lineBreakMode;
-
-/** action主题颜色 */
-@property (nonatomic, strong) UIColor *tintColor;
 
 /** action标题颜色 */
 @property (nonatomic, strong) UIColor *titleColor;
@@ -85,19 +82,22 @@ typedef NS_ENUM(NSInteger, YYUIAlertActionStyle) {
 /** action标题的间距范围 */
 @property (nonatomic, assign) UIEdgeInsets titleEdgeInsets;
 
-/** action高度 */
-@property (nonatomic, assign) CGFloat height;
-
-/** action是否能点击 默认YES */
-@property(nonatomic, getter=isEnabled) BOOL enabled;
-
 /** action点击不关闭 (仅适用于默认类型) */
 @property (nonatomic, assign) BOOL dismissOnTouch;
 
-/** action点击事件*/
-@property (nonatomic, copy, readonly) void (^handler)(YYUIAlertAction *action);
+/** action点击事件回调Block */
+@property (nonatomic, copy) void (^ _Nullable handler)(YYUIAlertAction *action);
 
 @end
 
+@interface YYUIAlertActionButton : UIButton
+
+@property (nonatomic, strong) YYUIAlertAction *action;
+
+@property (nonatomic, strong) UIView *separatorView;
+
++ (YYUIAlertActionButton *)button;
+
+@end
 
 NS_ASSUME_NONNULL_END

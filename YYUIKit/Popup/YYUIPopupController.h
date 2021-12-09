@@ -142,15 +142,24 @@ typedef NS_ENUM(NSUInteger, YYUIPopupWindowLevel) {
 /// Dismiss all the popupcontrollers in the app.
 + (void)dismissAllPopupControllers;
 
+/// Dismiss all the popups in the app.
++ (void)dismissAllPopupControllersForLevel:(NSUInteger)levels;
+
 /// Dismiss the popup for contentView.
-+ (void)dismissPopupControllerForView:(UIView *)view;
++ (void)dismissPopupControllerForView:(UIView *)view animated:(BOOL)animated;
 
 /// Dismiss super popup.
 /// Iterate over superviews until you find a `YYUIPopupController` and dismiss it.
-+ (void)dismissSuperPopupControllerIn:(UIView *)view;
++ (void)dismissSuperPopupControllerIn:(UIView *)view animated:(BOOL)animated;
 
 /// shows popup view animated in window
 - (void)show;
+
+/// shows popup view animated in window
+- (void)showWithDuration:(NSTimeInterval)duration;
+
+/// shows popup view animated in window
+- (void)showWithDuration:(NSTimeInterval)duration completion:(void (^)(void))completion;
 
 /// shows popup view animated.
 - (void)showInView:(UIView *)view completion:(void (^ __nullable)(void))completion;
@@ -173,6 +182,9 @@ typedef NS_ENUM(NSUInteger, YYUIPopupWindowLevel) {
 /// hide popup view animated using the specified duration, delay, options, and completion handler.
 - (void)dismissWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options completion:(void (^ __nullable)(void))completion;
 
+/// update layout
+- (void)setNeedLayout;
+
 @end
 
 
@@ -189,7 +201,9 @@ typedef NS_ENUM(NSUInteger, YYUIPopupWindowLevel) {
 
 @interface UIView (YYUIPopupController)
 
+/// The associated popupController
 @property(nonatomic, weak, nullable) YYUIPopupController *yyui_popupController;
+
 @end
 
 NS_ASSUME_NONNULL_END

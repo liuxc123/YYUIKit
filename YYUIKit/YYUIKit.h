@@ -16,6 +16,7 @@
 #import <YYUIKit/YYUIFlexibleHeader.h>
 #import <YYUIKit/YYUIAppBar.h>
 #import <YYUIKit/YYUIPopupController.h>
+#import <YYUIKit/YYUIAlertView.h>
 
 #else
 
@@ -35,5 +36,6 @@
 #import "YYUIFlexibleHeader.h"
 #import "YYUIAppBar.h"
 #import "YYUIPopupController.h"
+#import "YYUIAlertView.h"
 
 #endif
