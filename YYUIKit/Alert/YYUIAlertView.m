@@ -580,6 +580,7 @@
         _popupController.dismissonStyle     = YYUIPopupAnimationStyleFade;
         _popupController.layoutType         = YYUIPopupLayoutTypeCenter;
         _popupController.keyboardChangeFollowed = YES;
+        _popupController.keyboardOffsetSpacing = 10;
     }
     return _popupController;
 }
