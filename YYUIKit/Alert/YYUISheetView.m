@@ -149,6 +149,8 @@
 
     self.headerSeparatorView.backgroundColor = config.separatorsColor;
     
+    [self.headerSeparatorView setHidden:(self.actions.count == 0 && !self.cancelAction)];
+    
     [self addSubview: self.headerSeparatorView];
     
     /// actionScrollView
@@ -647,7 +649,6 @@
     if ( self )
     {
         self.buttonsHeight      = 55.0f;
-        self.textFieldsHeight   = 55.0f;
         self.innerMargin        = 25.0f;
         self.itemSpacing        = 20.0f;
         self.cancelSpacing      = 10.0f;
@@ -660,39 +661,34 @@
         self.titleTextColor     = [UIColor colorWithHexString:@"#333333"];
         self.titleTextAlignment = NSTextAlignmentCenter;
 
-        self.messageFont            = [UIFont systemFontOfSize:18.0f];
+        self.messageFont            = [UIFont systemFontOfSize:14.0f];
         self.messageTextColor       = [UIColor colorWithHexString:@"#333333"];
         self.messageTextAlignment   = NSTextAlignmentCenter;
-        
-        self.textFieldBackgroundColor   = [UIColor colorWithHexString:@"#ffffff"];
-        self.textFieldsTextColor        = [UIColor colorWithHexString:@"#cccccc"];
-        self.textFieldFont              = [UIFont systemFontOfSize:18.0f];
         
         self.buttonsFont                        = [UIFont systemFontOfSize:18.0f];
         self.buttonsTitleColor                  = [UIColor colorWithHexString:@"#333333"];
         self.buttonsTitleColorHighlighted       = [UIColor colorWithHexString:@"#333333"];
-        self.buttonsTitleColorDisabled          = [UIColor colorWithHexString:@"#333333"];
+        self.buttonsTitleColorDisabled          = [[UIColor colorWithHexString:@"#333333"] colorWithAlphaComponent:0.5];
         self.buttonsBackgroundColor             = [UIColor colorWithHexString:@"#ffffff"];
-        self.buttonsBackgroundColorHighlighted  = [[UIColor grayColor] colorWithAlphaComponent:0.5];
-        self.buttonsBackgroundColorDisabled     = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+        self.buttonsBackgroundColorHighlighted  = [[UIColor grayColor] colorWithAlphaComponent:0.1];
+        self.buttonsBackgroundColorDisabled     = [[UIColor grayColor] colorWithAlphaComponent:0.1];
 
         self.cancelButtonFont                       = [UIFont systemFontOfSize:18.0f];
         self.cancelButtonTitleColor                 = [UIColor colorWithHexString:@"#333333"];
         self.cancelButtonTitleColorHighlighted      = [UIColor colorWithHexString:@"#333333"];
-        self.cancelButtonsTitleColorDisabled        = [UIColor colorWithHexString:@"#333333"];
+        self.cancelButtonsTitleColorDisabled        = [[UIColor colorWithHexString:@"#333333"] colorWithAlphaComponent:0.5];
         self.cancelButtonBackgroundColor            = [UIColor colorWithHexString:@"#ffffff"];
-        self.cancelButtonBackgroundColorHighlighted = [[UIColor grayColor] colorWithAlphaComponent:0.5];
-        self.cancelButtonsBackgroundColorDisabled   = [[UIColor grayColor] colorWithAlphaComponent:0.5];
-        self.cancelButtonSpacingColor               = [[UIColor grayColor] colorWithAlphaComponent:0.5];
-
+        self.cancelButtonBackgroundColorHighlighted = [[UIColor grayColor] colorWithAlphaComponent:0.1];
+        self.cancelButtonsBackgroundColorDisabled   = [[UIColor grayColor] colorWithAlphaComponent:0.1];
+        self.cancelButtonSpacingColor               = [UIColor colorWithHexString:@"#f0f0f0"];
 
         self.destructiveButtonFont                       = [UIFont systemFontOfSize:18.0f];
-        self.destructiveButtonTitleColor                 = [UIColor colorWithHexString:@"#333333"];
-        self.destructiveButtonTitleColorHighlighted      = [UIColor colorWithHexString:@"#333333"];
-        self.destructiveButtonsTitleColorDisabled        = [UIColor colorWithHexString:@"#333333"];
+        self.destructiveButtonTitleColor                 = [UIColor redColor];
+        self.destructiveButtonTitleColorHighlighted      = [UIColor redColor];
+        self.destructiveButtonsTitleColorDisabled        = [UIColor redColor];
         self.destructiveButtonBackgroundColor            = [UIColor colorWithHexString:@"#ffffff"];
-        self.destructiveButtonBackgroundColorHighlighted = [[UIColor grayColor] colorWithAlphaComponent:0.5];
-        self.destructiveButtonsBackgroundColorDisabled   = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+        self.destructiveButtonBackgroundColorHighlighted = [[UIColor grayColor] colorWithAlphaComponent:0.1];
+        self.destructiveButtonsBackgroundColorDisabled   = [[UIColor grayColor] colorWithAlphaComponent:0.1];
     }
     
     return self;

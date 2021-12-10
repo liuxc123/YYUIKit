@@ -39,7 +39,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (YYUISheetViewConfig *)globalConfig;
 
 @property (nonatomic, assign) CGFloat buttonsHeight;        // Default is 55.
-@property (nonatomic, assign) CGFloat textFieldsHeight;     // Default is 44.
 @property (nonatomic, assign) CGFloat innerMargin;          // Default is 25.
 @property (nonatomic, assign) CGFloat itemSpacing;          // Default is 20.
 @property (nonatomic, assign) CGFloat cancelSpacing;        // Default is 10.
@@ -55,10 +54,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIFont  *messageFont;                 // Default is 14.
 @property (nonatomic, strong) UIColor *messageTextColor;            // Default is #333333.
 @property (nonatomic, assign) NSTextAlignment messageTextAlignment; // Default is NSTextAlignmentCenter
-
-@property (nonatomic, strong) UIColor *textFieldBackgroundColor;    // Default is 14.
-@property (nonatomic, strong) UIColor *textFieldsTextColor;         // Default is 14.
-@property (nonatomic, strong) UIFont  *textFieldFont;               // Default is 14.
 
 @property (nonatomic, strong) UIFont  *buttonsFont;                     // Default is #333333.
 @property (nonatomic, strong) UIColor *buttonsTitleColor;               // Default is #333333.
