@@ -13,5 +13,7 @@
 
 - (UIView *)findSubview:(NSString *)name resursion:(BOOL)resursion;
 
+- (void)roundCorners:(UIRectCorner)corners radius:(CGFloat)radius;
+
 @end
 

@@ -12,6 +12,7 @@
 		F1041DD82755EA8500EBEA85 /* FlexibleHeaderNavigationBarExample.m in Sources */ = {isa = PBXBuildFile; fileRef = F1041DD52755EA8500EBEA85 /* FlexibleHeaderNavigationBarExample.m */; };
 		F1041DD92755EA8500EBEA85 /* FlexibleHeaderConfiguratorExample.m in Sources */ = {isa = PBXBuildFile; fileRef = F1041DD62755EA8500EBEA85 /* FlexibleHeaderConfiguratorExample.m */; };
 		F105BE1E275714970054D52B /* TextInputDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F105BE1D275714970054D52B /* TextInputDemoViewController.swift */; };
+		F14EF8EC2762E5DE0069B4C1 /* SheetDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14EF8EB2762E5DE0069B4C1 /* SheetDemoViewController.m */; };
 		F162E5122758AC8300AF6272 /* AlertViewDemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = F162E5112758AC8300AF6272 /* AlertViewDemoController.m */; };
 		F175413927434DF700B69F5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F175413827434DF700B69F5A /* AppDelegate.m */; };
 		F175414227434DF700B69F5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F175414027434DF700B69F5A /* Main.storyboard */; };
@@ -43,6 +44,8 @@
 		F1041DDB2755F94000EBEA85 /* YYUICatalogPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYUICatalogPrefixHeader.pch; sourceTree = "<group>"; };
 		F105BE1D275714970054D52B /* TextInputDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputDemoViewController.swift; sourceTree = "<group>"; };
 		F120E5382744D841006314A1 /* YYUICatalog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YYUICatalog-Bridging-Header.h"; sourceTree = "<group>"; };
+		F14EF8EA2762E5DE0069B4C1 /* SheetDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SheetDemoViewController.h; sourceTree = "<group>"; };
+		F14EF8EB2762E5DE0069B4C1 /* SheetDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SheetDemoViewController.m; sourceTree = "<group>"; };
 		F162E5102758AC8300AF6272 /* AlertViewDemoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertViewDemoController.h; sourceTree = "<group>"; };
 		F162E5112758AC8300AF6272 /* AlertViewDemoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertViewDemoController.m; sourceTree = "<group>"; };
 		F175413427434DF700B69F5A /* YYUICatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYUICatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +170,8 @@
 			children = (
 				F162E5102758AC8300AF6272 /* AlertViewDemoController.h */,
 				F162E5112758AC8300AF6272 /* AlertViewDemoController.m */,
+				F14EF8EA2762E5DE0069B4C1 /* SheetDemoViewController.h */,
+				F14EF8EB2762E5DE0069B4C1 /* SheetDemoViewController.m */,
 			);
 			path = AlertView;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F162E5122758AC8300AF6272 /* AlertViewDemoController.m in Sources */,
+				F14EF8EC2762E5DE0069B4C1 /* SheetDemoViewController.m in Sources */,
 				F105BE1E275714970054D52B /* TextInputDemoViewController.swift in Sources */,
 				F175413927434DF700B69F5A /* AppDelegate.m in Sources */,
 				F1041DD92755EA8500EBEA85 /* FlexibleHeaderConfiguratorExample.m in Sources */,

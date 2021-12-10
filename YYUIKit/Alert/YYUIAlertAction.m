@@ -53,7 +53,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self addSubview:self.separatorView];
+        [self addSubview:self.topSeparatorView];
+        [self addSubview:self.bottomSeparatorView];
     }
     return self;
 }
@@ -102,16 +103,26 @@
     [self setTitleEdgeInsets:action.titleEdgeInsets];
 }
 
-- (UIView *)separatorView {
-    if (!_separatorView) {
-        _separatorView = [[UIView alloc] init];
+- (UIView *)topSeparatorView {
+    if (!_topSeparatorView) {
+        _topSeparatorView = [[UIView alloc] init];
+        [_topSeparatorView setHidden:YES];
     }
-    return _separatorView;
+    return _topSeparatorView;
+}
+
+- (UIView *)bottomSeparatorView {
+    if (!_bottomSeparatorView) {
+        _bottomSeparatorView = [[UIView alloc] init];
+        [_bottomSeparatorView setHidden:YES];
+    }
+    return _bottomSeparatorView;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.separatorView.frame = CGRectMake(0, self.height - CGFloatFromPixel(1.0), self.width, CGFloatFromPixel(1.0));
+    self.topSeparatorView.frame = CGRectMake(0, 0, self.width, CGFloatFromPixel(1.0));
+    self.bottomSeparatorView.frame = CGRectMake(0, self.height - CGFloatFromPixel(1.0), self.width, CGFloatFromPixel(1.0));
 }
 
 - (UIImage *)getImageWithColor:(UIColor *)color {

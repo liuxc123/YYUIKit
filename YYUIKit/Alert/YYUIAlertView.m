@@ -6,8 +6,8 @@
 //
 
 #import "YYUIAlertView.h"
-#import "UIColor+YYAdd.h"
 #import "YYUIKitMacro.h"
+#import "UIColor+YYAdd.h"
 #import "UIApplication+YYUIAdd.h"
 
 @interface YYUIAlertView ()
@@ -39,10 +39,6 @@
 
 + (instancetype)alertViewWithImage:(UIImage *)image title:(NSString *)title message:(NSString *)message {
     return [[self alloc] initWithImage:image title:title message:message];
-}
-
-- (void)setCustomView:(UIView *)customView {
-    self.customView = customView;
 }
 
 - (void)addAction:(YYUIAlertAction *)action {
@@ -131,7 +127,7 @@
     
     self.messageLabel.font = config.messageFont;
     
-    self.messageLabel.textColor = config.titleColor;
+    self.messageLabel.textColor = config.messageColor;
     
     self.messageLabel.numberOfLines = 0;
     
@@ -166,27 +162,13 @@
     for (int i = 0; i < self.actions.count; i++) {
         YYUIAlertActionButton *button = [YYUIAlertActionButton button];
                         
-        button.separatorView.backgroundColor = config.separatorsColor;
+        button.bottomSeparatorView.backgroundColor = config.separatorsColor;
         
-        [button.separatorView setHidden: self.actions.count <= 2 || i == self.actions.count - 1];
+        [button.bottomSeparatorView setHidden: self.actions.count <= 2 || i == self.actions.count - 1];
         
         YYUIAlertAction *action = self.actions[i];
         
-        action.font = action.font ? action.font : config.buttonFont;
-        
-        switch (action.style) {
-            case YYUIAlertActionStyleDefault:
-                action.titleColor = action.titleColor ? action.titleColor : config.buttonDefaultColor;
-                break;
-            case YYUIAlertActionStyleCancel:
-                action.titleColor = action.titleColor ? action.titleColor : config.buttonCancelColor;
-                break;
-            case YYUIAlertActionStyleDestructive:
-                action.titleColor = action.titleColor ? action.titleColor : config.buttonDestructiveColor;
-                break;
-            default:
-                break;
-        }
+        [self setupDefaultWithAction:action];
         
         [button setAction:action];
         
@@ -206,6 +188,37 @@
         
         [self.actionScrollView addSubview: self.verticalSeparatorView];
     }
+}
+
+- (void)setupDefaultWithAction:(YYUIAlertAction *)action {
+    
+    YYUIAlertViewConfig *config = [YYUIAlertViewConfig globalConfig];
+
+    action.font = action.font ? action.font : config.buttonFont;
+    
+    action.highlightColor = action.highlightColor ? action.highlightColor : config.buttonHighlightColor;
+    
+    action.backgroundColor = action.backgroundColor ? action.backgroundColor : config.buttonBackgroundColor;
+
+    action.backgroundHighlightColor = action.backgroundHighlightColor ? action.backgroundHighlightColor : config.buttonBackgroundHighlightColor;
+    
+    switch (action.style) {
+        case YYUIAlertActionStyleDefault:
+            action.titleColor = action.titleColor ? action.titleColor : config.buttonDefaultColor;
+            break;
+            
+        case YYUIAlertActionStyleCancel:
+            action.titleColor = action.titleColor ? action.titleColor : config.buttonCancelColor;
+            break;
+            
+        case YYUIAlertActionStyleDestructive:
+            action.titleColor = action.titleColor ? action.titleColor : config.buttonDestructiveColor;
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
 - (void)layoutSubviews {
@@ -544,8 +557,7 @@
     if ( self )
     {
         self.width          = 275.0f;
-        self.maxHeight      = kScreenHeight;
-        self.buttonHeight   = 50.0f;
+        self.buttonHeight   = 55.0f;
         self.innerMargin    = 25.0f;
         self.itemSpacing    = 20.0f;
         self.cornerRadius   = 10.0f;
@@ -556,12 +568,16 @@
         
         self.backgroundColor    = [UIColor colorWithHexString:@"#ffffff"];
         self.titleColor         = [UIColor colorWithHexString:@"#333333"];
-        self.detailColor        = [UIColor colorWithHexString:@"#333333"];
+        self.messageColor       = [UIColor colorWithHexString:@"#333333"];
         self.separatorsColor    = [UIColor colorWithHexString:@"#cccccc"];
         
         self.buttonDefaultColor     = [UIColor colorWithHexString:@"#333333"];
         self.buttonCancelColor      = [UIColor colorWithHexString:@"#333333"];
         self.buttonDestructiveColor = [UIColor colorWithHexString:@"#cccccc"];
+        self.buttonHighlightColor   = [[UIColor colorWithHexString:@"#333333"] colorWithAlphaComponent:0.5];
+        self.buttonBackgroundColor   = [UIColor colorWithHexString:@"#ffffff"];
+        self.buttonBackgroundHighlightColor  = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+
     }
     
     return self;

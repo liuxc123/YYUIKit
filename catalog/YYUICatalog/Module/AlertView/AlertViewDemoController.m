@@ -41,6 +41,12 @@
         
     }]];
     
+    for (int i = 0; i < 10; i++) {
+        [alertView addAction:[YYUIAlertAction actionWithTitle:@"确定" style: YYUIAlertActionStyleDefault handler:^(YYUIAlertAction * _Nonnull action) {
+            
+        }]];
+    }
+    
     [alertView addAction:[YYUIAlertAction actionWithTitle:@"取消" style: YYUIAlertActionStyleCancel handler:^(YYUIAlertAction * _Nonnull action) {
         
     }]];

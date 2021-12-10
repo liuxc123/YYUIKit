@@ -94,7 +94,9 @@ typedef NS_ENUM(NSUInteger, YYUIAlertActionStyle) {
 
 @property (nonatomic, strong) YYUIAlertAction *action;
 
-@property (nonatomic, strong) UIView *separatorView;
+@property (nonatomic, strong) UIView *topSeparatorView;
+
+@property (nonatomic, strong) UIView *bottomSeparatorView;
 
 + (YYUIAlertActionButton *)button;
 

@@ -37,4 +37,13 @@
     return nil;
 }
 
+- (void)roundCorners:(UIRectCorner)corners radius:(CGFloat)radius {
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
+                                                   byRoundingCorners:corners
+                                                         cornerRadii:CGSizeMake(radius, radius)];
+    CAShapeLayer *shape = [CAShapeLayer layer];
+    shape.path = [maskPath CGPath];
+    self.layer.mask = shape;
+}
+
 @end
