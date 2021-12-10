@@ -134,6 +134,9 @@ typedef NS_ENUM(NSUInteger, YYUIPopupWindowLevel) {
 /// Block gets called when contentView did dismiss.
 @property (nonatomic, copy) void (^didDismissBlock)(YYUIPopupController *popupController);
 
+/// Block gets called when update layout.
+@property (nonatomic, copy) void (^updateLayoutBlock)(YYUIPopupController *popupController);
+
 @end
 
 
@@ -196,6 +199,7 @@ typedef NS_ENUM(NSUInteger, YYUIPopupWindowLevel) {
 - (void)popupControllerDidPresent:(YYUIPopupController *)popupController;
 - (void)popupControllerWillDismiss:(YYUIPopupController *)popupController;
 - (void)popupControllerDidDismiss:(YYUIPopupController *)popupController;
+- (void)popupControllerUpdateLayout:(YYUIPopupController *)popupController;
 
 @end
 

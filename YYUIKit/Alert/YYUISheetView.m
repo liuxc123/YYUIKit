@@ -8,6 +8,7 @@
 #import "YYUISheetView.h"
 #import "YYUIKitMacro.h"
 #import "UIColor+YYAdd.h"
+#import "UIScreen+YYAdd.h"
 #import "UIApplication+YYUIAdd.h"
 #import "UIView+YYUIAdd.h"
 
@@ -114,11 +115,11 @@
     
     self.titleLabel.text = self.title;
     
-    self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    
     self.titleLabel.font = config.titleFont;
     
-    self.titleLabel.textColor = config.titleColor;
+    self.titleLabel.textColor = config.titleTextColor;
+    
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
     
     self.titleLabel.numberOfLines = 0;
     
@@ -128,11 +129,11 @@
     
     self.messageLabel.text = self.message;
     
-    self.messageLabel.textAlignment = NSTextAlignmentCenter;
-    
     self.messageLabel.font = config.messageFont;
     
-    self.messageLabel.textColor = config.messageColor;
+    self.messageLabel.textColor = config.messageTextColor;
+    
+    self.messageLabel.textAlignment = config.messageTextAlignment;
     
     self.messageLabel.numberOfLines = 0;
     
@@ -186,7 +187,7 @@
         
         /// cancelSpaceView
         
-        self.cancelSpaceView.backgroundColor = config.separatorsColor;
+        self.cancelSpaceView.backgroundColor = config.cancelButtonSpacingColor;
 
         [self.cancelActionView addSubview:self.cancelSpaceView];
         
@@ -208,27 +209,75 @@
         
         [weakSelf.cancelActionView addSubview:button];
     }
+    
+    self.popupController.updateLayoutBlock = ^(YYUIPopupController * _Nonnull popupController) {
+        [weakSelf layoutSheetView];
+    };
 }
 
 - (void)setupDefaultWithAction:(YYUIAlertAction *)action {
     
     YYUISheetViewConfig *config = [YYUISheetViewConfig globalConfig];
-
-    action.font = action.font ? action.font : config.buttonFont;
     
     switch (action.style) {
         case YYUIAlertActionStyleDefault:
-            action.titleColor = action.titleColor ? action.titleColor : config.buttonDefaultColor;
+            
+            action.font = action.font ? action.font : config.buttonsFont;
+
+            action.titleColor = action.titleColor ? action.titleColor : config.buttonsTitleColor;
+            
+            action.titleColorHighlighted = action.titleColorHighlighted ? action.titleColorHighlighted : config.buttonsTitleColorHighlighted;
+            
+            action.titleColorDisabled = action.titleColorDisabled ? action.titleColorDisabled : config.buttonsTitleColorDisabled;
+
+            action.backgroundColor = action.backgroundColor ? action.backgroundColor : config.buttonsBackgroundColor;
+
+            action.backgroundColorHighlighted = action.backgroundColorHighlighted ? action.backgroundColorHighlighted : config.buttonsBackgroundColorHighlighted;
+            
+            action.backgroundColorDisabled = action.backgroundColorDisabled ? action.backgroundColorDisabled : config.buttonsBackgroundColorDisabled;
+
             break;
+            
         case YYUIAlertActionStyleCancel:
-            action.titleColor = action.titleColor ? action.titleColor : config.buttonCancelColor;
+
+            action.font = action.font ? action.font : config.cancelButtonFont;
+
+            action.titleColor = action.titleColor ? action.titleColor : config.cancelButtonTitleColor;
+            
+            action.titleColorHighlighted = action.titleColorHighlighted ? action.titleColorHighlighted : config.cancelButtonTitleColorHighlighted;
+            
+            action.titleColorDisabled = action.titleColorDisabled ? action.titleColorDisabled : config.cancelButtonsTitleColorDisabled;
+
+            action.backgroundColor = action.backgroundColor ? action.backgroundColor : config.cancelButtonBackgroundColor;
+
+            action.backgroundColorHighlighted = action.backgroundColorHighlighted ? action.backgroundColorHighlighted : config.cancelButtonBackgroundColorHighlighted;
+            
+            action.backgroundColorDisabled = action.backgroundColorDisabled ? action.backgroundColorDisabled : config.cancelButtonsBackgroundColorDisabled;
+            
             break;
+            
         case YYUIAlertActionStyleDestructive:
-            action.titleColor = action.titleColor ? action.titleColor : config.buttonDestructiveColor;
+ 
+            action.font = action.font ? action.font : config.destructiveButtonFont;
+
+            action.titleColor = action.titleColor ? action.titleColor : config.destructiveButtonTitleColor;
+            
+            action.titleColorHighlighted = action.titleColorHighlighted ? action.titleColorHighlighted : config.destructiveButtonTitleColorHighlighted;
+            
+            action.titleColorDisabled = action.titleColorDisabled ? action.titleColorDisabled : config.destructiveButtonsTitleColorDisabled;
+
+            action.backgroundColor = action.backgroundColor ? action.backgroundColor : config.destructiveButtonBackgroundColor;
+
+            action.backgroundColorHighlighted = action.backgroundColorHighlighted ? action.backgroundColorHighlighted : config.destructiveButtonBackgroundColorHighlighted;
+            
+            action.backgroundColorDisabled = action.backgroundColorDisabled ? action.backgroundColorDisabled : config.destructiveButtonsBackgroundColorDisabled;
+            
             break;
+            
         default:
             break;
     }
+    
 }
 
 - (void)layoutSubviews {
@@ -238,9 +287,14 @@
 }
 
 - (void)layoutSheetView {
-    YYUISheetViewConfig *config = [YYUISheetViewConfig globalConfig];
-    CGFloat maxHeight = kScreenHeight - [UIApplication safeAreaInsets].top;
-    CGSize maxSize = CGSizeMake(config.width, maxHeight);
+    
+    CGSize screenSize = [[UIScreen mainScreen] currentBounds].size;
+    
+    if (self.superview) {
+        screenSize = [self.superview bounds].size;
+    }
+    
+    CGSize maxSize = CGSizeMake(screenSize.width, screenSize.height - [UIApplication safeAreaInsets].top);
     
     /// layout header
     [self layoutHeaderWithMaxSize:maxSize];
@@ -325,7 +379,7 @@
 - (void)layoutActionWithMaxSize:(CGSize)maxSize {
     
     YYUISheetViewConfig *config = [YYUISheetViewConfig globalConfig];
-    CGFloat buttonHeight = config.buttonHeight;
+    CGFloat buttonHeight = config.buttonsHeight;
     CGFloat originY = 0.0f;
     
     for (int i = 0; i < self.actions.count; i++) {
@@ -353,7 +407,7 @@
 - (void)layoutCancelActionWithMaxSize:(CGSize)maxSize {
     
     YYUISheetViewConfig *config = [YYUISheetViewConfig globalConfig];
-    CGFloat buttonHeight = config.buttonHeight;
+    CGFloat buttonHeight = config.buttonsHeight;
     CGFloat originY = 0.0f;
     
     if (self.cancelButton) {
@@ -363,7 +417,7 @@
             frame.origin.x = 0;
             frame.origin.y = originY;
             frame.size.width = maxSize.width;
-            frame.size.height = 10;
+            frame.size.height = config.cancelSpacing;
             self.cancelSpaceView.frame = frame;
             
             originY += self.cancelSpaceView.frame.size.height;
@@ -393,44 +447,44 @@
 
 - (void)layoutSheetViewWithMaxSize:(CGSize)maxSize {
     
-    CGFloat maxHeight = maxSize.height - self.cancelActionView.size.height;
+    CGFloat maxHeight = maxSize.height - self.headerSeparatorView.frame.size.height - self.cancelActionView.size.height;
+    CGFloat headerScrollViewHeight = self.headerScrollView.contentSize.height;
+    CGFloat actionScrollViewHeight = self.actionScrollView.contentSize.height;
         
-    /// layout scrollview
     if (self.headerScrollView.contentSize.height + self.actionScrollView.contentSize.height > maxHeight) {
-        
-        if (self.headerScrollView) {
-            CGRect frame = self.headerScrollView.frame;
-            frame.size.height = self.headerScrollView.contentSize.height < maxHeight/2 ? self.headerScrollView.contentSize.height : maxHeight/2;
-            self.headerScrollView.frame = frame;
+                
+        if (self.actionScrollView.contentSize.height < maxHeight/2) {
+            headerScrollViewHeight = maxHeight - actionScrollViewHeight;
         }
         
-        if (self.headerSeparatorView) {
-            CGRect frame = self.headerSeparatorView.frame;
-            frame.origin.y = self.headerScrollView.origin.y + self.headerScrollView.frame.size.height;
-            self.headerSeparatorView.frame = frame;
+        if (self.actionScrollView.contentSize.height < maxHeight/2) {
+            actionScrollViewHeight = maxHeight - headerScrollViewHeight;
         }
         
-        if (self.actionScrollView) {
-            CGRect frame = self.actionScrollView.frame;
-            frame.origin.y = self.headerSeparatorView.origin.y + self.headerSeparatorView.frame.size.height;
-            frame.size.height = self.actionScrollView.contentSize.height < maxHeight/2 ? self.actionScrollView.contentSize.height : maxHeight/2;
-            self.actionScrollView.frame = frame;
+        else {
+            headerScrollViewHeight = maxHeight / 2;
+            actionScrollViewHeight = maxHeight / 2;
         }
     }
     
-    else {
-        
-        if (self.headerSeparatorView) {
-            CGRect frame = self.headerSeparatorView.frame;
-            frame.origin.y = self.headerScrollView.origin.y + self.headerScrollView.frame.size.height;
-            self.headerSeparatorView.frame = frame;
-        }
-        
-        if (self.actionScrollView) {
-            CGRect frame = self.actionScrollView.frame;
-            frame.origin.y = self.headerSeparatorView.origin.y + self.headerSeparatorView.frame.size.height;
-            self.actionScrollView.frame = frame;
-        }
+    
+    if (self.headerScrollView) {
+        CGRect frame = self.headerScrollView.frame;
+        frame.size.height = headerScrollViewHeight;
+        self.headerScrollView.frame = frame;
+    }
+    
+    if (self.headerSeparatorView) {
+        CGRect frame = self.headerSeparatorView.frame;
+        frame.origin.y = self.headerScrollView.origin.y + self.headerScrollView.frame.size.height;
+        self.headerSeparatorView.frame = frame;
+    }
+    
+    if (self.actionScrollView) {
+        CGRect frame = self.actionScrollView.frame;
+        frame.origin.y = self.headerSeparatorView.origin.y + self.headerSeparatorView.frame.size.height;
+        frame.size.height = actionScrollViewHeight;
+        self.actionScrollView.frame = frame;
     }
     
     if (self.cancelActionView) {
@@ -592,24 +646,53 @@
     
     if ( self )
     {
-        self.width          = kScreenWidth;
-        self.buttonHeight   = 55.0f;
-        self.innerMargin    = 25.0f;
-        self.itemSpacing    = 20.0f;
-        self.cornerRadius   = 10.0f;
-        
-        self.titleFont          = [UIFont systemFontOfSize:18.0f];
-        self.messageFont        = [UIFont systemFontOfSize:14.0f];
-        self.buttonFont         = [UIFont systemFontOfSize:17.0f];
-        
+        self.buttonsHeight      = 55.0f;
+        self.textFieldsHeight   = 55.0f;
+        self.innerMargin        = 25.0f;
+        self.itemSpacing        = 20.0f;
+        self.cancelSpacing      = 10.0f;
+
         self.backgroundColor    = [UIColor colorWithHexString:@"#ffffff"];
-        self.titleColor         = [UIColor colorWithHexString:@"#333333"];
-        self.messageColor       = [UIColor colorWithHexString:@"#333333"];
         self.separatorsColor    = [UIColor colorWithHexString:@"#cccccc"];
+        self.cornerRadius       = 10.0f;
+
+        self.titleFont          = [UIFont systemFontOfSize:18.0f];
+        self.titleTextColor     = [UIColor colorWithHexString:@"#333333"];
+        self.titleTextAlignment = NSTextAlignmentCenter;
+
+        self.messageFont            = [UIFont systemFontOfSize:18.0f];
+        self.messageTextColor       = [UIColor colorWithHexString:@"#333333"];
+        self.messageTextAlignment   = NSTextAlignmentCenter;
         
-        self.buttonDefaultColor     = [UIColor colorWithHexString:@"#333333"];
-        self.buttonCancelColor      = [UIColor colorWithHexString:@"#333333"];
-        self.buttonDestructiveColor = [UIColor colorWithHexString:@"#cccccc"];
+        self.textFieldBackgroundColor   = [UIColor colorWithHexString:@"#ffffff"];
+        self.textFieldsTextColor        = [UIColor colorWithHexString:@"#cccccc"];
+        self.textFieldFont              = [UIFont systemFontOfSize:18.0f];
+        
+        self.buttonsFont                        = [UIFont systemFontOfSize:18.0f];
+        self.buttonsTitleColor                  = [UIColor colorWithHexString:@"#333333"];
+        self.buttonsTitleColorHighlighted       = [UIColor colorWithHexString:@"#333333"];
+        self.buttonsTitleColorDisabled          = [UIColor colorWithHexString:@"#333333"];
+        self.buttonsBackgroundColor             = [UIColor colorWithHexString:@"#ffffff"];
+        self.buttonsBackgroundColorHighlighted  = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+        self.buttonsBackgroundColorDisabled     = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+
+        self.cancelButtonFont                       = [UIFont systemFontOfSize:18.0f];
+        self.cancelButtonTitleColor                 = [UIColor colorWithHexString:@"#333333"];
+        self.cancelButtonTitleColorHighlighted      = [UIColor colorWithHexString:@"#333333"];
+        self.cancelButtonsTitleColorDisabled        = [UIColor colorWithHexString:@"#333333"];
+        self.cancelButtonBackgroundColor            = [UIColor colorWithHexString:@"#ffffff"];
+        self.cancelButtonBackgroundColorHighlighted = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+        self.cancelButtonsBackgroundColorDisabled   = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+        self.cancelButtonSpacingColor               = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+
+
+        self.destructiveButtonFont                       = [UIFont systemFontOfSize:18.0f];
+        self.destructiveButtonTitleColor                 = [UIColor colorWithHexString:@"#333333"];
+        self.destructiveButtonTitleColorHighlighted      = [UIColor colorWithHexString:@"#333333"];
+        self.destructiveButtonsTitleColorDisabled        = [UIColor colorWithHexString:@"#333333"];
+        self.destructiveButtonBackgroundColor            = [UIColor colorWithHexString:@"#ffffff"];
+        self.destructiveButtonBackgroundColorHighlighted = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+        self.destructiveButtonsBackgroundColorDisabled   = [[UIColor grayColor] colorWithAlphaComponent:0.5];
     }
     
     return self;

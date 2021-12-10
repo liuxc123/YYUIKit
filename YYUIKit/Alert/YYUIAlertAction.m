@@ -84,15 +84,21 @@
     
     if (action.titleColor) [self setTitleColor:action.titleColor forState:UIControlStateNormal];
     
-    if (action.highlightColor) [self setTitleColor:action.highlightColor forState:UIControlStateHighlighted];
+    if (action.titleColorHighlighted) [self setTitleColor:action.titleColorHighlighted forState:UIControlStateHighlighted];
+    
+    if (action.titleColorDisabled) [self setTitleColor:action.titleColorDisabled forState:UIControlStateDisabled];
     
     if (action.backgroundColor) [self setBackgroundImage:[self getImageWithColor:action.backgroundColor] forState:UIControlStateNormal];
     
-    if (action.backgroundHighlightColor) [self setBackgroundImage:[self getImageWithColor:action.backgroundHighlightColor] forState:UIControlStateHighlighted];
+    if (action.backgroundColorHighlighted) [self setBackgroundImage:[self getImageWithColor:action.backgroundColorHighlighted] forState:UIControlStateHighlighted];
+    
+    if (action.backgroundColorDisabled) [self setBackgroundImage:[self getImageWithColor:action.backgroundColorDisabled] forState:UIControlStateDisabled];
     
     if (action.backgroundImage) [self setBackgroundImage:action.backgroundImage forState:UIControlStateNormal];
     
-    if (action.backgroundHighlightImage) [self setBackgroundImage:action.backgroundHighlightImage forState:UIControlStateHighlighted];
+    if (action.backgroundImageHighlighted) [self setBackgroundImage:action.backgroundImageHighlighted forState:UIControlStateHighlighted];
+    
+    if (action.backgroundImageDisabled) [self setBackgroundImage:action.backgroundImageDisabled forState:UIControlStateDisabled];
         
     if (action.image) [self setImage:action.image forState:UIControlStateNormal];
     

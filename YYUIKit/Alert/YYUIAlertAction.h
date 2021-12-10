@@ -53,19 +53,28 @@ typedef NS_ENUM(NSUInteger, YYUIAlertActionStyle) {
 @property (nonatomic, strong) UIColor *titleColor;
 
 /** action高亮标题颜色 */
-@property (nonatomic, strong) UIColor *highlightColor;
+@property (nonatomic, strong) UIColor *titleColorHighlighted;
+
+/** action禁用标题颜色 */
+@property (nonatomic, strong) UIColor *titleColorDisabled;
 
 /** action背景颜色 (与 backgroundImage 相同) */
 @property (nonatomic, strong) UIColor *backgroundColor;
 
 /** action高亮背景颜色 */
-@property (nonatomic, strong) UIColor *backgroundHighlightColor;
+@property (nonatomic, strong) UIColor *backgroundColorHighlighted;
+
+/** action禁用颜色 */
+@property (nonatomic, strong) UIColor *backgroundColorDisabled;
 
 /** action背景图片 (与 backgroundColor 相同) */
 @property (nonatomic, strong) UIImage *backgroundImage;
 
 /** action高亮背景图片 */
-@property (nonatomic, strong) UIImage *backgroundHighlightImage;
+@property (nonatomic, strong) UIImage *backgroundImageHighlighted;
+
+/** action禁用图片 */
+@property (nonatomic, strong) UIImage *backgroundImageDisabled;
 
 /** action图片 */
 @property (nonatomic, strong) UIImage *image;

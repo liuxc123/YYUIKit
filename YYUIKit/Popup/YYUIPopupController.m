@@ -593,6 +593,7 @@ static void *UIViewYYUIPopupControllerKey = &UIViewYYUIPopupControllerKey;
     if (![_popupControllers containsObject:popupController]) {
         [_popupControllers addObject:popupController];
     }
+    [popupController setNeedLayout];
     [popupController presentDuration:duration delay:delay options:options bounced:isBounced completion:completion];
 }
 
@@ -710,8 +711,16 @@ static void *UIViewYYUIPopupControllerKey = &UIViewYYUIPopupControllerKey;
 }
 
 - (void)setNeedLayout {
-    [_view setNeedsLayout];
     _maskView.frame = self.proxyView.bounds;
+    
+    if (self.updateLayoutBlock) {
+        self.updateLayoutBlock(self);
+    } else {
+        if ([self.delegate respondsToSelector:@selector(popupControllerUpdateLayout:)]) {
+            [self.delegate popupControllerUpdateLayout:self];
+        }
+    }
+    
     _view.center = [self finalCenter];
 }
 

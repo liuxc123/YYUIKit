@@ -41,27 +41,50 @@ NS_ASSUME_NONNULL_BEGIN
 + (YYUIAlertViewConfig *)globalConfig;
 
 @property (nonatomic, assign) CGFloat width;                // Default is 275.
-@property (nonatomic, assign) CGFloat textFieldHeight;      // Default is 44.
-@property (nonatomic, assign) CGFloat buttonHeight;         // Default is 55.
+@property (nonatomic, assign) CGFloat buttonsHeight;        // Default is 55.
+@property (nonatomic, assign) CGFloat textFieldsHeight;     // Default is 44.
 @property (nonatomic, assign) CGFloat innerMargin;          // Default is 25.
 @property (nonatomic, assign) CGFloat itemSpacing;          // Default is 20.
-@property (nonatomic, assign) CGFloat cornerRadius;         // Default is 5.
-
-@property (nonatomic, strong) UIFont *titleFont;            // Default is 18.
-@property (nonatomic, strong) UIFont *messageFont;          // Default is 14.
-@property (nonatomic, strong) UIFont *buttonFont;           // Default is 17.
 
 @property (nonatomic, strong) UIColor *backgroundColor;     // Default is #FFFFFF.
-@property (nonatomic, strong) UIColor *titleColor;          // Default is #333333.
-@property (nonatomic, strong) UIColor *messageColor;        // Default is #333333.
 @property (nonatomic, strong) UIColor *separatorsColor;     // Default is #CCCCCC.
+@property (nonatomic, assign) CGFloat cornerRadius;         // Default is 5.
 
-@property (nonatomic, strong) UIColor *buttonDefaultColor;    // Default is #333333.
-@property (nonatomic, strong) UIColor *buttonCancelColor;     // Default is #E76153.
-@property (nonatomic, strong) UIColor *buttonDestructiveColor;// Default is #EFEDE7.
-@property (nonatomic, strong) UIColor *buttonHighlightColor;  // Default is #EFEDE7.
-@property (nonatomic, strong) UIColor *buttonBackgroundColor; // Default is #EFEDE7.
-@property (nonatomic, strong) UIColor *buttonBackgroundHighlightColor;  // Default is #EFEDE7.
+@property (nonatomic, strong) UIFont  *titleFont;                   // Default is 18.
+@property (nonatomic, strong) UIColor *titleTextColor;              // Default is #333333.
+@property (nonatomic, assign) NSTextAlignment titleTextAlignment;   // Default is NSTextAlignmentCenter
+
+@property (nonatomic, strong) UIFont  *messageFont;                 // Default is 14.
+@property (nonatomic, strong) UIColor *messageTextColor;            // Default is #333333.
+@property (nonatomic, assign) NSTextAlignment messageTextAlignment; // Default is NSTextAlignmentCenter
+
+@property (nonatomic, strong) UIColor *textFieldBackgroundColor;    // Default is 14.
+@property (nonatomic, strong) UIColor *textFieldsTextColor;         // Default is 14.
+@property (nonatomic, strong) UIFont  *textFieldFont;               // Default is 14.
+
+@property (nonatomic, strong) UIFont  *buttonsFont;                     // Default is #333333.
+@property (nonatomic, strong) UIColor *buttonsTitleColor;               // Default is #333333.
+@property (nonatomic, strong) UIColor *buttonsTitleColorHighlighted;    // Default is #333333.
+@property (nonatomic, strong) UIColor *buttonsTitleColorDisabled;       // Default is #333333.
+@property (nonatomic, strong) UIColor *buttonsBackgroundColor;          // Default is #EFEDE7.
+@property (nonatomic, strong) UIColor *buttonsBackgroundColorHighlighted;// Default is #EFEDE7.
+@property (nonatomic, strong) UIColor *buttonsBackgroundColorDisabled;  // Default is #EFEDE7.
+
+@property (nonatomic, strong) UIFont  *cancelButtonFont;                        // Default is #333333.
+@property (nonatomic, strong) UIColor *cancelButtonTitleColor;                  // Default is #333333.
+@property (nonatomic, strong) UIColor *cancelButtonTitleColorHighlighted;       // Default is #333333.
+@property (nonatomic, strong) UIColor *cancelButtonsTitleColorDisabled;         // Default is #333333.
+@property (nonatomic, strong) UIColor *cancelButtonBackgroundColor;             // Default is #EFEDE7.
+@property (nonatomic, strong) UIColor *cancelButtonBackgroundColorHighlighted;  // Default is #EFEDE7.
+@property (nonatomic, strong) UIColor *cancelButtonsBackgroundColorDisabled;    // Default is #EFEDE7.
+
+@property (nonatomic, strong) UIFont  *destructiveButtonFont;                       // Default is #333333.
+@property (nonatomic, strong) UIColor *destructiveButtonTitleColor;                 // Default is #333333.
+@property (nonatomic, strong) UIColor *destructiveButtonTitleColorHighlighted;      // Default is #333333.
+@property (nonatomic, strong) UIColor *destructiveButtonsTitleColorDisabled;        // Default is #333333.
+@property (nonatomic, strong) UIColor *destructiveButtonBackgroundColor;            // Default is #EFEDE7.
+@property (nonatomic, strong) UIColor *destructiveButtonBackgroundColorHighlighted; // Default is #EFEDE7.
+@property (nonatomic, strong) UIColor *destructiveButtonsBackgroundColorDisabled;   // Default is #EFEDE7.
 
 @end
 

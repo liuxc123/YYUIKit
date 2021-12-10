@@ -50,7 +50,7 @@
     [alertView addAction:[YYUIAlertAction actionWithTitle:@"取消" style: YYUIAlertActionStyleCancel handler:^(YYUIAlertAction * _Nonnull action) {
         
     }]];
-    
+
     [alertView showWithAnimated:YES completion:^{
         
     }];
