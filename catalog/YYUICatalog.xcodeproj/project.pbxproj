@@ -20,6 +20,8 @@
 		F175414727434DF800B69F5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F175414527434DF800B69F5A /* LaunchScreen.storyboard */; };
 		F175414A27434DF800B69F5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F175414927434DF800B69F5A /* main.m */; };
 		F175415327434F1200B69F5A /* YYUIKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F175415227434F1200B69F5A /* YYUIKit.podspec */; };
+		F18924912766E7D500A9E48E /* ActivityIndicatorDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18924902766E7D500A9E48E /* ActivityIndicatorDemoViewController.m */; };
+		F18924952766E96000A9E48E /* EmptyDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18924942766E96000A9E48E /* EmptyDemoViewController.m */; };
 		F191A1D02745F2050050A5FC /* YYUICatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191A1CF2745F2050050A5FC /* YYUICatalogTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,10 @@
 		F175414827434DF800B69F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F175414927434DF800B69F5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F175415227434F1200B69F5A /* YYUIKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YYUIKit.podspec; path = ../YYUIKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F189248F2766E7D500A9E48E /* ActivityIndicatorDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActivityIndicatorDemoViewController.h; sourceTree = "<group>"; };
+		F18924902766E7D500A9E48E /* ActivityIndicatorDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActivityIndicatorDemoViewController.m; sourceTree = "<group>"; };
+		F18924932766E96000A9E48E /* EmptyDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyDemoViewController.h; sourceTree = "<group>"; };
+		F18924942766E96000A9E48E /* EmptyDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyDemoViewController.m; sourceTree = "<group>"; };
 		F191A1CD2745F2050050A5FC /* YYUICatalogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YYUICatalogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F191A1CF2745F2050050A5FC /* YYUICatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YYUICatalogTests.swift; sourceTree = "<group>"; };
 		F191A1D12745F2050050A5FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,6 +130,8 @@
 		F1041DE02755FAEA00EBEA85 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				F18924922766E94E00A9E48E /* EmptyView */,
+				F189248E2766E7C200A9E48E /* ActivityIndicator */,
 				F162E50F2758AC6100AF6272 /* AlertView */,
 				F105BE19275714650054D52B /* TextInput */,
 				F105BE182757145D0054D52B /* FlexibleHeader */,
@@ -216,6 +224,24 @@
 				F175415227434F1200B69F5A /* YYUIKit.podspec */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		F189248E2766E7C200A9E48E /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				F189248F2766E7D500A9E48E /* ActivityIndicatorDemoViewController.h */,
+				F18924902766E7D500A9E48E /* ActivityIndicatorDemoViewController.m */,
+			);
+			path = ActivityIndicator;
+			sourceTree = "<group>";
+		};
+		F18924922766E94E00A9E48E /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				F18924932766E96000A9E48E /* EmptyDemoViewController.h */,
+				F18924942766E96000A9E48E /* EmptyDemoViewController.m */,
+			);
+			path = EmptyView;
 			sourceTree = "<group>";
 		};
 		F191A1CE2745F2050050A5FC /* YYUICatalogTests */ = {
@@ -376,9 +402,11 @@
 				F162E5122758AC8300AF6272 /* AlertViewDemoController.m in Sources */,
 				F14EF8EC2762E5DE0069B4C1 /* SheetDemoViewController.m in Sources */,
 				F105BE1E275714970054D52B /* TextInputDemoViewController.swift in Sources */,
+				F18924912766E7D500A9E48E /* ActivityIndicatorDemoViewController.m in Sources */,
 				F175413927434DF700B69F5A /* AppDelegate.m in Sources */,
 				F1041DD92755EA8500EBEA85 /* FlexibleHeaderConfiguratorExample.m in Sources */,
 				F1041DD82755EA8500EBEA85 /* FlexibleHeaderNavigationBarExample.m in Sources */,
+				F18924952766E96000A9E48E /* EmptyDemoViewController.m in Sources */,
 				F1041DD72755EA8500EBEA85 /* FlexibleHeaderConfiguratorControlItem.m in Sources */,
 				F175414A27434DF800B69F5A /* main.m in Sources */,
 			);

@@ -18,6 +18,7 @@
 #import <YYUIKit/YYUIPopupController.h>
 #import <YYUIKit/YYUIAlertView.h>
 #import <YYUIKit/YYUISheetView.h>
+#import <YYUIKit/YYUIActivityIndicatorView.h>
 
 #else
 
@@ -39,5 +40,6 @@
 #import "YYUIPopupController.h"
 #import "YYUIAlertView.h"
 #import "YYUISheetView.h"
+#import "YYUIActivityIndicatorView.h"
 
 #endif
