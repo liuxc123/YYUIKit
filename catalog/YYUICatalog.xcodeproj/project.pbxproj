@@ -159,21 +159,6 @@
 			path = TextInput;
 			sourceTree = "<group>";
 		};
-		F162E4BA27586CC800AF6272 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				F162E4BB27586F1700AF6272 /* Configuration */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		F162E4BB27586F1700AF6272 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Configuration;
-			sourceTree = "<group>";
-		};
 		F162E50F2758AC6100AF6272 /* AlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,7 +196,6 @@
 		F175413627434DF700B69F5A /* YYUICatalog */ = {
 			isa = PBXGroup;
 			children = (
-				F162E4BA27586CC800AF6272 /* Common */,
 				F1041DDF2755FADB00EBEA85 /* Application */,
 				F1041DE02755FAEA00EBEA85 /* Module */,
 				F1041DDC2755FA5A00EBEA85 /* Supporting Files */,
