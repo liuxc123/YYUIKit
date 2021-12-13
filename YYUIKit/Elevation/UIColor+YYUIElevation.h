@@ -35,10 +35,9 @@
  @param previousTraitCollection The previous traits to use when comparing color appearance.
  @param elevation The @c yyui_absoluteElevation to use when resolving the color.
  */
-- (nonnull UIColor *)
-    yyui_resolvedColorWithTraitCollection:(nonnull UITraitCollection *)traitCollection
-                 previousTraitCollection:(nonnull UITraitCollection *)previousTraitCollection
-                               elevation:(CGFloat)elevation;
+- (nonnull UIColor *)yyui_resolvedColorWithTraitCollection:(nonnull UITraitCollection *)traitCollection
+                                   previousTraitCollection:(nonnull UITraitCollection *)previousTraitCollection
+                                                 elevation:(CGFloat)elevation;
 
 /**
  Returns a color that takes the specified elevation value and traits into account.
@@ -51,8 +50,7 @@
  @param traitCollection The traits to use when resolving the color.
  @param elevation The @c yyui_absoluteElevation to use when resolving the color.
  */
-- (nonnull UIColor *)yyui_resolvedColorWithTraitCollection:
-                         (nonnull UITraitCollection *)traitCollection
-                                                elevation:(CGFloat)elevation;
+- (nonnull UIColor *)yyui_resolvedColorWithTraitCollection: (nonnull UITraitCollection *)traitCollection
+                                                 elevation:(CGFloat)elevation;
 @end
 
