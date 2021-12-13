@@ -16,8 +16,8 @@ class TextInputDemoViewController: UIViewController {
         return searchBar
     }()
     
-    lazy var searchBarExcutor: YYUISearchBarExecutor = {
-        let executor = YYUISearchBarExecutor(searchBar: searchBar, delegate: nil)
+    lazy var searchBarHandler: YYUISearchBarHandler = {
+        let executor = YYUISearchBarHandler(searchBar: searchBar, delegate: nil)
         executor.wordLimit = 10
         return executor
     }()
@@ -30,8 +30,8 @@ class TextInputDemoViewController: UIViewController {
         return textField  
     }()
 
-    lazy var textFieldExcutor: YYUITextFieldExecutor = {
-        let executor = YYUITextFieldExecutor(textField: textField, delegate: nil)
+    lazy var textFieldHandler: YYUITextFieldHandler = {
+        let executor = YYUITextFieldHandler(textField: textField, delegate: nil)
         executor.wordLimit = 10
         return executor
     }()
@@ -45,8 +45,8 @@ class TextInputDemoViewController: UIViewController {
         return textView
     }()
     
-    lazy var textViewExcutor: YYUITextViewExecutor = {
-        let executor = YYUITextViewExecutor(textView: textView, delegate: nil)
+    lazy var textViewHandler: YYUITextViewHandler = {
+        let executor = YYUITextViewHandler(textView: textView, delegate: self)
         executor.wordLimit = 10
         return executor
     }()
@@ -77,18 +77,17 @@ class TextInputDemoViewController: UIViewController {
     }
     
     func setupTextInput() {
-        self.textFieldExcutor.wordLimit = 10
-        self.textFieldExcutor.emojiLimit = true
+        self.textFieldHandler.wordLimit = 10
+        self.textFieldHandler.emojiLimit = true
 
-        self.textViewExcutor.wordLimit = 10
-        self.textViewExcutor.emojiLimit = true
+        self.textViewHandler.wordLimit = 10
+        self.textViewHandler.emojiLimit = true
 
-        self.searchBarExcutor.wordLimit = 10
-        self.searchBarExcutor.emojiLimit = true
+        self.searchBarHandler.wordLimit = 10
+        self.searchBarHandler.emojiLimit = true
     }
     
 }
-
 
 extension TextInputDemoViewController {
     

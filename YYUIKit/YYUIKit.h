@@ -20,6 +20,11 @@
 #import <YYUIKit/YYUISheetView.h>
 #import <YYUIKit/YYUIActivityIndicatorView.h>
 
+#import <YYUIKit/YYUITextInputHandler.h>
+#import <YYUIKit/YYUITextFieldHandler.h>
+#import <YYUIKit/YYUITextViewHandler.h>
+#import <YYUIKit/YYUISearchBarHandler.h>
+
 #else
 
 #import "YYUIKitMacro.h"
@@ -41,5 +46,10 @@
 #import "YYUIAlertView.h"
 #import "YYUISheetView.h"
 #import "YYUIActivityIndicatorView.h"
+
+#import "YYUITextInputHandler.h"
+#import "YYUITextFieldHandler.h"
+#import "YYUITextViewHandler.h"
+#import "YYUISearchBarHandler.h"
 
 #endif

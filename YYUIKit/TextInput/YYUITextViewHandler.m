@@ -1,19 +1,19 @@
 //
-//  YYUITextViewExecutor.m
+//  YYUITextViewHandler.m
 //  YYUIKit
 //
 //  Created by liuxc on 2021/11/30.
 //
 
-#import "YYUITextViewExecutor.h"
+#import "YYUITextViewHandler.h"
 
-@interface YYUITextViewExecutor ()
+@interface YYUITextViewHandler ()
 
 @property (nonatomic, weak) UITextView *textView;
 
 @end
 
-@implementation YYUITextViewExecutor
+@implementation YYUITextViewHandler
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self.textView];

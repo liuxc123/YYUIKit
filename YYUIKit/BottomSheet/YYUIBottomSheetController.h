@@ -6,8 +6,6 @@
 //
 
 #import <UIKit/UIKit.h>
-// TODO(b/151929968): Delete import of YYUIBottomSheetControllerDelegate.h when client code has been
-// migrated to no longer import YYUIBottomSheetControllerDelegate as a transitive dependency.
 #import "YYUIBottomSheetControllerDelegate.h"
 #import "YYUIBottomSheetState.h"
 #import "YYUIElevation.h"

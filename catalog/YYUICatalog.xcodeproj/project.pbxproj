@@ -130,6 +130,7 @@
 		F1041DE02755FAEA00EBEA85 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				F18924962766F43500A9E48E /* BottomSheet */,
 				F189248E2766E7C200A9E48E /* ActivityIndicator */,
 				F162E50F2758AC6100AF6272 /* AlertView */,
 				F18924922766E94E00A9E48E /* EmptyView */,
@@ -242,6 +243,13 @@
 				F18924942766E96000A9E48E /* EmptyDemoViewController.m */,
 			);
 			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		F18924962766F43500A9E48E /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BottomSheet;
 			sourceTree = "<group>";
 		};
 		F191A1CE2745F2050050A5FC /* YYUICatalogTests */ = {

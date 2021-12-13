@@ -86,10 +86,16 @@
 - (void)tapAction:(UITapGestureRecognizer *)tap {
     YYUIActivityIndicatorView *activityIndicatorView = (YYUIActivityIndicatorView *)tap.view;
     id<YYUIActivityIndicatorAnimationProtocol> animation = [YYUIActivityIndicatorView activityIndicatorAnimationForAnimationType:activityIndicatorView.type];
-    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:NSStringFromClass([animation class]) message:nil preferredStyle:UIAlertControllerStyleAlert];
-    [self presentViewController:alertVc animated:YES completion:nil];
+//    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:NSStringFromClass([animation class]) message:nil preferredStyle:UIAlertControllerStyleAlert];
+//    [self presentViewController:alertVc animated:YES completion:nil];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [alertVc dismissViewControllerAnimated:YES completion:nil];
+//    });
+    
+    YYUIAlertView *alertView = [YYUIAlertView alertViewWithTitle:NSStringFromClass([animation class]) message:nil];
+    [alertView showWithAnimated:YES completion:^{}];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [alertVc dismissViewControllerAnimated:YES completion:nil];
+        [alertView dismissWithAnimated:YES completion:^{}];
     });
 }
 

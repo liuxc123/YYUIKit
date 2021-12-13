@@ -1,15 +1,15 @@
 //
-//  YYUITextInputExecutor.m
+//  YYUITextInputHandler.m
 //  YYUIKit
 //
 //  Created by liuxc on 2021/11/30.
 //
 
-#import "YYUITextInputExecutor.h"
+#import "YYUITextInputHandler.h"
 #import "YYUIKitMacro.h"
 #import "NSString+YYUIAdd.h"
 
-@implementation YYUITextInputExecutor
+@implementation YYUITextInputHandler
 
 #pragma mark - public methods
 

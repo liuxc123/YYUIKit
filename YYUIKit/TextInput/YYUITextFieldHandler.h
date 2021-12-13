@@ -1,15 +1,15 @@
 //
-//  YYUITextFieldExecutor.h
+//  YYUITextFieldHandler.h
 //  YYUIKit
 //
 //  Created by liuxc on 2021/11/30.
 //
 
-#import "YYUITextInputExecutor.h"
+#import "YYUITextInputHandler.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YYUITextFieldExecutor : YYUITextInputExecutor <UITextFieldDelegate>
+@interface YYUITextFieldHandler : YYUITextInputHandler <UITextFieldDelegate>
 
 @property (nonatomic, weak, readonly) UITextField *textField;
 

@@ -1,19 +1,19 @@
 //
-//  YYUITextFieldExecutor.m
+//  YYUITextFieldHandler.m
 //  YYUIKit
 //
 //  Created by liuxc on 2021/11/30.
 //
 
-#import "YYUITextFieldExecutor.h"
+#import "YYUITextFieldHandler.h"
 
-@interface YYUITextFieldExecutor ()
+@interface YYUITextFieldHandler ()
 
 @property (nonatomic, weak) UITextField *textField;
 
 @end
 
-@implementation YYUITextFieldExecutor
+@implementation YYUITextFieldHandler
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self.textField];

@@ -1,20 +1,20 @@
 //
-//  YYUISearchBarExecutor.m
+//  YYUISearchBarHandler.m
 //  YYUIKit
 //
 //  Created by liuxc on 2021/11/30.
 //
 
-#import "YYUISearchBarExecutor.h"
+#import "YYUISearchBarHandler.h"
 #import "UIView+YYUIAdd.h"
 
-@interface YYUISearchBarExecutor ()
+@interface YYUISearchBarHandler ()
 
 @property (nonatomic, weak) UISearchBar *searchBar;
 
 @end
 
-@implementation YYUISearchBarExecutor
+@implementation YYUISearchBarHandler
 
 - (instancetype)initWithSearchBar:(UISearchBar *)searchBar delegate:(id)delegate;
 {

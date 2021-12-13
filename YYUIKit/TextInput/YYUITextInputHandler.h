@@ -1,5 +1,5 @@
 //
-//  YYUITextInputExecutor.h
+//  YYUITextInputHandler.h
 //  YYUIKit
 //
 //  Created by liuxc on 2021/11/30.
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YYUITextInputExecutor : NSObject <YYUITextInputProtocol>
+@interface YYUITextInputHandler : NSObject <YYUITextInputProtocol>
 
 @property (nonatomic, strong) NSMutableArray<YYUITextInputMatch *> *matchs;
 
