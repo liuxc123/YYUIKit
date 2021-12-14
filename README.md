@@ -17,7 +17,7 @@ YYUIKit is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'YYUIKit'
+pod 'YYUIKit', :git => 'https://github.com/liuxc123/YYUIKit.git', :tag => '1.0.0'
 ```
 
 ## Author
