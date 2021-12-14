@@ -14,8 +14,11 @@
 #pragma mark - public methods
 
 - (void)commonInit {
-    self.matchs = [NSMutableArray array];
-    self.replaces = [NSMutableArray array];
+    YYUITextInputHandleConfig *config = [YYUITextInputHandleConfig globalConfig];
+    self.matchs = config.matchs;
+    self.replaces = config.replaces;
+    self.wordLimit = config.wordLimit;
+    self.emojiLimit = config.emojiLimit;
 }
 
 - (YYUITextInputIR *)textDidChange:(id<UITextInput>)textInput text:(NSString *)text {
@@ -198,6 +201,41 @@
         range.location = MAX(0, range.location + offset);
     }
     return [YYUITextInputIR makeWithText:text range:range];
+}
+
+@end
+
+
+@interface YYUITextInputHandleConfig ()
+
+@end
+
+@implementation YYUITextInputHandleConfig
+
++ (YYUITextInputHandleConfig *)globalConfig
+{
+    static YYUITextInputHandleConfig *config;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        
+        config = [YYUITextInputHandleConfig new];
+        
+    });
+    
+    return config;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.matchs = [NSMutableArray array];
+        self.replaces = [NSMutableArray array];
+        self.wordLimit = NSIntegerMax;
+        self.emojiLimit = NO;
+    }
+    return self;
 }
 
 @end

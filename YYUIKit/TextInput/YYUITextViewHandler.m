@@ -106,7 +106,7 @@
     
     [textView setText:ir.text];
     [self setSelectedTextRange:textView range:[NSValue valueWithRange:ir.range]];
-    if (self.textDidChangeEvent) {  self.textDidChangeEvent(ir.text); }
+    if (self.textDidChangeEvent) {  self.textDidChangeEvent(textView.text); }
 }
 
 @end

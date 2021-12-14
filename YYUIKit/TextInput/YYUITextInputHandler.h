@@ -37,4 +37,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface YYUITextInputHandleConfig : NSObject
+
+@property (nonatomic, strong) NSMutableArray<YYUITextInputMatch *> *matchs;
+
+@property (nonatomic, strong) NSMutableArray<YYUITextInputReplace *> *replaces;
+
+@property (nonatomic, assign) NSInteger wordLimit;
+
+@property (nonatomic, assign) BOOL emojiLimit;
+
++ (YYUITextInputHandleConfig *)globalConfig;
+
+@end
+
 NS_ASSUME_NONNULL_END
