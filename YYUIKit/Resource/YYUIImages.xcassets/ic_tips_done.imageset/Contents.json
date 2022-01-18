@@ -1,15 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "ic_tips_done.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "ic_tips_done@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "ic_tips_done@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

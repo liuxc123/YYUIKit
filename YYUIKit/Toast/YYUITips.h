@@ -57,6 +57,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (YYUITips *)createTipsToView:(UIView *)view;
 
++ (YYUITips *)showLoading;
++ (YYUITips *)showLoading:(nullable NSString *)text;
 + (YYUITips *)showLoadingInView:(UIView *)view;
 + (YYUITips *)showLoading:(nullable NSString *)text inView:(UIView *)view;
 + (YYUITips *)showLoadingInView:(UIView *)view hideAfterDelay:(NSTimeInterval)delay;
@@ -93,6 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (YYUITips *)showInfo:(nullable NSString *)text detailText:(nullable NSString *)detailText inView:(UIView *)view hideAfterDelay:(NSTimeInterval)delay;
 
 /// 隐藏 tips
++ (void)hideAllTipsWithTypes:(NSArray<NSString *> *)types inView:(UIView *)view;
 + (void)hideAllTipsInView:(UIView *)view;
 + (void)hideAllTips;
 

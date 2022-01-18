@@ -44,6 +44,7 @@ const NSInteger YYUITipsAutomaticallyHideToastSeconds = -1;
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [indicator startAnimating];
     self.contentCustomView = indicator;
+    self.type = @"loading";
     [self showTipWithText:text detailText:detailText hideAfterDelay:delay];
 }
 
@@ -61,6 +62,7 @@ const NSInteger YYUITipsAutomaticallyHideToastSeconds = -1;
 
 - (void)showWithText:(NSString *)text detailText:(NSString *)detailText hideAfterDelay:(NSTimeInterval)delay {
     self.contentCustomView = nil;
+    self.type = @"message";
     [self showTipWithText:text detailText:detailText hideAfterDelay:delay];
 }
 
@@ -77,7 +79,8 @@ const NSInteger YYUITipsAutomaticallyHideToastSeconds = -1;
 }
 
 - (void)showSucceed:(NSString *)text detailText:(NSString *)detailText hideAfterDelay:(NSTimeInterval)delay {
-    self.contentCustomView = [[UIImageView alloc] initWithImage:[[YYUIResource imageWithName:@"ic_tips_done"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    self.contentCustomView = [[UIImageView alloc] initWithImage:[[YYUIResource imageWithName:@"ic_tips_done"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    self.type = @"success";
     [self showTipWithText:text detailText:detailText hideAfterDelay:delay];
 }
 
@@ -94,7 +97,8 @@ const NSInteger YYUITipsAutomaticallyHideToastSeconds = -1;
 }
 
 - (void)showError:(NSString *)text detailText:(NSString *)detailText hideAfterDelay:(NSTimeInterval)delay {
-    self.contentCustomView = [[UIImageView alloc] initWithImage:[[YYUIResource imageWithName:@"ic_tips_error"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    self.contentCustomView = [[UIImageView alloc] initWithImage:[[YYUIResource imageWithName:@"ic_tips_error"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    self.type = @"error";
     [self showTipWithText:text detailText:detailText hideAfterDelay:delay];
 }
 
@@ -111,7 +115,8 @@ const NSInteger YYUITipsAutomaticallyHideToastSeconds = -1;
 }
 
 - (void)showInfo:(NSString *)text detailText:(NSString *)detailText hideAfterDelay:(NSTimeInterval)delay {
-    self.contentCustomView = [[UIImageView alloc] initWithImage:[[YYUIResource imageWithName:@"ic_tips_info"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    self.contentCustomView = [[UIImageView alloc] initWithImage:[[YYUIResource imageWithName:@"ic_tips_info"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    self.type = @"info";
     [self showTipWithText:text detailText:detailText hideAfterDelay:delay];
 }
 
@@ -173,6 +178,15 @@ const NSInteger YYUITipsAutomaticallyHideToastSeconds = -1;
     }
 }
 
+
++ (YYUITips *)showLoading {
+    return [self showLoading:nil detailText:nil inView:DefaultTipsParentView hideAfterDelay:0];
+}
+
++ (YYUITips *)showLoading:(NSString *)text {
+    return [self showLoading:text detailText:nil inView:DefaultTipsParentView hideAfterDelay:0];
+}
+
 + (YYUITips *)showLoadingInView:(UIView *)view {
     return [self showLoading:nil detailText:nil inView:view hideAfterDelay:0];
 }
@@ -195,6 +209,7 @@ const NSInteger YYUITipsAutomaticallyHideToastSeconds = -1;
 
 + (YYUITips *)showLoading:(NSString *)text detailText:(NSString *)detailText inView:(UIView *)view hideAfterDelay:(NSTimeInterval)delay {
     YYUITips *tips = [self createTipsToView:view];
+    tips.type = @"loading";
     [tips showLoading:text detailText:detailText hideAfterDelay:delay];
     return tips;
 }
@@ -221,6 +236,7 @@ const NSInteger YYUITipsAutomaticallyHideToastSeconds = -1;
 
 + (YYUITips *)showWithText:(NSString *)text detailText:(NSString *)detailText inView:(UIView *)view hideAfterDelay:(NSTimeInterval)delay {
     YYUITips *tips = [self createTipsToView:view];
+    tips.type = @"message";
     [tips showWithText:text detailText:detailText hideAfterDelay:delay];
     return tips;
 }
@@ -247,6 +263,7 @@ const NSInteger YYUITipsAutomaticallyHideToastSeconds = -1;
 
 + (YYUITips *)showSucceed:(NSString *)text detailText:(NSString *)detailText inView:(UIView *)view hideAfterDelay:(NSTimeInterval)delay {
     YYUITips *tips = [self createTipsToView:view];
+    tips.type = @"success";
     [tips showSucceed:text detailText:detailText hideAfterDelay:delay];
     return tips;
 }
@@ -273,6 +290,7 @@ const NSInteger YYUITipsAutomaticallyHideToastSeconds = -1;
 
 + (YYUITips *)showError:(NSString *)text detailText:(NSString *)detailText inView:(UIView *)view hideAfterDelay:(NSTimeInterval)delay {
     YYUITips *tips = [self createTipsToView:view];
+    tips.type = @"error";
     [tips showError:text detailText:detailText hideAfterDelay:delay];
     return tips;
 }
@@ -299,6 +317,7 @@ const NSInteger YYUITipsAutomaticallyHideToastSeconds = -1;
 
 + (YYUITips *)showInfo:(NSString *)text detailText:(NSString *)detailText inView:(UIView *)view hideAfterDelay:(NSTimeInterval)delay {
     YYUITips *tips = [self createTipsToView:view];
+    tips.type = @"info";
     [tips showInfo:text detailText:detailText hideAfterDelay:delay];
     return tips;
 }
@@ -308,6 +327,15 @@ const NSInteger YYUITipsAutomaticallyHideToastSeconds = -1;
     [view addSubview:tips];
     tips.removeFromSuperViewWhenHide = YES;
     return tips;
+}
+
++ (void)hideAllTipsWithTypes:(NSArray<NSString *> *)types inView:(UIView *)view {
+    NSArray *huds = [YYUIToastView allToastInView:view];
+    for (YYUIToastView *hud in huds) {
+        if ([types containsObject:hud.type]) {
+            [hud hideAnimated:YES];
+        }
+    }
 }
 
 + (void)hideAllTipsInView:(UIView *)view {

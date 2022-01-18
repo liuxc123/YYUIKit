@@ -105,7 +105,7 @@ typedef NS_ENUM(NSInteger, YYUIToastViewPosition) {
  */
 @property(nonatomic, strong, readonly) UIView *maskView;
 
-/**s
+/**
  * 承载Toast内容的UIView，可以自定义并赋值给contentView。如果contentView需要跟随ToastView的tintColor变化而变化，可以重写自定义view的`tintColorDidChange`来实现。默认使用`YYUIToastContentView`实现。
  */
 @property(nonatomic, strong) __kindof UIView *contentView;
@@ -130,6 +130,11 @@ typedef NS_ENUM(NSInteger, YYUIToastViewPosition) {
  *  例如当 marginInsets.top = 0 且 toastPosition 为 YYUIToastViewPositionTop 时，如果 parentView 是 viewController.view，则 tips 顶边缘将会紧贴 navigationBar 的底边缘。而如果 parentView 是 navigationController.view，则 tips 顶边缘将会紧贴 statusBar 的底边缘。
  */
 @property(nonatomic, assign) UIEdgeInsets marginInsets UI_APPEARANCE_SELECTOR;
+
+/**
+ 类型标记
+ */
+@property (nonatomic, copy, nullable) NSString *type;
 
 @end
 

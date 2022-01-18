@@ -27,20 +27,13 @@
     
     YYUISheetView *sheetView = [YYUISheetView sheetViewWithImage:[UIImage imageNamed:@"zhiwen"] title:@"title" message:@"message"];
     
-//    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
-//    customView.backgroundColor = UIColor.yellowColor;
-//    [sheetView addCustomView:customView];
-//    
-//    UIView *customView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
-//    customView2.backgroundColor = UIColor.redColor;
-//    [sheetView addCustomView:customView2];
-    
     [sheetView addAction:[YYUIAlertAction actionWithTitle:@"确定" style: YYUIAlertActionStyleDefault handler:^(YYUIAlertAction * _Nonnull action) {
-        
+        YYUITips.appearance.tintColor = UIColor.whiteColor;
+        [YYUITips showSucceed:@"操作成功"];
     }]];
     
     [sheetView addAction:[YYUIAlertAction actionWithTitle:@"取消" style: YYUIAlertActionStyleCancel handler:^(YYUIAlertAction * _Nonnull action) {
-        
+        [YYUITips showError:@"操作失败"];
     }]];
     
     [sheetView showWithAnimated:YES completion:^{}];
