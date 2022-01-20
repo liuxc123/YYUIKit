@@ -95,7 +95,7 @@
 }
 
 - (void)textFieldTextDidChange:(NSNotification *)noti {
-    UITextField *textField = (UITextField *)noti.object;
+    UITextField *textField = self.textField;
     if (!textField) { return; }
     
     YYUITextInputIR *ir = [self textDidChange:textField text:textField.text];

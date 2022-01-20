@@ -35,6 +35,20 @@ class TextInputDemoViewController: UIViewController {
         executor.wordLimit = 10
         return executor
     }()
+    
+    lazy var textField2: UITextField = {
+        let textField = UITextField()
+        textField.backgroundColor = .yellow
+        textField.placeholder = "UITextField2"
+        textField.snp.makeConstraints({ $0.height.equalTo(50) })
+        return textField
+    }()
+
+    lazy var textField2Handler: YYUITextFieldHandler = {
+        let executor = YYUITextFieldHandler(textField: textField2, delegate: nil)
+        executor.wordLimit = 6
+        return executor
+    }()
 
     lazy var textView: UITextView = {
         let textView = UITextView()
@@ -67,6 +81,7 @@ class TextInputDemoViewController: UIViewController {
         stackView.spacing = 10
         stackView.addArrangedSubview(searchBar)
         stackView.addArrangedSubview(textField)
+        stackView.addArrangedSubview(textField2)
         stackView.addArrangedSubview(textView)
 
         view.addSubview(stackView)
@@ -79,6 +94,9 @@ class TextInputDemoViewController: UIViewController {
     func setupTextInput() {
         self.textFieldHandler.wordLimit = 10
         self.textFieldHandler.emojiLimit = true
+        
+        self.textField2Handler.wordLimit = 6
+        self.textField2Handler.emojiLimit = true
 
         self.textViewHandler.wordLimit = 10
         self.textViewHandler.emojiLimit = true

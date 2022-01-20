@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'YYUIKit'
-    s.version          = '1.0.0'
+    s.version          = '1.0.2'
     s.summary      = "A collection of stand-alone production-ready UI libraries focused on design details."
     s.homepage         = 'https://github.com/liuxc123/YYUIKit'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }

@@ -1,6 +1,6 @@
 {
   "name": "YYUIKit",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "summary": "A collection of stand-alone production-ready UI libraries focused on design details.",
   "homepage": "https://github.com/liuxc123/YYUIKit",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/liuxc123/YYUIKit.git",
-    "tag": "1.0.0"
+    "tag": "1.0.2"
   },
   "platforms": {
     "ios": "10.0"

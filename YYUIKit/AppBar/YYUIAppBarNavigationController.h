@@ -83,8 +83,7 @@
  delegate yet. In this case, use the -appBarForViewController: API to retrieve the injected App Bar
  for your root view controller and execute your delegate logic on the returned result, if any.
  */
-__attribute__((objc_subclassing_restricted)) @interface YYUIAppBarNavigationController
-    : UINavigationController
+@interface YYUIAppBarNavigationController : UINavigationController
 
 #pragma mark - Changing app bar visibility
 
